@@ -1,0 +1,60 @@
+.WallHome {
+    background-image: linear-gradient( rgb(14, 98, 177), rgb(3, 156, 224));
+    background-position: 100%;
+    height: 100vh;
+    width: 100vw;
+    
+
+}
+
+.Welcome {
+    padding-top: 28%;
+    text-align: center;
+    margin: 0;
+    color: white;
+    font-size: 1.9em;
+}
+
+.Logo-home {
+    display: flex;
+    text-align: center;
+    margin: auto;
+    height: 37vh;
+    width: 34vh;
+    margin-top: 13%;
+    
+}
+
+.Idées-accr {
+    color: white;
+    text-align: center;
+    margin-top: 13%;
+    font-size: 1.2em;
+
+}
+
+.Demarrer {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border-radius: 12px;
+    border: 0;
+    padding: 5px;
+    width: 92vw;
+    height: 9vh;
+    background-color: white;
+    color: #039ce0;
+    font-size: 20px;
+    margin-top: 13%;
+    box-shadow: -1px 3px 13px #082d4f;
+}
+
+// .lineHome {
+//     height: 1vh;
+//     width: 42vw;
+//     background-color: white;
+//     display: flex;
+//     margin: auto;
+//     border-radius: 3px;
+//     margin-top: 5%;
+// }

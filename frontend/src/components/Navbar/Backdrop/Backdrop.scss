@@ -1,0 +1,15 @@
+///// IMPORT VARIABLES SCSS /////
+
+// @import '../../../Variables.scss';
+
+///// SCSS ////
+
+.backdrop{
+  position:fixed;
+  width : 100%;
+  height: 90vh;
+  top: 10vh;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}

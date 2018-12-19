@@ -72,6 +72,9 @@
     background: linear-gradient($blue, $darkblue);
     height: 10vh;
     display: flex;
+    position: fixed;
+    width: 100%;
+    margin-bottom: 10vh;
 
     .Logo {
       margin: auto;

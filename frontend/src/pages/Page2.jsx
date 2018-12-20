@@ -6,6 +6,7 @@ const Page2 = () => {
   return (
     <div>
       <Navbar/>
+      
       <CatchPhrase/>
     </div>
   )

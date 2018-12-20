@@ -29,13 +29,13 @@ const styles = theme => ({
     marginLeft: '5vw'
   },
   textField: {
-    marginLeft: theme.spacing.unit,
+    // marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: '90vw',
     marginLeft: '5vw'
   },
   textField2: {
-    marginLeft: theme.spacing.unit,
+    // marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: '41vw',
     marginLeft: '5vw'

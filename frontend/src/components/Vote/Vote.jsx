@@ -5,6 +5,9 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Row, Col, Container } from 'reactstrap'
+import PopUpVote from '../PopUp/PopUpVote'
+import Backdrop from '../PopUp/Backdrop/Backdrop'
+import { Redirect } from 'react-router-dom'
 import Chips from './Chips'
 import './Vote.scss'
 
@@ -21,10 +24,34 @@ const styles = theme => ({
 });
 
 class Vote extends Component {
+  state = {
+    isOpen : false
+  }
+
+  backdropClickHandler = () => {
+    return (
+      <Redirect to="/"/>,
+      this.setState({isOpen: false})
+      )
+  }
+  
+  popupThankVote = (e) => {
+    e.preventDefault()
+    this.setState({isOpen: true})
+  }
+
+
   render() {
     const { classes } = this.props;
     return (
       <Container className="voteContainer">
+
+      {this.state.isOpen &&
+      <div>
+        <PopUpVote close={this.backdropClickHandler}/>
+        <Backdrop click={this.backdropClickHandler}/>
+      </div>
+      }
 
       <Row>
         <p>Nom du défi : Améliorer le service utilisateur</p>
@@ -56,7 +83,7 @@ class Vote extends Component {
       </Row>
 
 
-        <form className={classes.container}>
+        <form className={classes.container} onSubmit={(e)=> this.popupThankVote(e)}>
 
 
         <p>Sondage</p>

@@ -1,4 +1,3 @@
-import Navbar from '../Navbar/Navbar';
 import Chips from './Chips'
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
@@ -109,10 +108,6 @@ class CreateDefi extends Component {
 
       <React.Fragment>
 
-{/* NAVBAR */}
-
-        <Navbar/>
-
         {this.state.popupConfirm &&
         <div>
           <PopUpConfirm close={this.backdropClickHandler} confirm={(e)=> this.popupThank(e)}/>
@@ -132,7 +127,7 @@ class CreateDefi extends Component {
 
 {/* NOM DU DEFI */}
 
-            <i class="fab fa-safari"></i>
+            {/* <i class="fab fa-safari"></i> */}
             <TextField
               required
               id="standard-name"
@@ -145,7 +140,7 @@ class CreateDefi extends Component {
 
 {/* PERIMETRE CONCERNE */}
 
-            <i class="fas fa-chart-line"></i>
+            {/* <i class="fas fa-chart-line"></i> */}
             <TextField
               required
               id="standard-select-currency-native"
@@ -172,7 +167,7 @@ class CreateDefi extends Component {
 
 {/* INDICATEUR DE PERFORMANCE */}
 
-            <i class="fas fa-vector-square"></i>
+            {/* <i class="fas fa-vector-square"></i> */}
             <TextField
               required
               id="standard-perf"
@@ -255,9 +250,9 @@ class CreateDefi extends Component {
 
 {/* STARS RATE */}
 
-            <span class="fa fa-star checked"></span><p>Insuffisant</p>         <span class="fa fa-star checked"></span><p>Moyen</p>
-            <span class="fa fa-star checked"></span><p>Bien</p>
-            <span class="fa fa-star checked"></span><p>Excellent</p>
+            <span className="fa fa-star checked"></span><p>Insuffisant</p>      <span className="fa fa-star checked"></span><p>Moyen</p>
+            <span className="fa fa-star checked"></span><p>Bien</p>
+            <span className="fa fa-star checked"></span><p>Excellent</p>
 
 {/* CHIPS */}
           

@@ -1,0 +1,88 @@
+
+
+.BackSearch {
+
+    background-color: white;
+
+.searchB {
+    border-radius: 15px;
+    border: 1px solid #0ebcf1;
+    width: 90vw;
+    height: 5vh;
+    margin: auto;
+    display: flex;
+    margin-top: 5%;
+}
+
+.Loupe {
+    height: 3vh;
+    width: 5vw;
+    margin-top: -4vh;
+    margin-left: 80vw;
+    position: absolute;
+}
+
+}
+
+.BackMen {
+
+    background-color: white;
+
+.Menudef {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 2%;
+
+
+.Tous{
+    padding: 5px;
+    height: 5vh;
+    color: white;    
+    width: 45vw;
+    justify-content: center;
+    text-align: center;
+    background-color:  rgb(3, 156, 224);
+    border: 1px solid rgb(3, 156, 224);
+    // border-radius: 5px 0 0 5px;
+}
+
+.Defis{
+    color: grey;
+    padding: 5px;
+    border: 1px solid grey;
+    text-align: center;
+    width: 45vw;
+    background-color: white;
+    border-radius: 0 5px 5px 0;
+
+}
+
+}
+
+}
+
+.Plus {
+    position: fixed;
+    height: 15vw;
+    width: 15vw;
+    bottom: 3vh;
+    left: 42.5vw; 
+    background-color: white;
+    border-radius: 50%;
+}
+
+.contentsSearch {
+    padding-top: 10vh;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: fixed;
+    z-index: 200;
+}
+
+

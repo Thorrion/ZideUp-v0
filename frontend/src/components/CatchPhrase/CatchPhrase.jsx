@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Ampoule from './picture/light-bulb.png'
+import { NavLink } from 'react-router-dom'
 import './CatchPhrase.scss'
 
 export default class CatchPhrase extends Component {
@@ -17,8 +18,9 @@ export default class CatchPhrase extends Component {
 
         </div>
 
-        <button className="CatchPhraseButton">Continuer</button>
-        
+        <NavLink to="3">
+          <button className="CatchPhraseButton">Continuer</button>
+        </NavLink>
       </div>
     )
   }

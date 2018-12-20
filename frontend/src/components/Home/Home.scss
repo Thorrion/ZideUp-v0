@@ -8,27 +8,28 @@
     
     .Welcome {
         padding-top: 28%;
-        text-align: center;
+        
         margin: 0;
         color: white;
         font-size: 1.9em;
+        margin-left: 31vw;
+        display: flex;
     }
     
     .Logo-home {
         display: flex;
-        text-align: center;
         margin: auto;
         height: 37vh;
         width: 34vh;
         margin-top: 13%;
-        
+        margin-left: 11vh;
     }
     
     .Idées-accr {
         color: white;
-        text-align: center;
         margin-top: 13%;
         font-size: 1.2em;
+        margin-left: 22vw;
         
     }
     
@@ -47,6 +48,7 @@
         margin-top: 13%;
         box-shadow: -1px 3px 13px #082d4f;
         font-weight: 700;
+        margin-left: 4vw;
     }
     a{
         text-decoration: none;

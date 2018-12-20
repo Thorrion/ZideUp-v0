@@ -12,7 +12,8 @@ export default class NewDef extends Component {
 
             <p className="TextCate">Nouveaux</p>
 
-            <Row className="DefisNew">
+            
+            <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
                 Efficacité: augmenter la rapidité du service</p>
                 <Progress value="55" className="progress" />
@@ -26,6 +27,7 @@ export default class NewDef extends Component {
               </Col>
             </Row>
             <hr />
+            
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">

@@ -5,7 +5,7 @@ import './PopUpDefi.scss'
 export default class PopUp extends Component {
 
   componentDidMount = () => {
-    this.closePopUp()
+    // this.closePopUp()
   }
 
   closePopUp = () => {
@@ -19,7 +19,7 @@ export default class PopUp extends Component {
         
         <h3>Votre défi est lancé ! <br/> Merci !</h3>
 
-        <NavLink to="/">
+        <NavLink to="/5">
           <button 
           className="ButtonPopUp"
           onClick={this.props.close}

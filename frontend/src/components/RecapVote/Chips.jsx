@@ -5,6 +5,7 @@ import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
 import Input from '@material-ui/core/Input';
+import { NavLink } from 'react-router-dom'
 
 
 const styles = theme => ({
@@ -54,7 +55,7 @@ class ChipsArray extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className="ChipsRecapVote">
       <Paper className={classes.root}>
         {this.state.chipData.map(data => {
           let icon = null;
@@ -65,6 +66,7 @@ class ChipsArray extends React.Component {
           
           return (
             <div>
+              <NavLink to="/8">
               <Chip
               key={data.key}
               icon={icon}
@@ -72,7 +74,8 @@ class ChipsArray extends React.Component {
               // onDelete={this.handleDelete(data)}
               className={classes.chip}
               />
-              <i class="fas fa-thumbs-up"></i>{data.members}<i class="fas fa-lightbulb"></i>{data.idea}
+              <i class="fas fa-thumbs-up"></i> {data.members} <i class="fas fa-lightbulb"></i> {data.idea}
+              </NavLink>
             </div>
             );
           })}

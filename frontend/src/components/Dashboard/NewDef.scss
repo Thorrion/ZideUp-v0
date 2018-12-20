@@ -1,14 +1,13 @@
 @import '../../Variables.scss';
 
 
-.AllContainer{
+.NewDefContainer{
 
     z-index: 1;
-    padding-top: 24vh;
-    padding-bottom: 10vh;
+    padding-top: 28vh;
 
 
-    .NouveauxAll {
+    .NouveauxNewDef {
 
         .progress-bar {
             display: flex;
@@ -105,7 +104,7 @@
  
     }
 
-    .EnCoursAll {
+    .EnCoursNewDef {
 
         .TextCate {
             display: flex;
@@ -190,7 +189,7 @@
 
     }
 
-    .TermineAll {
+    .TermineNewDef {
 
         .progress-bar {
             display: flex;

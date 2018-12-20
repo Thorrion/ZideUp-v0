@@ -12,6 +12,7 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
+    marginBottom: '5vw',
     padding: theme.spacing.unit / 2,
   },
   chip: {
@@ -54,7 +55,7 @@ class ChipsArray extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className="VoteChips">
       <Paper className={classes.root}>
         {this.state.chipData.map(data => {
           let icon = null;
@@ -68,7 +69,7 @@ class ChipsArray extends React.Component {
             key={data.key}
             icon={icon}
             label={data.label}
-            onDelete={this.handleDelete(data)}
+            // onDelete={this.handleDelete(data)}
             className={classes.chip}
             />
             );

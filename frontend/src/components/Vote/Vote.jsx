@@ -4,7 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { Row, Col, Container } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
+import { Row, Col } from 'reactstrap'
 import PopUpVote from '../PopUp/PopUpVote'
 import Backdrop from '../PopUp/Backdrop/Backdrop'
 import { Redirect } from 'react-router-dom'
@@ -15,7 +16,6 @@ const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-    paddingTop: '10vh'
   },
   margin: {
     margin: theme.spacing.unit,
@@ -25,9 +25,26 @@ const styles = theme => ({
 
 class Vote extends Component {
   state = {
-    isOpen : false
+    isOpen : false,
+    one:'',
+    two:'',
+    three:'',
+    four:''
   }
 
+  one = () => {
+    this.setState({one:'orange', two:'',three:'',four:''})
+  }
+  two = () => {
+    this.setState({one:'orange', two:'orange',three:'',four:''})
+  }
+  three = () => {
+    this.setState({one:'orange', two:'orange',three:'orange',four:''})
+  }
+  four = () => {
+    this.setState({one:'orange', two:'orange',three:'orange',four:'orange'})
+  }
+  
   backdropClickHandler = () => {
     return (
       <Redirect to="/"/>,
@@ -44,7 +61,7 @@ class Vote extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container className="voteContainer">
+      <div className="voteContainer">
 
       {this.state.isOpen &&
       <div>
@@ -53,58 +70,89 @@ class Vote extends Component {
       </div>
       }
 
-      <Row>
-        <p>Nom du défi : Améliorer le service utilisateur</p>
-      </Row>
-      <Row>
-        <p>Périmètre concerné : Customer Sucess</p>
-      </Row>
+      <div className="VoteTexte">
+        <Row>
+          <p><b>Nom du défi :</b> Améliorer le service utilisateur</p>
+        </Row>
+        <Row>
+          <p><b>Périmètre concerné :</b> Customer Sucess</p>
+        </Row>
 
-      <Row>
-        <p>Indicateur clé de performance : Taux de satisfacion clients</p>
-      </Row>
+        <Row>
+          <p><b>Indicateur clé de performance :</b> Taux de satisfaction clients</p>
+        </Row>
 
-      <Row>
-        <Col>
-        <p>Actuel : 50% </p>
-        </Col>
-        <Col>
-        <p> Cible : 85%</p>
-        </Col>
-      </Row>
+        <Row>
+          <Col>
+          <p><b>Actuel :</b> 50% </p>
+          </Col>
+          <Col>
+          <p><b>Cible :</b> 85%</p>
+          </Col>
+        </Row>
 
-      <Row>
-        <Col>
-        <p>Début : 01/01/2019</p>
-        </Col>
-        <Col>
-        <p> Fin : 31/03/2019</p>
-        </Col>
-      </Row>
+        <Row>
+          <Col>
+          <p><b>Début :</b> 01/01/2019</p>
+          </Col>
+          <Col>
+          <p><b>Fin :</b> 31/03/2019</p>
+          </Col>
+        </Row>
+      </div>
 
 
         <form className={classes.container} onSubmit={(e)=> this.popupThankVote(e)}>
 
 
-        <p>Sondage</p>
+        <p className="VoteTitre">Sondage</p>
 
 {/* QUESTION */}
 
-            <p>Comment trouvez vous le service utilisateur actuel ?</p>
+            <p className="Question">Comment trouvez vous le service utilisateur actuel ?</p>
 
 {/* STARS RATE */}
 
-            <span className="fa fa-star checked"></span><p>Insuffisant</p>      <span className="fa fa-star checked"></span><p>Moyen</p>
-            <span className="fa fa-star checked"></span><p>Bien</p>
-            <span className="fa fa-star checked"></span><p>Excellent</p>
+            <div className="StarsRating">
+              <Row>
+                <Col xs="3">
+                  <i 
+                  className={`fa fa-star checked ${this.state.one}`}
+                  onClick={this.one}
+                  ></i>   
+                  <p>Insuffisant</p> 
+                </Col>
+                <Col xs="3">
+                  <i 
+                  className={`fa fa-star checked ${this.state.two}`}
+                  onClick={this.two}
+                  ></i>
+                  <p>Moyen</p>
+                </Col>
+                <Col xs="3">
+                  <i 
+                  className={`fa fa-star checked ${this.state.three}`}
+                  onClick={this.three}
+                  ></i>
+                  <p>Bien</p>
+                </Col>
+                <Col xs="3">
+                  <i 
+                  className={`fa fa-star checked ${this.state.four}`}
+                  onClick={this.four}
+                  ></i>
+                  <p>Excellent</p>              
+                </Col>
+              </Row>
+            </div>
 
 {/* CHIPS */}
 
-            <p>Choix des sous thèmes clés</p>
+            <p className="VoteTitre">Choix des sous thèmes clés</p>
           
             <Chips/>
 
-            <p>Commentaires</p>
+            <p className="VoteTitre">Commentaires</p>
             
 {/* COMMENTAIRE */}
             
@@ -123,19 +171,23 @@ class Vote extends Component {
 
 {/* BUTTON RETOUR */}
 
-            <button 
-            className="ButtonCreateDefi">
-            Retour</button>
+            <NavLink to="5">
+              <button 
+              className="ButtonVote">
+              Retour</button>
+            </NavLink>
 
 {/* BOUTON VOTER */}
 
-            <button 
-            type="submit" 
-            className="ButtonCreateDefi">
-            Voter</button>
+          <button 
+              type="submit" 
+              className="ButtonVote"
+          >Voter</button>
+
 
           </form>
-      </Container>
+
+      </div>
     )
   }
 }

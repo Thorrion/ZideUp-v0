@@ -1,16 +1,33 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Progress } from 'reactstrap'
-import './All.scss'
+import { NavLink } from 'react-router-dom'
+import './NewDef.scss'
 
-export default class All extends Component {
+export default class NewDef extends Component {
   render() {
     return (
       <div>
-        <Container className="AllContainer">
+        <Container className="NewDefContainer">
 
-          <div className="NouveauxAll">
+          <div className="NouveauxNewDef">
 
             <p className="TextCate">Nouveaux</p>
+
+            <Row className="DefisNew">
+              <Col xs={8} className="Title"><p className="textdef">
+                Efficacité: augmenter la rapidité du service</p>
+                <Progress value="55" className="progress" />
+              </Col>
+              <Col xs={4} >
+              <NavLink to="/6">
+                <div className="flechage">
+                  <i className="fas fa-arrow-right fleche">
+                  </i>
+                </div>
+              </NavLink>
+              </Col>
+            </Row>
+            <hr />
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
@@ -57,9 +74,13 @@ export default class All extends Component {
               </Col>
             </Row>
 
+
+
+
           </div>
 
-          <div className="EnCoursAll">
+
+          <div className="EnCoursNewDef">
             <p className="TextCate">En cours</p>
 
             <Row className="Defis">
@@ -138,7 +159,7 @@ export default class All extends Component {
 
           </div>
 
-          <div className="TermineAll">
+          <div className="TermineNewDef">
             <p className="TextCate">Terminés</p>
 
             <Row className="Defis">

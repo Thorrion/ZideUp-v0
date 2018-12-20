@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Row, Col, Container} from 'reactstrap'
+import {Row, Col} from 'reactstrap'
 import { NavLink } from 'react-router-dom' 
 import './RecapTheme.scss'
 import PopUpIdea from '../PopUp/PopUpIdea'
@@ -37,7 +37,7 @@ class RecapTheme extends Component {
     const { classes } = this.props;
 
     return (
-      <Container className="RecapThemeContainer">
+      <div className="RecapThemeContainer">
         {this.state.isOpen &&
         <div>
           <PopUpIdea close={this.backdropClickHandler}/>
@@ -45,39 +45,45 @@ class RecapTheme extends Component {
         </div>
         }
 
+      <div className="RecapThemeTexte">
+      <Row>
+          <p><b>Nom du défi :</b> Améliorer le service utilisateur <i className="fas fa-thumbs-up"></i> 100 <i className="fas fa-lightbulb"></i> 61</p>
+        </Row>
         <Row>
-        <p>Nom du défi : Améliorer le service utilisateur <i className="fas fa-thumbs-up"></i> 100 <i className="fas fa-lightbulb"></i> 61</p>
-      </Row>
-      <Row>
-        <p>Périmètre concerné : Customer Sucess</p>
-      </Row>
+          <p><b>Périmètre concerné :</b> Customer Sucess</p>
+        </Row>
 
-      <Row>
-        <p>Indicateur clé de performance : Taux de satisfaction clients</p>
-      </Row>
+        <Row>
+          <p><b>Indicateur clé de performance :</b> Taux de satisfaction clients</p>
+        </Row>
 
-      <Row>
-        <Col>
-        <p>Actuel : 50% </p>
-        </Col>
-        <Col>
-        <p> Cible : 85%</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-        <p>Début : 01/01/2019</p>
-        </Col>
-        <Col>
-        <p> Fin : 31/03/2019</p>
-        </Col>
-      </Row>
+        <Row>
+          <Col>
+          <p><b>Actuel :</b> 50% </p>
+          </Col>
+          <Col>
+          <p><b>Cible :</b> 85%</p>
+          </Col>
+        </Row>
 
-      <p>Sous thème choisi</p>
+        <Row>
+          <Col>
+          <p><b>Début :</b> 01/01/2019</p>
+          </Col>
+          <Col>
+          <p><b>Fin :</b> 31/03/2019</p>
+          </Col>
+        </Row>
+      </div>
 
-      <p><b>Réactivité</b> <i className="fas fa-thumbs-up"></i> 7 <i className="fas fa-lightbulb"></i> 8</p>
+      <p className="RecapThemeTitre">Sous thème choisi</p>
 
-      <p>Liste des idées</p>
+      <p><span className="titre">Réactivité</span> <i className="fas fa-thumbs-up"></i> 7 <i className="fas fa-lightbulb"></i> 8</p>
+
+      <p className="RecapThemeTitre">Liste des idées</p>
+
+      <div className="listIdea">
+
 
       <Row>
         <Col>Convenir d'une date de réponse au client</Col>
@@ -100,7 +106,9 @@ class RecapTheme extends Component {
         <Col xs="3"><i className="fas fa-thumbs-up"></i> 0 <i className="fas fa-comment"></i> 0</Col>
       </Row>
 
-      <p>Ajouter une idée</p>
+      </div>
+
+      <p className="AddId">Ajouter une idée</p>
 
 {/* VOTRE QUESTION */}
 
@@ -114,24 +122,19 @@ class RecapTheme extends Component {
         margin="normal"
       />
 
-      <Row>
-        <Col>
-          <NavLink to="/">
+          <NavLink to="/5">
             <button 
               className="ButtonRecapIdea"
               >Accueil</button>
           </NavLink>
-        </Col>
-        <Col>
+
           <button 
           type="submit"
           className="ButtonRecapIdea"
           onClick={(e) => this.popupIdea(e)}
           >Valider idée</button>
-        </Col>
-      </Row>
 
-      </Container>
+      </div>
     )
   }
 }

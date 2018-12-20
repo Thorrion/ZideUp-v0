@@ -1,6 +1,12 @@
+
+
+.BackSearch {
+
+    background-color: white;
+
 .searchB {
     border-radius: 15px;
-    border: 1px solid #039ce0;
+    border: 1px solid #0ebcf1;
     width: 90vw;
     height: 5vh;
     margin: auto;
@@ -12,11 +18,15 @@
     height: 3vh;
     width: 5vw;
     margin-top: -4vh;
-    margin-left: 85vw;
+    margin-left: 80vw;
     position: absolute;
 }
 
+}
 
+.BackMen {
+
+    background-color: white;
 
 .Menudef {
     display: flex;
@@ -24,7 +34,7 @@
     text-align: center;
     padding-left: 5vw;
     padding-right: 5vw;
-    margin-top: 2%;
+    padding-top: 2%;
 
 
 .Tous{
@@ -35,7 +45,8 @@
     justify-content: center;
     text-align: center;
     background-color:  rgb(3, 156, 224);
-    border-radius: 5px 0 0 5px;
+    border: 1px solid rgb(3, 156, 224);
+    // border-radius: 5px 0 0 5px;
 }
 
 .Defis{
@@ -51,14 +62,27 @@
 
 }
 
-.Plus {
-    height: 70px;
-    width: 70px;
-    margin-top: 110%;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
 }
 
+.Plus {
+    position: fixed;
+    height: 15vw;
+    width: 15vw;
+    bottom: 3vh;
+    left: 42.5vw; 
+    background-color: white;
+    border-radius: 50%;
+}
+
+.contentsSearch {
+    padding-top: 10vh;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: fixed;
+    z-index: 200;
+}
 
 

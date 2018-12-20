@@ -1,18 +1,18 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar';
-import All from '../components/Dashboard/All';
+import NewDef from '../components/Dashboard/NewDef';
 import InputAndSearch from '../components/InputAndSearch/InputAndSearch';
 
 
-const Page3 = () => {
+const DashboardNew = () => {
   return (
     <div>
       <Navbar/>
       <InputAndSearch/>
-      <All/>
+      <NewDef/>
 
     </div>
   )
 }
 
-export default Page3
+export default DashboardNew

@@ -7,7 +7,8 @@ import PageCreateDefi from '../pages/PageCreateDefi';
 import PageRecapTheme from '../pages/PageRecapTheme';
 import PageRecapVote from '../pages/PageRecapVote';
 import PageVote from '../pages/PageVote';
-import Page3 from '../pages/Page3';
+import Dashboard from '../pages/Dashboard';
+import DashboardNew from '../pages/DashboardNew';
 
 class AppRouter extends Component {
   render() {
@@ -15,11 +16,12 @@ class AppRouter extends Component {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/2" component={Page2}/>
-        <Route exact path="/3" component={Page3}/>
+        <Route exact path="/3" component={Dashboard}/>
         <Route exact path="/4" component={PageCreateDefi}/>
-        <Route exact path="/5" component={PageVote}/>
-        <Route exact path="/6" component={PageRecapVote}/>
-        <Route exact path="/7" component={PageRecapTheme}/>
+        <Route exact path="/5" component={DashboardNew}/>
+        <Route exact path="/6" component={PageVote}/>
+        <Route exact path="/7" component={PageRecapVote}/>
+        <Route exact path="/8" component={PageRecapTheme}/>
 
       </Switch>
     )

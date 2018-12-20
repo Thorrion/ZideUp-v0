@@ -10,6 +10,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import PopUpConfirm from '../PopUp/PopUpConfirm';
 import PopUpDefi from '../PopUp/PopUpDefi';
 import Backdrop from '../PopUp/Backdrop/Backdrop';
+import { connect } from 'react-redux'
+import { challengeAction }from '../../stores/actions/challengeAction'
 import './CreateDefi.scss'
 
 let today = new Date().toISOString().slice(0, 10)
@@ -48,7 +50,9 @@ const styles = theme => ({
   },
   margin: {
     margin: theme.spacing.unit,
-    width: '90vw'
+    width: '90vw',
+    marginLeft: '5vw'
+
   },
   margin2: {
     margin: theme.spacing.unit,
@@ -86,10 +90,40 @@ class CreateDefi extends Component {
   state = {
     popupConfirm: false,
     popupThank: false,
+    nom:'',
+    perimetre:'R&D',
+    indicateur:'',
+    actuel:'',
+    cible:'',
+    debut: today,
+    fin: today,
+    question:'',
+    items:[],
+    commentaire:'',
     one:'',
     two:'',
     three:'',
     four:''
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.challengeAction({
+    nom:this.state.nom,
+    perimetre:this.state.perimetre,
+    indicateur:this.state.indicateur,
+    actuel:this.state.actuel,
+    cible:this.state.cible,
+    debut: this.state.debut,
+    fin: this.state.fin,
+    question:this.state.question,
+    items:this.state.items,
+    commentaire:this.state.commentaire,
+    })
+  }
+
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
   }
 
   backdropClickHandler = () => {
@@ -104,22 +138,9 @@ class CreateDefi extends Component {
   popupThank = () => {
     this.setState({popupConfirm: false, popupThank: true})
   }
-
-  one = () => {
-    this.setState({one:'orange', two:'',three:'',four:''})
-  }
-  two = () => {
-    this.setState({one:'orange', two:'orange',three:'',four:''})
-  }
-  three = () => {
-    this.setState({one:'orange', two:'orange',three:'orange',four:''})
-  }
-  four = () => {
-    this.setState({one:'orange', two:'orange',three:'orange',four:'orange'})
-  }
-
   
   render() {
+    console.log(this.props)
     const { classes } = this.props;
     return (
 
@@ -140,7 +161,7 @@ class CreateDefi extends Component {
           
         }
 
-          <form className={classes.container} onSubmit={(e) =>this.popupConfirm(e)}>
+          <form className={classes.container} onSubmit={(e) =>this.handleSubmit(e)}>
 
 {/* NOM DU DEFI */}
 
@@ -149,8 +170,9 @@ class CreateDefi extends Component {
               id="standard-name"
               label="Nom du défi"
               className={classes.textField}
-              // value={this.state.name}
-              // onChange={this.handleChange('name')}
+              name='nom'
+              value={this.state.nom}
+              onChange={(e) => this.handleChange(e)}
               // margin="normal"
             />
 
@@ -162,8 +184,9 @@ class CreateDefi extends Component {
               select
               label="Périmètre concerné"
               className={classes.input2}
-              // value={this.state.currency}
-              // onChange={this.handleChange('currency')}
+              name='perimetre'
+              value={this.state.perimetre}
+              onChange={(e) => this.handleChange(e)}
               SelectProps={{
                 native: true,
                 MenuProps: {
@@ -187,9 +210,9 @@ class CreateDefi extends Component {
               id="standard-perf"
               label="Indicateur clé de performance"
               className={classes.textField}
-              // value={this.state.name}
-              // onChange={this.handleChange('name')}
-              // margin="normal"
+              name='indicateur'
+              value={this.state.indicateur}
+              onChange={(e) => this.handleChange(e)}
             />
 
 {/* ACTUEL */}
@@ -199,6 +222,9 @@ class CreateDefi extends Component {
               label="Actuel"
               id="simple-start-adornment"
               className={classes.textField2}
+              name='actuel'
+              value={this.state.actuel}
+              onChange={(e) => this.handleChange(e)}
               InputProps={{
                 endAdornment: <InputAdornment position="end">%</InputAdornment>,
               }}
@@ -211,6 +237,9 @@ class CreateDefi extends Component {
               label="Cible"
               id="simple-start-adornment"
               className={classes.textField2}
+              name='cible'
+              value={this.state.cible}
+              onChange={(e) => this.handleChange(e)}
               InputProps={{
                 endAdornment: <InputAdornment position="end">%</InputAdornment>,
               }}
@@ -225,6 +254,9 @@ class CreateDefi extends Component {
                 type="date"
                 defaultValue={today}
                 className={classes.textField2}
+                name='debut'
+                value={this.state.debut}
+                onChange={(e) => this.handleChange(e)}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -239,6 +271,9 @@ class CreateDefi extends Component {
                 type="date"
                 defaultValue={today}
                 className={classes.textField2}
+                name='fin'
+                value={this.state.fin}
+                onChange={(e) => this.handleChange(e)}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -251,6 +286,9 @@ class CreateDefi extends Component {
             <TextField
               id="standard-multiline-static"
               label="Votre question"
+              name='question'
+              value={this.state.question}
+              onChange={(e) => this.handleChange(e)}
               // required
               multiline
               rows="1"
@@ -305,6 +343,9 @@ class CreateDefi extends Component {
               className={classes.margin}
               id="input-with-icon-textfield"
               // label="Ajoutez un commentaire"
+              name='commentaire'
+              value={this.state.commentaire}
+              onChange={(e) => this.handleChange(e)}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -338,4 +379,13 @@ CreateDefi.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CreateDefi);
+const mapStateToProps = (state) => ({
+  ...state
+})
+
+const mapDispatchToProps = {
+  challengeAction
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps) (withStyles(styles)(CreateDefi))

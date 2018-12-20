@@ -1,0 +1,24 @@
+@import '../Variables.scss';
+
+
+.InProgressContainer{
+  .Defis{
+    background-color: $white;
+    .Title{
+      font-size: 3.2vw;
+    }
+    .fleche{
+      color: $blue;
+      font-size: 8vw;
+    }
+    i{
+      color:gray;
+    }
+    .progress-bar, .progress{
+      height: 3px !important;
+    }
+  }
+  hr{
+    width: 100%;
+  }
+}

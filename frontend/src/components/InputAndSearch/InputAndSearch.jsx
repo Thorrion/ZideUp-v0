@@ -48,7 +48,7 @@ export default class InputAndSearch extends Component {
                             <form>
                                 <label>
                                     <input type="search" className="searchB" />
-                                    <img src="http://image.noelshack.com/fichiers/2018/51/3/1545250383-search.png" className="Loupe" />
+                                    <img src="http://image.noelshack.com/fichiers/2018/51/4/1545322533-search-1.png" className="Loupe" />
 
                                 </label>
 

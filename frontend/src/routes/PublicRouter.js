@@ -11,10 +11,9 @@ class AppRouter extends Component {
     return (
       <Switch>
         {/* <Route exact path="/" component={Profile}/> */}
-        {/* <Route exact path="/2" component={Page2}/>
-        <Route exact path="/" component={Home}/> */}
-        <Route exact path="/" component={CreateDefi}/>
-
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/2" component={Page2}/>
+        <Route exact path="/4" component={CreateDefi}/>
       </Switch>
     )
   }

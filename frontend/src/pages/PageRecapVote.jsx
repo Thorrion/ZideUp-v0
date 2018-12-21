@@ -2,11 +2,11 @@ import React from 'react'
 import Navbar from '../components/Navbar/Navbar';
 import RecapVote from '../components/RecapVote/RecapVote';
 
-const PageRecapVote = () => {
+const PageRecapVote = (props) => {
   return (
     <div>
       <Navbar/>
-      <RecapVote/>
+      <RecapVote index={props.match.params.index}/>
     </div>
   )
 }

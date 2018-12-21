@@ -27,12 +27,12 @@ const styles = theme => ({
 class ChipsArray extends React.Component {
   state = {
     chipData: [
-      { key: 0, label: 'Call Center' },
-      { key: 1, label: 'Réactivité' },
-      { key: 2, label: 'Parcours UX' },
-      { key: 3, label: 'Garantie' },
-      { key: 4, label: 'Informations' },
-      { key: 5, label: 'Customisation' },
+      {label: 'Call Center' },
+      {label: 'Réactivité' },
+      {label: 'Parcours UX' },
+      {label: 'Garantie' },
+      {label: 'Informations' },
+      {label: 'Customisation' },
     ],
   };
 
@@ -64,7 +64,7 @@ class ChipsArray extends React.Component {
         }}
         />
       <Paper className={classes.root}>
-        {this.state.chipData.map(data => {
+        {this.state.chipData.map((data,index) => {
           let icon = null;
           
           if (data.label === 'React') {
@@ -73,7 +73,7 @@ class ChipsArray extends React.Component {
           
           return (
             <Chip
-            key={data.key}
+            key={index}
             icon={icon}
             label={data.label}
             onDelete={this.handleDelete(data)}

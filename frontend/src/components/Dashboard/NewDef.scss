@@ -5,7 +5,8 @@
 .NewDefContainer{
 
     z-index: 1;
-    padding-top: 28vh;
+    padding-top: 42vw;
+    padding-bottom: 20vw;
 
 
     .NouveauxNewDef {
@@ -45,7 +46,9 @@
             
 
         .Defis{
-        background-color: $white;
+        background-color: rgba($color: $blue, $alpha: 0.3);
+        padding: 2vw;
+        margin: -3vw;
         .Title{
         font-size: 3.2vw;
         }

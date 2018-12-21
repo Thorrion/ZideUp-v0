@@ -66,7 +66,7 @@ class ChipsArray extends React.Component {
           
           return (
             <div>
-              <NavLink to="/8">
+              <NavLink to={`/8/${this.props.index}`}>
               <Chip
               key={data.key}
               icon={icon}

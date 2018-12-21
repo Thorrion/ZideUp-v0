@@ -19,9 +19,9 @@ class AppRouter extends Component {
         <Route exact path="/3" component={Dashboard}/>
         <Route exact path="/4" component={PageCreateDefi}/>
         <Route exact path="/5" component={DashboardNew}/>
-        <Route exact path="/6" component={PageVote}/>
-        <Route exact path="/7" component={PageRecapVote}/>
-        <Route exact path="/8" component={PageRecapTheme}/>
+        <Route exact path="/6/:index" component={PageVote}/>
+        <Route exact path="/7/:index" component={PageRecapVote}/>
+        <Route exact path="/8/:index" component={PageRecapTheme}/>
 
       </Switch>
     )

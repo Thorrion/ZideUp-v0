@@ -3,6 +3,7 @@ import {Row, Col} from 'reactstrap'
 import { NavLink } from 'react-router-dom' 
 import './RecapTheme.scss'
 import PopUpIdea from '../PopUp/PopUpIdea'
+import { connect } from 'react-redux'
 import Backdrop from '../PopUp/Backdrop/Backdrop';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
@@ -11,9 +12,10 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   textField: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: '5vw',
     marginRight: theme.spacing.unit,
     width: '90vw',
+
   },
 })
 
@@ -35,6 +37,7 @@ class RecapTheme extends Component {
 
   render() {
     const { classes } = this.props;
+    let indexUrl = parseInt(this.props.index)
 
     return (
       <div className="RecapThemeContainer">
@@ -45,36 +48,44 @@ class RecapTheme extends Component {
         </div>
         }
 
-      <div className="RecapThemeTexte">
-      <Row>
-          <p><b>Nom du défi :</b> Améliorer le service utilisateur <i className="fas fa-thumbs-up"></i> 100 <i className="fas fa-lightbulb"></i> 61</p>
-        </Row>
-        <Row>
-          <p><b>Périmètre concerné :</b> Customer Sucess</p>
-        </Row>
+      {
+        this.props.challenges.list.map((challenge, index) => {
+          return (
+            index === indexUrl &&
+            <div className="RecapThemeTexte" key={index}>
+              <Row>
+                <p><b>Nom du défi :</b> {challenge.nom}</p>
+              </Row>
+              <Row>
+                <p><b>Périmètre concerné :</b> {challenge.perimetre}</p>
+              </Row>
 
-        <Row>
-          <p><b>Indicateur clé de performance :</b> Taux de satisfaction clients</p>
-        </Row>
+              <Row>
+                <p><b>Indicateur clé de performance :</b> {challenge.indicateur}</p>
+              </Row>
 
-        <Row>
-          <Col>
-          <p><b>Actuel :</b> 50% </p>
-          </Col>
-          <Col>
-          <p><b>Cible :</b> 85%</p>
-          </Col>
-        </Row>
+              <Row>
+                <Col>
+                <p><b>Actuel :</b> {challenge.actuel}</p>
+                </Col>
+                <Col>
+                <p><b>Cible :</b> {challenge.cible}</p>
+                </Col>
+              </Row>
 
-        <Row>
-          <Col>
-          <p><b>Début :</b> 01/01/2019</p>
-          </Col>
-          <Col>
-          <p><b>Fin :</b> 31/03/2019</p>
-          </Col>
-        </Row>
-      </div>
+              <Row>
+                <Col>
+                <p><b>Début :</b> {challenge.debut}</p>
+                </Col>
+                <Col>
+                <p><b>Fin :</b> {challenge.fin}</p>
+                </Col>
+              </Row>
+            </div>
+            )
+          }
+        )
+      }
 
       <p className="RecapThemeTitre">Sous thème choisi</p>
 
@@ -108,7 +119,7 @@ class RecapTheme extends Component {
 
       </div>
 
-      <p className="AddId">Ajouter une idée</p>
+      <p className="RecapThemeTitre">Ajouter une idée</p>
 
 {/* VOTRE QUESTION */}
 
@@ -141,5 +152,10 @@ class RecapTheme extends Component {
 RecapTheme.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+const mapStateToProps = (state) => ({
+  ...state
+})
 
-export default withStyles(styles)(RecapTheme);
+
+
+export default connect(mapStateToProps)(withStyles(styles)(RecapTheme))

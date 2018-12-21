@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Progress } from 'reactstrap'
+import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import './NewDef.scss'
 
-export default class NewDef extends Component {
+class NewDef extends Component {
+  state = {
+    selected : {}
+  }
+
+  // selected = (challenge) => {
+  //   this.setState({selected : challenge})
+  // }
+  
   render() {
+    console.log(this.props);
+    console.log(this.state);
     return (
       <div>
         <Container className="NewDefContainer">
@@ -13,43 +24,38 @@ export default class NewDef extends Component {
 
             <p className="TextCate">Nouveaux</p>
 
-            
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-                Efficacité: augmenter la rapidité du ...</p>
-               
-              </Col>
-              <Col xs={4} >
-              <NavLink to="/6">
-                <div className="flechage">
-                  <i className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </NavLink>
-              </Col>
-            </Row>
-            <hr />
-            
+            {this.props.challenges.list &&
+            this.props.challenges.list.map((challenge, index) => {
+              return (
+
+              <div key={index}>
+
+              <Row className="Defis">
+                <Col xs={8} className="Title"><p className="textdef">
+                  {challenge.perimetre}: {challenge.nom}</p>
+                </Col>
+                <Col xs={4} >
+                <NavLink 
+                to={`/6/${index}`}
+                >
+                  <div className="flechage">
+                    <i className="fas fa-arrow-right fleche"
+                    >
+                    </i>
+                  </div>
+                </NavLink>
+                </Col>
+              </Row>
+              <hr/>
+              </div>
+              )
+            })
+            }
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Production : Digitaliser l'audit qualité</p>
-               
-              </Col>
-              <Col xs={4} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+                Qualité : Diminuer les défauts de 20% sur...</p>
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20...</p>
-                
               </Col>
               <Col xs={1} >
                 <div className="flechage">
@@ -63,6 +69,7 @@ export default class NewDef extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
+
                 R&D : Proposer 4 nouvelles fonctio...</p>
                
               </Col>
@@ -75,8 +82,7 @@ export default class NewDef extends Component {
                 </div>
               </Col>
             </Row>
-
-
+            <hr />
 
 
           </div>
@@ -248,5 +254,8 @@ export default class NewDef extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  ...state
+})
 
-
+export default connect(mapStateToProps)(NewDef)

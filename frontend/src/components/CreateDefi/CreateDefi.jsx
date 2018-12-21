@@ -67,8 +67,8 @@ const currencies = [
     label: 'R&D',
   },
   {
-    value: 'Production ',
-    label: 'Production ',
+    value: 'Production',
+    label: 'Production',
   },
   {
     value: 'Qualité',
@@ -95,8 +95,8 @@ class CreateDefi extends Component {
     indicateur:'',
     actuel:'',
     cible:'',
-    debut: today,
-    fin: today,
+    debut: "",
+    fin: "",
     question:'',
     items:[],
     commentaire:'',
@@ -106,21 +106,6 @@ class CreateDefi extends Component {
     four:''
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.challengeAction({
-    nom:this.state.nom,
-    perimetre:this.state.perimetre,
-    indicateur:this.state.indicateur,
-    actuel:this.state.actuel,
-    cible:this.state.cible,
-    debut: this.state.debut,
-    fin: this.state.fin,
-    question:this.state.question,
-    items:this.state.items,
-    commentaire:this.state.commentaire,
-    })
-  }
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
@@ -135,8 +120,21 @@ class CreateDefi extends Component {
     this.setState({popupConfirm: true, popupThank: false})
   }
   
-  popupThank = () => {
+  popupThank = (e) => {
     this.setState({popupConfirm: false, popupThank: true})
+    e.preventDefault()
+    this.props.challengeAction({
+    nom:this.state.nom,
+    perimetre:this.state.perimetre,
+    indicateur:this.state.indicateur,
+    actuel:this.state.actuel,
+    cible:this.state.cible,
+    debut: this.state.debut,
+    fin: this.state.fin,
+    question:this.state.question,
+    items:this.state.items,
+    commentaire:this.state.commentaire,
+    })
   }
   
   render() {
@@ -161,7 +159,7 @@ class CreateDefi extends Component {
           
         }
 
-          <form className={classes.container} onSubmit={(e) =>this.handleSubmit(e)}>
+          <form className={classes.container} onSubmit={(e) => this.popupConfirm(e)}>
 
 {/* NOM DU DEFI */}
 
@@ -225,9 +223,7 @@ class CreateDefi extends Component {
               name='actuel'
               value={this.state.actuel}
               onChange={(e) => this.handleChange(e)}
-              InputProps={{
-                endAdornment: <InputAdornment position="end">%</InputAdornment>,
-              }}
+              
             />
           
 {/* CIBLE */}
@@ -240,9 +236,7 @@ class CreateDefi extends Component {
               name='cible'
               value={this.state.cible}
               onChange={(e) => this.handleChange(e)}
-              InputProps={{
-                endAdornment: <InputAdornment position="end">%</InputAdornment>,
-              }}
+              
             />
 
 {/* DEBUT */}

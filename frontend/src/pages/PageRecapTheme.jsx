@@ -2,11 +2,11 @@ import React from 'react'
 import Navbar from '../components/Navbar/Navbar';
 import RecapTheme from '../components/RecapTheme/RecapTheme';
 
-const PageRecapTheme = () => {
+const PageRecapTheme = (props) => {
   return (
     <div>
       <Navbar/>
-      <RecapTheme/>
+      <RecapTheme index={props.match.params.index}/>
     </div>
   )
 }

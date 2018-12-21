@@ -3,6 +3,7 @@ import { Row, Col, Progress } from 'reactstrap'
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -17,47 +18,58 @@ const styles = theme => ({
   },
 });
 
-
 class RecapVote extends Component {
   render() {
     const { classes } = this.props;
+    let indexUrl = parseInt(this.props.index)
+
     return (
       <div className="RecapVoteContainer">
         
-        <div className="RecapVoteTexte">
-        <Row>
-          <p><b>Nom du défi :</b> Améliorer le service utilisateur</p>
-        </Row>
-        <Row>
-          <p><b>Périmètre concerné :</b> Customer Sucess</p>
-        </Row>
+      {
+        this.props.challenges.list.map((challenge, index) => {
+          return (
+            index === indexUrl &&
+            <div className="RecapVoteTexte" key={index}>
 
-        <Row>
-          <p><b>Indicateur clé de performance :</b> Taux de satisfaction clients</p>
-        </Row>
+              <Row>
+                <p><b>Nom du défi :</b> {challenge.nom}</p>
+              </Row>
+              <Row>
+                <p><b>Périmètre concerné :</b> {challenge.perimetre}</p>
+              </Row>
 
-        <Row>
-          <Col>
-          <p><b>Actuel :</b> 50% </p>
-          </Col>
-          <Col>
-          <p><b>Cible :</b> 85%</p>
-          </Col>
-        </Row>
+              <Row>
+                <p><b>Indicateur clé de performance :</b> {challenge.indicateur}</p>
+              </Row>
 
-        <Row>
-          <Col>
-          <p><b>Début :</b> 01/01/2019</p>
-          </Col>
-          <Col>
-          <p><b>Fin :</b> 31/03/2019</p>
-          </Col>
-        </Row>
-      </div>
+              <Row>
+                <Col>
+                <p><b>Actuel :</b> {challenge.actuel}</p>
+                </Col>
+                <Col>
+                <p><b>Cible :</b> {challenge.cible}</p>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col>
+                <p><b>Début :</b> {challenge.debut}</p>
+                </Col>
+                <Col>
+                <p><b>Fin :</b> {challenge.fin}</p>
+                </Col>
+              </Row>
+            </div>
+            )
+          }
+        )
+      }
 
       <p className="RecapVoteTitre">Sondage</p>
 
 {/* QUESTION */}
+
       <div className="RecapVoteSondage">
 
         <b className="Question">Comment trouvez vous le service utilisateur actuel ?</b>
@@ -99,7 +111,7 @@ class RecapVote extends Component {
 
       <p className="RecapVoteTitre">Choix des sous thèmes clés</p>
 
-      <Chips/>
+      <Chips index={indexUrl}/>
 
       <p className="RecapVoteTitre">Commentaires</p>
             
@@ -140,4 +152,10 @@ RecapVote.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RecapVote);
+const mapStateToProps = (state) => ({
+  ...state
+})
+
+
+
+export default connect(mapStateToProps) (withStyles(styles)(RecapVote))

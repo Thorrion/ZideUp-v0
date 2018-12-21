@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Input from '@material-ui/core/Input';
+import{ connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Row, Col } from 'reactstrap'
 import PopUpVote from '../PopUp/PopUpVote'
@@ -21,7 +23,13 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     width: '90vw'
   },
+  input: {
+    margin: theme.spacing.unit,
+    width: '90vw',
+    marginLeft: '5vw'
+  },
 });
+
 
 class Vote extends Component {
   state = {
@@ -47,7 +55,7 @@ class Vote extends Component {
   
   backdropClickHandler = () => {
     return (
-      <Redirect to="/"/>,
+      <Redirect to="/3"/>,
       this.setState({isOpen: false})
       )
   }
@@ -59,133 +67,153 @@ class Vote extends Component {
 
 
   render() {
+    let indexUrl = parseInt(this.props.index)
     const { classes } = this.props;
     return (
       <div className="voteContainer">
 
       {this.state.isOpen &&
       <div>
-        <PopUpVote close={this.backdropClickHandler}/>
-        <Backdrop click={this.backdropClickHandler}/>
+        <PopUpVote close={this.backdropClickHandler} index={indexUrl}/>
+        <Backdrop click={this.backdropClickHandler} />
       </div>
       }
 
-      <div className="VoteTexte">
-        <Row>
-          <p><b>Nom du défi :</b> Améliorer le service utilisateur</p>
-        </Row>
-        <Row>
-          <p><b>Périmètre concerné :</b> Customer Sucess</p>
-        </Row>
+      {
+      this.props.challenges.list.map((challenge, index) => {
+        return (
+          index === indexUrl &&
+            <div className="VoteTexte" key={index}>
 
-        <Row>
-          <p><b>Indicateur clé de performance :</b> Taux de satisfaction clients</p>
-        </Row>
+              <Row>
+                <p><b>Nom du défi :</b> {challenge.nom}</p>
+              </Row>
+              <Row>
+                <p><b>Périmètre concerné :</b> {challenge.perimetre}</p>
+              </Row>
 
-        <Row>
-          <Col>
-          <p><b>Actuel :</b> 50% </p>
-          </Col>
-          <Col>
-          <p><b>Cible :</b> 85%</p>
-          </Col>
-        </Row>
+              <Row>
+                <p><b>Indicateur clé de performance :</b> {challenge.indicateur}</p>
+              </Row>
 
+              <Row>
+                <Col>
+                <p><b>Actuel :</b> {challenge.actuel} </p>
+                </Col>
+                <Col>
+                <p><b>Cible :</b> {challenge.cible}</p>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col>
+                <p><b>Début :</b> {challenge.debut}</p>
+                </Col>
+                <Col>
+                <p><b>Fin :</b> {challenge.fin}</p>
+                </Col>
+              </Row>
+            </div>
+            )
+          }
+        )
+      }
+
+
+      <form className={classes.container} onSubmit={(e)=> this.popupThankVote(e)}>
+
+
+      <p className="VoteTitre">Sondage</p>
+
+{/* QUESTION */}
+
+      <p className="Question">Comment trouvez vous le service utilisateur actuel ?</p>
+
+{/* STARS RATE */}
+
+      <div className="StarsRating">
         <Row>
-          <Col>
-          <p><b>Début :</b> 01/01/2019</p>
+          <Col xs="3">
+            <i 
+            className={`fa fa-star checked ${this.state.one}`}
+            onClick={this.one}
+            ></i>   
+            <p>Insuffisant</p> 
           </Col>
-          <Col>
-          <p><b>Fin :</b> 31/03/2019</p>
+          <Col xs="3">
+            <i 
+            className={`fa fa-star checked ${this.state.two}`}
+            onClick={this.two}
+            ></i>
+            <p>Moyen</p>
+          </Col>
+          <Col xs="3">
+            <i 
+            className={`fa fa-star checked ${this.state.three}`}
+            onClick={this.three}
+            ></i>
+            <p>Bien</p>
+          </Col>
+          <Col xs="3">
+            <i 
+            className={`fa fa-star checked ${this.state.four}`}
+            onClick={this.four}
+            ></i>
+            <p>Excellent</p>              
           </Col>
         </Row>
       </div>
 
-
-        <form className={classes.container} onSubmit={(e)=> this.popupThankVote(e)}>
-
-
-        <p className="VoteTitre">Sondage</p>
-
-{/* QUESTION */}
-
-            <p className="Question">Comment trouvez vous le service utilisateur actuel ?</p>
-
-{/* STARS RATE */}
-
-            <div className="StarsRating">
-              <Row>
-                <Col xs="3">
-                  <i 
-                  className={`fa fa-star checked ${this.state.one}`}
-                  onClick={this.one}
-                  ></i>   
-                  <p>Insuffisant</p> 
-                </Col>
-                <Col xs="3">
-                  <i 
-                  className={`fa fa-star checked ${this.state.two}`}
-                  onClick={this.two}
-                  ></i>
-                  <p>Moyen</p>
-                </Col>
-                <Col xs="3">
-                  <i 
-                  className={`fa fa-star checked ${this.state.three}`}
-                  onClick={this.three}
-                  ></i>
-                  <p>Bien</p>
-                </Col>
-                <Col xs="3">
-                  <i 
-                  className={`fa fa-star checked ${this.state.four}`}
-                  onClick={this.four}
-                  ></i>
-                  <p>Excellent</p>              
-                </Col>
-              </Row>
-            </div>
-
 {/* CHIPS */}
 
-            <p className="VoteTitre">Choix des sous thèmes clés</p>
-          
-            <Chips/>
+      <p className="VoteTitre">Choix des sous thèmes clés</p>
+    
+      <Chips/>
 
-            <p className="VoteTitre">Commentaires</p>
+      <p className="VoteTitre">Ajouter des items</p>
+
+      <Input
+        placeholder="Ajoutez vos items séparés par des virgules"
+        className={classes.input}
+        inputProps={{
+          'aria-label': 'Description',
+        }}
+        />
+
+      <p className="VoteTitre">Commentaires</p>
             
 {/* COMMENTAIRE */}
             
-            <TextField
-              className={classes.margin}
-              id="input-with-icon-textfield"
-              // label="Ajoutez un commentaire"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccountCircle />
-                  </InputAdornment>
-                ),
-              }}
-            />
+      <TextField
+        className={classes.margin}
+        id="input-with-icon-textfield"
+        // label="Ajoutez un commentaire"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <AccountCircle />
+            </InputAdornment>
+          ),
+        }}
+      />
 
 {/* BUTTON RETOUR */}
 
-            <NavLink to="5">
-              <button 
-              className="ButtonVote">
-              Retour</button>
-            </NavLink>
+      <NavLink to="5">
+        <button 
+        className="ButtonVote">
+        Retour</button>
+      </NavLink>
 
 {/* BOUTON VOTER */}
 
-          <button 
-              type="submit" 
-              className="ButtonVote"
-          >Voter</button>
+      <button 
+          type="submit" 
+          className="ButtonVote"
+      >Voter</button>
 
 
-          </form>
+      </form>
 
       </div>
     )
@@ -196,4 +224,13 @@ Vote.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Vote);
+const mapStateToProps = (state) => ({
+  ...state
+})
+
+const mapDispatchToProps = {
+  
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps) (withStyles(styles)(Vote))

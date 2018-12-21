@@ -67,6 +67,16 @@
 //   }
 // }
 
+.Navbar {
+  a {
+    display: flex;
+    margin-top: -2.1em;
+    justify-content: left;
+    margin-left: 10vw;
+   
+  }
+}
+
 @media screen and(max-width:425px){
   .Navbar {
     background: linear-gradient($blue, $darkblue);

@@ -4,7 +4,8 @@
 .AllContainer{
 
     z-index: 1;
-    padding-top: 28vh;
+    padding-top: 24vh;
+    padding-bottom: 10vh;
 
 
     .NouveauxAll {
@@ -59,7 +60,8 @@
         .textdef {
             display: flex;
             margin-top: 2vh;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            white-space: nowrap;
         }
 
        
@@ -105,6 +107,10 @@
     }
 
     .EnCoursAll {
+        .fas.fa-lightbulb {
+            color: white;
+            margin-top: 1em;
+          }
 
         .TextCate {
             display: flex;
@@ -144,7 +150,8 @@
         .textdef {
             display: flex;
             margin-top: 2vh;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            white-space: nowrap;
         }
 
        
@@ -163,7 +170,7 @@
         .emoji {
             display: flex;
             margin-top: 2.5vh;
-            margin-left: 1vw;
+            margin-left: -1vw;
             margin-bottom: -6vw;
            i{
            color:gray;
@@ -171,7 +178,10 @@
             }
 
             .fas.fa-lightbulb {
-                margin-left: 1vw;  
+                margin-left: 3vw; 
+                margin-top: 0em;
+
+                 
             }
         }
 
@@ -241,7 +251,8 @@
         .textdef {
             display: flex;
             margin-top: 2vh;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            white-space: nowrap;
         }
 
        
@@ -260,7 +271,7 @@
         .emoji {
             display: flex;
             margin-top: 2.5vh;
-            margin-left: 1vw;
+            margin-left: -1vw;
             margin-bottom: -6vw;
            i{
            color:gray;
@@ -268,7 +279,9 @@
             }
 
             .fas.fa-lightbulb {
-                margin-left: 1vw;  
+                margin-left: 3vw; 
+                margin-top: 0em;
+ 
             }
         }
 

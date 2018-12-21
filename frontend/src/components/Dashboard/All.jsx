@@ -20,7 +20,7 @@ export default class All extends Component {
               <Col xs={4} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>
@@ -29,13 +29,13 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20% sur...</p>
+              Qualité : Diminuer les défauts de 20...</p>
                 <Progress value="15" className="progress" />
               </Col>
               <Col xs={1} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>
@@ -44,24 +44,20 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+              R&D : Proposer 4 nouvelles fonctio...</p>
                 <Progress value="80" className="progress" />
               </Col>
 
               <Col xs={1} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>
             </Row>
 
-
-
-
           </div>
-
 
           <div className="EnCoursAll">
             <p className="TextCate">En cours</p>
@@ -73,17 +69,17 @@ export default class All extends Component {
               </Col>
               <Col xs={3} >
                 <div className="emoji">
-                  <i class="fas fa-thumbs-up">
+                  <i className="fas fa-thumbs-up">
                   </i> <p className="numb">15</p>
                   <i
-                    class="fas fa-lightbulb">
+                    className="fas fa-lightbulb">
                   </i><p className="numb">8</p>
                 </div>
               </Col>
               <Col xs={1} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>
@@ -92,22 +88,22 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20% sur...</p>
+                Qualité : Diminuer les défauts de 20...</p>
                 <Progress value="15" className="progress" />
               </Col>
               <Col xs={3} >
                 <div className="emoji">
-                  <i class="fas fa-thumbs-up">
+                  <i className="fas fa-thumbs-up">
                   </i> <p className="numb">22</p>
                   <i
-                    class="fas fa-lightbulb">
+                    className="fas fa-lightbulb">
                   </i><p className="numb">6</p>
                 </div>
               </Col>
               <Col xs={1} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>
@@ -116,22 +112,22 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+                R&D : Proposer 4 nouvelles fonctio...</p>
                 <Progress value="80" className="progress" />
               </Col>
               <Col xs={3} >
                 <div className="emoji">
-                  <i class="fas fa-thumbs-up">
+                  <i className="fas fa-thumbs-up">
                   </i> <p className="numb">23</p>
                   <i
-                    class="fas fa-lightbulb">
+                    className="fas fa-lightbulb">
                   </i><p className="numb">9</p>
                 </div>
               </Col>
               <Col xs={1} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>
@@ -152,17 +148,17 @@ export default class All extends Component {
               </Col>
               <Col xs={3} >
                 <div className="emoji">
-                  <i class="fas fa-thumbs-up">
+                  <i className="fas fa-thumbs-up">
                   </i> <p className="numb">15</p>
                   <i
-                    class="fas fa-lightbulb">
+                    className="fas fa-lightbulb">
                   </i><p className="numb">8</p>
                 </div>
               </Col>
               <Col xs={1} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>
@@ -171,22 +167,22 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20% sur...</p>
+              Qualité : Diminuer les défauts de 20...</p>
                 <Progress value="100" className="progress" />
               </Col>
               <Col xs={3} >
                 <div className="emoji">
-                  <i class="fas fa-thumbs-up">
+                  <i className="fas fa-thumbs-up">
                   </i> <p className="numb">22</p>
                   <i
-                    class="fas fa-lightbulb">
+                    className="fas fa-lightbulb">
                   </i><p className="numb">6</p>
                 </div>
               </Col>
               <Col xs={1} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>
@@ -195,22 +191,22 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+              R&D : Proposer 4 nouvelles fonctio...</p>
                 <Progress value="100" className="progress" />
               </Col>
               <Col xs={3} >
                 <div className="emoji">
-                  <i class="fas fa-thumbs-up">
+                  <i className="fas fa-thumbs-up">
                   </i> <p className="numb">23</p>
                   <i
-                    class="fas fa-lightbulb">
+                    className="fas fa-lightbulb">
                   </i><p className="numb">9</p>
                 </div>
               </Col>
               <Col xs={1} >
                 <div className="flechage">
                   <i
-                    class="fas fa-arrow-right fleche">
+                    className="fas fa-arrow-right fleche">
                   </i>
                 </div>
               </Col>

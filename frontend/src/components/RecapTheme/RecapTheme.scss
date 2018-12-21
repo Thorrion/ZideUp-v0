@@ -1,0 +1,59 @@
+@import '../../Variables.scss';
+
+.RecapThemeContainer{
+  padding-top: 10vh;
+  font-size: 4vw;
+  .ButtonRecapIdea{
+    display: flex;
+    float: left;
+    justify-content: center;
+    border-radius: 14px;
+    border: 0;
+    padding: 5px;
+    width: 40vw;
+    height: 13vw;
+    background: #2c8de7 !important;
+    color: $white;
+    font-size: 5vw;
+    box-shadow: -1px 3px 13px white;
+    font-weight: 700;
+    margin: 8vw 5vw;
+  }
+
+  .TextTheme {
+
+    font-size:0.9em; 
+  }
+  .RecapThemeTexte{
+    padding: 2vw 6vw;
+    background-color: rgba($color: #0172a5, $alpha: 0.2);
+    font-size: 3.8vw;
+  }
+  .RecapThemeTitre{
+    background-color: rgba($color: #ccc, $alpha: 1.0) ;
+    width: 100%;
+    height: 10vw;
+    padding: 2vw 2vw;
+    margin-top: 5vw;
+  }
+  .titre{
+    font-size: 6vw;
+    font-weight: 700;
+    padding-left: 5vw;
+  }
+  .listIdea{
+    padding: 0 0 5vw 2vw;
+    line-height: 2.8;
+    i{
+      color:gray;
+    }
+  }
+  i{
+    color: gray;
+  }
+  .AddId{
+    padding-left: 5vw;
+  }
+
+  
+}

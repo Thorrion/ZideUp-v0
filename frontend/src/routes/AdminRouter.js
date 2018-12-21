@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Switch, Route, withRouter} from 'react-router-dom';
-import Profile from '../components/Profile';
 import Admin from '../components/Admin';
 import { connect } from 'react-redux';
 

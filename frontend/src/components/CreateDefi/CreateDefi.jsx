@@ -2,13 +2,15 @@ import Chips from './Chips'
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { Row, Col } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import './CreateDefi.scss'
 import PopUpConfirm from '../PopUp/PopUpConfirm';
 import PopUpDefi from '../PopUp/PopUpDefi';
 import Backdrop from '../PopUp/Backdrop/Backdrop';
+import './CreateDefi.scss'
 
 let today = new Date().toISOString().slice(0, 10)
 
@@ -29,14 +31,12 @@ const styles = theme => ({
     marginLeft: '5vw'
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    margin: theme.spacing.unit,
     width: '90vw',
     marginLeft: '5vw'
   },
   textField2: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    margin: theme.spacing.unit,
     width: '41vw',
     marginLeft: '5vw'
   },
@@ -85,7 +85,11 @@ const currencies = [
 class CreateDefi extends Component {
   state = {
     popupConfirm: false,
-    popupThank: false
+    popupThank: false,
+    one:'',
+    two:'',
+    three:'',
+    four:''
   }
 
   backdropClickHandler = () => {
@@ -101,12 +105,25 @@ class CreateDefi extends Component {
     this.setState({popupConfirm: false, popupThank: true})
   }
 
+  one = () => {
+    this.setState({one:'orange', two:'',three:'',four:''})
+  }
+  two = () => {
+    this.setState({one:'orange', two:'orange',three:'',four:''})
+  }
+  three = () => {
+    this.setState({one:'orange', two:'orange',three:'orange',four:''})
+  }
+  four = () => {
+    this.setState({one:'orange', two:'orange',three:'orange',four:'orange'})
+  }
+
   
   render() {
     const { classes } = this.props;
     return (
 
-      <React.Fragment>
+      <div className="CreateDefiContainer">
 
         {this.state.popupConfirm &&
         <div>
@@ -117,7 +134,7 @@ class CreateDefi extends Component {
         {this.state.popupThank &&
         <div>
           <PopUpDefi close={this.backdropClickHandler}/>
-          <Backdrop click={this.backdropClickHandler}/>
+          <Backdrop/>
 
         </div>
           
@@ -127,9 +144,8 @@ class CreateDefi extends Component {
 
 {/* NOM DU DEFI */}
 
-            {/* <i class="fab fa-safari"></i> */}
             <TextField
-              required
+              // required
               id="standard-name"
               label="Nom du défi"
               className={classes.textField}
@@ -140,9 +156,8 @@ class CreateDefi extends Component {
 
 {/* PERIMETRE CONCERNE */}
 
-            {/* <i class="fas fa-chart-line"></i> */}
             <TextField
-              required
+              // required
               id="standard-select-currency-native"
               select
               label="Périmètre concerné"
@@ -167,9 +182,8 @@ class CreateDefi extends Component {
 
 {/* INDICATEUR DE PERFORMANCE */}
 
-            {/* <i class="fas fa-vector-square"></i> */}
             <TextField
-              required
+              // required
               id="standard-perf"
               label="Indicateur clé de performance"
               className={classes.textField}
@@ -181,7 +195,7 @@ class CreateDefi extends Component {
 {/* ACTUEL */}
 
             <TextField
-              required
+              // required
               label="Actuel"
               id="simple-start-adornment"
               className={classes.textField2}
@@ -193,7 +207,7 @@ class CreateDefi extends Component {
 {/* CIBLE */}
           
             <TextField
-              required
+              // required
               label="Cible"
               id="simple-start-adornment"
               className={classes.textField2}
@@ -204,9 +218,8 @@ class CreateDefi extends Component {
 
 {/* DEBUT */}
 
-            <form className={classes.container} noValidate>
               <TextField
-                required
+                // required
                 id="date"
                 label="Début"
                 type="date"
@@ -216,13 +229,11 @@ class CreateDefi extends Component {
                   shrink: true,
                 }}
                 />
-            </form>
 
 {/* FIN */}
 
-            <form className={classes.container} noValidate>
               <TextField
-                required
+                // required
                 id="date"
                 label="Fin"
                 type="date"
@@ -232,16 +243,15 @@ class CreateDefi extends Component {
                   shrink: true,
                 }}
                 />
-            </form>
 
-            <p className="textCat">Sondage</p>
+            <p className="CreateDefiTitre">Sondage</p>
 
 {/* VOTRE QUESTION */}
 
             <TextField
               id="standard-multiline-static"
               label="Votre question"
-              required
+              // required
               multiline
               rows="1"
               className={classes.textField}
@@ -250,15 +260,44 @@ class CreateDefi extends Component {
 
 {/* STARS RATE */}
 
-            <span className="fa fa-star checked"></span><p>Insuffisant</p>      <span className="fa fa-star checked"></span><p>Moyen</p>
-            <span className="fa fa-star checked"></span><p>Bien</p>
-            <span className="fa fa-star checked"></span><p>Excellent</p>
+            <div className="StarsRating">
+              <Row>
+                <Col xs="3">
+                  <i 
+                  className={`fa fa-star checked ${this.state.one}`}
+                  // onClick={this.one}
+                  ></i>   
+                  <p>Insuffisant</p> 
+                </Col>
+                <Col xs="3">
+                  <i 
+                  className={`fa fa-star checked ${this.state.two}`}
+                  // onClick={this.two}
+                  ></i>
+                  <p>Moyen</p>
+                </Col>
+                <Col xs="3">
+                  <i 
+                  className={`fa fa-star checked ${this.state.three}`}
+                  // onClick={this.three}
+                  ></i>
+                  <p>Bien</p>
+                </Col>
+                <Col xs="3">
+                  <i 
+                  className={`fa fa-star checked ${this.state.four}`}
+                  // onClick={this.four}
+                  ></i>
+                  <p>Excellent</p>              
+                </Col>
+              </Row>
+            </div>
 
 {/* CHIPS */}
           
             <Chips/>
 
-            <p className="textCat">Commentaires</p>
+            <p className="CreateDefiTitre">Commentaires</p>
             
 {/* COMMENTAIRE */}
             
@@ -275,25 +314,21 @@ class CreateDefi extends Component {
               }}
             />
 
-{/* BUTTON ENREGISTRER */}
+            <div className="buttonsDefis">
+              {/* BUTTON ENREGISTRER */}
+              
+              <NavLink to="/3">
+                <button className="ButtonCreateDefi">Enregistrer</button>
+              </NavLink>
+              {/* BOUTON LANCER UN DEFI */}
 
-            {/* <Button variant="contained" size="large" color="primary" className={classes.margin2}>
-                Enregistrer
-            </Button> */}
-            <button className="ButtonCreateDefi">Enregistrer</button>
-
-{/* BOUTON LANCER UN DEFI */}
-
-            {/* <Button type="submit" variant="contained" size="large" color="primary" className={classes.margin2}>
-              Lancer le défi
-            </Button> */}
-            <button 
-            type="submit" 
-            className="ButtonCreateDefi">Lancer le défi</button>
-
+              <button 
+              type="submit" 
+              className="ButtonCreateDefi">Lancer le défi</button>
+            </div>
           </form>
 
-      </React.Fragment>
+      </div>
     );
   }
 }

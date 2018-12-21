@@ -36,9 +36,6 @@ export default class Home extends Component {
               </button>
             </Link>
           </Row>
-
-          {/* <div className="lineHome">
-          </div> */}
           
         </Container>     
           

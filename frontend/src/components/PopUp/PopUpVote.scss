@@ -1,0 +1,43 @@
+@import '../../Variables.scss';
+
+
+.PopUpVote{
+  top: 20vh;
+  left: 10vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  // padding-top: 25vh;
+  width: 80vw;
+  height: 60vh;
+  position: fixed;
+  background-color: $white;
+  z-index: 200;
+  border-radius: 10px;
+  h3{
+    text-align: center;
+    margin: auto;
+  }
+  .gif{
+    width: 80vw;
+    height: 50vw;
+    border-radius: 10px 10px 0 0 ;
+
+  }
+  .ButtonPopUp{
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    border: 0;
+    padding: 5px;
+    width: 40vw;
+    height: 8vh;
+    background: linear-gradient($blue, #0172a5);
+    color: $white;
+    font-size: 4vw;
+    box-shadow: -1px 3px 13px #082d4f;
+    font-weight: 700;
+    margin-left: 20vw;
+    margin-top: 3vh;
+  }
+}

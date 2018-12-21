@@ -5,6 +5,7 @@ import Page2 from '../pages/Page2';
 import Home from '../components/Home/Home';
 import Dashboard from '../pages/Dashboard';
 import DashboardNew from '../pages/DashboardNew';
+import PageCreateDefi from '../pages/PageCreateDefi';
 
 class AppRouter extends Component {
   render() {
@@ -16,6 +17,7 @@ class AppRouter extends Component {
         <Route exact path="/3" component={Dashboard}/>
         <Route exact path="/4" component={DashboardNew}/>
 
+        <Route exact path="/5" component={PageCreateDefi}/>
       </Switch>
     )
   }

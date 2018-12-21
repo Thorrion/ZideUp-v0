@@ -81,9 +81,14 @@
       margin: auto;
       
       .Logo_ZideUp{
+        height: 5vh;
         width: 30vw;
         float: left;
-        margin-left: 10vw;
+        margin-top: 1em;
+        display: flex;
+        text-align: center;
+        position: fixed;
+        margin-left: -17vw;
       }
     }
     .Navbar-toggle-button{

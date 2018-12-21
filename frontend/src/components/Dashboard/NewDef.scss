@@ -1,6 +1,7 @@
 @import '../../Variables.scss';
 
 
+
 .NewDefContainer{
 
     z-index: 1;
@@ -9,6 +10,12 @@
 
 
     .NouveauxNewDef {
+
+        .Defis {
+            background-color: #d3e0f2 !important;
+            padding-top: 1vh;
+            padding-bottom: 1vh;
+        }
 
         .progress-bar {
             display: flex;
@@ -62,7 +69,8 @@
         .textdef {
             display: flex;
             margin-top: 2vh;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            white-space: nowrap;
         }
 
        
@@ -81,7 +89,7 @@
         .emoji {
             display: flex;
             margin-top: 2.5vh;
-            margin-left: 1vw;
+            margin-left: -1vw;
             margin-bottom: -6vw;
            i{
            color:gray;
@@ -89,13 +97,17 @@
             }
 
             .fas.fa-lightbulb {
-                margin-left: 1vw;  
+                margin-left: 3vw; 
+                margin-top: 0em;
+
+                 
             }
         }
 
         .numb {
             margin-left: 1vw;
         }
+        
         
         .progress-bar, .progress{
         height: 3px !important;
@@ -147,7 +159,8 @@
         .textdef {
             display: flex;
             margin-top: 2vh;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            white-space: nowrap;
         }
 
        
@@ -166,7 +179,7 @@
         .emoji {
             display: flex;
             margin-top: 2.5vh;
-            margin-left: 1vw;
+            margin-left: -1vw;
             margin-bottom: -6vw;
            i{
            color:gray;
@@ -174,13 +187,17 @@
             }
 
             .fas.fa-lightbulb {
-                margin-left: 1vw;  
+                margin-left: 3vw; 
+                margin-top: 0em;
+
+                 
             }
         }
 
         .numb {
             margin-left: 1vw;
         }
+        
         
         .progress-bar, .progress{
         height: 3px !important;
@@ -244,7 +261,8 @@
         .textdef {
             display: flex;
             margin-top: 2vh;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            white-space: nowrap;
         }
 
        
@@ -263,7 +281,7 @@
         .emoji {
             display: flex;
             margin-top: 2.5vh;
-            margin-left: 1vw;
+            margin-left: -1vw;
             margin-bottom: -6vw;
            i{
            color:gray;
@@ -271,13 +289,17 @@
             }
 
             .fas.fa-lightbulb {
-                margin-left: 1vw;  
+                margin-left: 3vw; 
+                margin-top: 0em;
+
+                 
             }
         }
 
         .numb {
             margin-left: 1vw;
         }
+        
         
         .progress-bar, .progress{
         height: 3px !important;
@@ -289,6 +311,5 @@
 
     }
 
-
-
+   
 }

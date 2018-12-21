@@ -97,23 +97,23 @@ class RecapTheme extends Component {
 
 
       <Row>
-        <Col>Convenir d'une date de réponse au client</Col>
+        <Col><p className="TextTheme">Convenir d'une date de réponse au client</p></Col>
         <Col xs="3"><i className="fas fa-thumbs-up"></i> 3 <i className="fas fa-comment"></i> 4</Col>
       </Row>
       <Row>
-        <Col>Décider un point de contact unique</Col>
+        <Col><p className="TextTheme">Décider un point de contact unique</p></Col>
         <Col xs="3"><i className="fas fa-thumbs-up"></i> 2 <i className="fas fa-comment"></i> 3</Col>
       </Row>
       <Row>
-        <Col>Eviter la prise de contact sauvage</Col>
+        <Col><p className="TextTheme">Eviter la prise de contact sauvage</p></Col>
         <Col xs="3"><i className="fas fa-thumbs-up"></i> 1 <i className="fas fa-comment"></i> 2</Col>
       </Row>
       <Row>
-        <Col>Redéfinir le standard de réponse au client</Col>
+        <Col><p className="TextTheme">Redéfinir le standard de réponse au client</p></Col>
         <Col xs="3"><i className="fas fa-thumbs-up"></i> 3 <i className="fas fa-comment"></i> 2</Col>
       </Row>
       <Row>
-        <Col>Catégoriser la base de réclamations</Col>
+        <Col><p className="TextTheme">Catégoriser la base de réclamations</p></Col>
         <Col xs="3"><i className="fas fa-thumbs-up"></i> 0 <i className="fas fa-comment"></i> 0</Col>
       </Row>
 

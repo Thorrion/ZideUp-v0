@@ -349,19 +349,18 @@ class CreateDefi extends Component {
               }}
             />
 
-{/* BUTTON ENREGISTRER */}
+            <div className="buttonsDefis">
+              {/* BUTTON ENREGISTRER */}
+              
+              <NavLink to="/3">
+                <button className="ButtonCreateDefi">Enregistrer</button>
+              </NavLink>
+              {/* BOUTON LANCER UN DEFI */}
 
-            <NavLink to="/3">
-              <button className="ButtonCreateDefi">Enregistrer</button>
-            </NavLink>
-
-{/* BOUTON LANCER UN DEFI */}
-
-            
-            <button 
-            type="submit" 
-            className="ButtonCreateDefi">Lancer le défi</button>
-
+              <button 
+              type="submit" 
+              className="ButtonCreateDefi">Lancer le défi</button>
+            </div>
           </form>
 
       </div>

@@ -12,20 +12,22 @@ const SideDrawer = props => {
     <nav className={drawerClasses}>
 
       <ul>
-          <div>
+          <div >
             <i className="fas fa-home"></i>
             <li><a 
             onClick={props.close} 
-            href="/#accueil">Accueil</a></li>
+            href="/#accueil" className="Acceuil">Accueil</a></li>
           </div>
 
           <hr/>
 
-          <div>
-            <i className="fas fa-rocket"></i>
+          <div className="zz">
+            
             <li><a 
             onClick={props.close} 
             href="/#listeDefis">Liste Défis</a></li>
+            <i className="fas fa-rocket"></i>
+            <hr className="TwoObj"/>
             <li><a 
             onClick={props.close} 
             href="/#mesDefis">Mes Défis</a></li>
@@ -34,10 +36,12 @@ const SideDrawer = props => {
           <hr/>
 
           <div>
-            <i className="fas fa-lightbulb"></i>
+            
             <li><a 
             onClick={props.close} 
             href="/#listeIdees">Liste Idées</a></li>
+            <i className="fas fa-lightbulb"></i>
+            <hr className="TwoObj"/>
             <li><a 
             onClick={props.close} 
             href="/#mesIdees">Mes Idées</a></li>
@@ -68,3 +72,5 @@ const SideDrawer = props => {
 
 
 export default SideDrawer;
+
+

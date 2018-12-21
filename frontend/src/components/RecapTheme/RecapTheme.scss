@@ -7,17 +7,22 @@
     display: flex;
     float: left;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 14px;
     border: 0;
     padding: 5px;
     width: 40vw;
     height: 13vw;
-    background: linear-gradient($blue, #0172a5);
+    background: #2c8de7 !important;
     color: $white;
     font-size: 5vw;
-    box-shadow: -1px 3px 13px #082d4f;
+    box-shadow: -1px 3px 13px white;
     font-weight: 700;
     margin: 8vw 5vw;
+  }
+
+  .TextTheme {
+
+    font-size:0.9em; 
   }
   .RecapThemeTexte{
     padding: 2vw 6vw;
@@ -49,4 +54,6 @@
   .AddId{
     padding-left: 5vw;
   }
+
+  
 }

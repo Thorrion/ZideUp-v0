@@ -4,19 +4,91 @@
 
 ///// SCSS ////
 
-.side-drawer {
+.DeplaceMen {}
+
+#listeDefis {
+
   display: flex;
-  height:90vh;
-  box-shadow: -5px 0px 5px rgba($color: #777, $alpha: 0.6);
+  padding-top: 4em;
+}
+
+#listeIdees {
+  margin-top: 5em;
+}
+
+#profil {
+  margin-top: 5em;
+} 
+
+#aide {
+  margin-top: 5em;
+} 
+
+.fas.fa-rocket {
+  color: white;
+  margin-top: 1em;
+}
+
+.fas.fa-home {
+  color: white;
+}
+
+
+.fas.fa-user-circle {
+  color: white;
+  margin-top: 1em;
+}
+
+.fas.fa-info-circle {
+  color: white;
+  margin-top: 1em;
+}
+
+hr {
+  width: 77% !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid white;
+  margin-left: 0.5em;
+}
+
+.TwoObj {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid white;
+  margin-left: 2em;
+  padding: auto;
+  margin-bottom: 2em;
+  
+  
+}
+
+ul hr {
+  width: 65%;
+  border-bottom: solid white 1px !important;
+}
+
+.side-drawer {
+  padding-top: 2em;
+  display: flex;
+  height: 90vh;
+  box-shadow: -5px 0px 5px rgba(119, 119, 119, 0.6);
   position: fixed;
   top: 10vh;
   right: 0;
   width: 65%;
   max-width: 400px;
   z-index: 200;
+  -webkit-transform: translateX(105%);
   transform: translateX(105%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
-  background-color: $white;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  background-color: #222222c9;
+}
 
   ul{
     margin-top: 5vw;
@@ -24,10 +96,7 @@
     display: flex;
     flex-direction: column;
 
-    hr{
-      width: 65%;
-      border-bottom: solid $black 1px;
-    }
+
 
     div{
       display: flex;
@@ -39,7 +108,7 @@
       }
       
       a {
-        color: $black;
+        color: white;
         text-decoration: none;
         font-size: 5vw;
       }
@@ -55,7 +124,7 @@
       color: $blue;
     }
   }
-}
+
 
 .side-drawer.open {
   transform : translateX(0)

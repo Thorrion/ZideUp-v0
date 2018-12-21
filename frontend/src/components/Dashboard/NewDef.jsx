@@ -37,8 +37,6 @@ class NewDef extends Component {
                 <Col xs={4} >
                 <NavLink 
                 to={`/6/${index}`}
-                // index={index}
-                // to={{pathname:"/6", state: {index}}}
                 >
                   <div className="flechage">
                     <i className="fas fa-arrow-right fleche"
@@ -51,14 +49,13 @@ class NewDef extends Component {
               <hr/>
               </div>
               )
-
-
             })
             }
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
                 Qualité : Diminuer les défauts de 20% sur...</p>
+
               </Col>
               <Col xs={1} >
                 <div className="flechage">
@@ -72,7 +69,9 @@ class NewDef extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+
+                R&D : Proposer 4 nouvelles fonctio...</p>
+               
               </Col>
 
               <Col xs={1} >
@@ -118,7 +117,7 @@ class NewDef extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20% sur...</p>
+                Qualité : Diminuer les défauts de 20...</p>
                 <Progress value="15" className="progress" />
               </Col>
               <Col xs={3} >
@@ -142,7 +141,7 @@ class NewDef extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+                R&D : Proposer 4 nouvelles fonctio...</p>
                 <Progress value="80" className="progress" />
               </Col>
               <Col xs={3} >
@@ -197,7 +196,7 @@ class NewDef extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20% sur...</p>
+                Qualité : Diminuer les défauts de 20...</p>
                 <Progress value="100" className="progress" />
               </Col>
               <Col xs={3} >
@@ -221,7 +220,7 @@ class NewDef extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+                R&D : Proposer 4 nouvelles fonctio...</p>
                 <Progress value="100" className="progress" />
               </Col>
               <Col xs={3} >

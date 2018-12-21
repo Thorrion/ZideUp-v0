@@ -29,7 +29,7 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20% sur...</p>
+              Qualité : Diminuer les défauts de 20...</p>
                 <Progress value="15" className="progress" />
               </Col>
               <Col xs={1} >
@@ -44,7 +44,7 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+              R&D : Proposer 4 nouvelles fonctio...</p>
                 <Progress value="80" className="progress" />
               </Col>
 
@@ -88,7 +88,7 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20% sur...</p>
+                Qualité : Diminuer les défauts de 20...</p>
                 <Progress value="15" className="progress" />
               </Col>
               <Col xs={3} >
@@ -112,7 +112,7 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+                R&D : Proposer 4 nouvelles fonctio...</p>
                 <Progress value="80" className="progress" />
               </Col>
               <Col xs={3} >
@@ -167,7 +167,7 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20% sur...</p>
+              Qualité : Diminuer les défauts de 20...</p>
                 <Progress value="100" className="progress" />
               </Col>
               <Col xs={3} >
@@ -191,7 +191,7 @@ export default class All extends Component {
 
             <Row className="Defis">
               <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctionnalités</p>
+              R&D : Proposer 4 nouvelles fonctio...</p>
                 <Progress value="100" className="progress" />
               </Col>
               <Col xs={3} >

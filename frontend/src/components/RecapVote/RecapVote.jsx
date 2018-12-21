@@ -130,17 +130,19 @@ class RecapVote extends Component {
         }}
       />
 
-          <NavLink to="/5">
-            <button 
-              className="ButtonRecapVote"
-              onClick={this.props.close}
-              >Accueil</button>
-          </NavLink>
+          <div className="voteButtonsContainer">
+            <NavLink to="/5">
+              <button 
+                className="ButtonRecapVote"
+                onClick={this.props.close}
+                >Accueil</button>
+            </NavLink>
 
-          <button 
-          className="ButtonRecapVote"
-          onClick={this.props.confirm}
-          >Liste idées</button>
+            <button 
+            className="ButtonRecapVote"
+            onClick={this.props.confirm}
+            >Liste idées</button>
+          </div>
 
       </div>
     )

@@ -67,6 +67,16 @@
 //   }
 // }
 
+.Navbar {
+  a {
+    display: flex;
+    margin-top: -2.1em;
+    justify-content: left;
+    margin-left: 10vw;
+   
+  }
+}
+
 @media screen and(max-width:425px){
   .Navbar {
     background: linear-gradient($blue, $darkblue);
@@ -81,9 +91,14 @@
       margin: auto;
       
       .Logo_ZideUp{
+        height: 5vh;
         width: 30vw;
         float: left;
-        margin-left: 10vw;
+        margin-top: 1em;
+        display: flex;
+        text-align: center;
+        position: fixed;
+        margin-left: -17vw;
       }
     }
     .Navbar-toggle-button{

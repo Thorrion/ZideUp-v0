@@ -1,21 +1,67 @@
 @import '../../Variables.scss';
 
+
+
 .CreateDefiContainer{
+  .buttonsDefis {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 7vw;
+  }
+  .CreateDefi-container-1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 12vh;
+}
   .ButtonCreateDefi{
     display: flex;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 14px;
     border: 0;
     padding: 5px;
     width: 40vw;
     height: 13vw;
-    background: linear-gradient($blue, #0172a5);
-    color: $white;
+    background: #2c8de7;
+    color: #ffffff;
     font-size: 5vw;
-    box-shadow: -1px 3px 13px #082d4f;
+
     font-weight: 700;
     margin: 8vw 5vw;
+    margin-left: auto;
+    margin-right: auto;
   }
+  .MuiInputBase-root-45 {
+    color: rgba(0, 0, 0, 0.87);
+    cursor: text;
+    display: inline-flex;
+    font-size: 1rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.1875em;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+  .CreateDefi-textField-4 {
+    width: 90vw;
+    margin: 8px;
+    margin-left: 5vw;
+    margin-top: -2vh;
+}
+  .ChipsArray-root-117 {
+    margin-top: 1vh;
+    display: flex;
+    padding: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+  .MuiPaper-elevation2-124 {
+    box-shadow: 0px 0px 0px 0px white, 0px 2px 2px 0px white, 0px 3px 1px -2px white !important; 
+}
+
 
   .CreateDefiTitre{
     background-color: rgba($color: #ccc, $alpha: 1.0) ;
@@ -41,5 +87,9 @@
       color:orange;  
     }
   }
+}
+
+.chipsInputs {
+  margin-left: 10vw !important;
 }
     

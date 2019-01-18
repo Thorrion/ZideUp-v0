@@ -1,45 +1,70 @@
 import React, { Component } from 'react';
-import { Container, Row } from 'reactstrap';
-import { Link } from 'react-router-dom'
-import './Home.scss';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import { NavLink } from 'react-router-dom'
+import Logo from './picture/logoZideUp.png'
 
-export default class Home extends Component {
+const styles = theme => ({
+  root: {
+    background: "linear-gradient(rgb(14, 98, 177),rgb(3, 156, 224))",
+    height: "100vh"
+  },
+  title: {
+    color: "white",
+    fontSize: "10vw",
+    textAlign: "center",
+    marginTop: "10vw",
+    marginBottom: "10vw",
+  },
+  logo: {
+    width: "70vw",
+    marginLeft: "15vw",
+    marginBottom: "10vw"
+  },
+  catchPhrase: {
+    color: "white",
+    fontSize: "5vw",
+    textAlign: "center"
+  },
+  button: {
+    width: "90vw",
+    marginLeft: "5vw",
+    backgroundColor: "white",
+    border: "none",
+    height: "15vw",
+    borderRadius: "15px",
+    color: '#039ce0',
+    fontSize: "6vw",
+    fontWeight: "bold"
+  }
+});
+
+class Home extends Component {
   render() {
+    const { classes } = this.props;
     return (
+        <Grid container className={classes.root}>
 
-      <div className="WallHome">
-          
-        <Container>
+          <Grid item xs={12}>
+              <p className={classes.title}>Bienvenue</p>
+          </Grid>
 
-          <Row>
-            <div>
-              <p className="Welcome">Bienvenue</p>
-            </div>
-          </Row>
+          <Grid item xs={12}>
+              <img src={Logo} alt="Logo ZideUp" className={classes.logo}/>
+          </Grid>
 
-          <Row>
-            <div>
-              <img src="http://image.noelshack.com/fichiers/2018/51/3/1545228420-zideup-logo-blanc.png" alt="Logo ZideUp" className="Logo-home"/>
-            </div>
-          </Row>
+          <Grid item xs={12}>
+              <p className={classes.catchPhrase}>Laissez vos idées s'élever</p>
+          </Grid>
 
-          <Row>
-            <div>
-              <p className="Idées-accr">Laissez vos idées s'élever</p>
-            </div>
-          </Row>
-
-          <Row>
-            <Link to="/2">
-              <button className="Demarrer">
-              Démarrer
-              </button>
-            </Link>
-          </Row>
-          
-        </Container>     
-          
-      </div>
+          <Grid item xs={12}>
+            <NavLink to="/2">
+              <button className={classes.button}>Démarrer</button>
+            </NavLink>
+          </Grid>
+        </Grid>     
     )
   }
 }
+
+export default withStyles(styles)(Home)

@@ -58,7 +58,7 @@ class ChipsArray extends React.Component {
 
       <Input
         placeholder="Ajoutez vos items séparés par des virgules"
-        className={classes.input + " chipsInputs"}
+        className={classes.input}
         inputProps={{
           'aria-label': 'Description',
         }}

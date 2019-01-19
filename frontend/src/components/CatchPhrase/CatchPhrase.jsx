@@ -8,11 +8,11 @@ const styles = theme => ({
   root: {
     background: "linear-gradient(white, #e0f1ff)",
     height: "100vh",
-    paddingTop: "10vh"
+    paddingTop: "4em"
   },
   window: {
     width: "90vw",
-    height: "50vh",
+    height: "30vh",
     marginTop: "10vh",
     backgroundColor: "#039ce0",
     marginLeft: "5vw",
@@ -34,7 +34,7 @@ const styles = theme => ({
     borderRadius: "0 0 15px 15px"
   },
   button: {
-    marginTop: "5vh",
+    marginTop: "20vh",
     width: "90vw",
     marginLeft: "5vw",
     backgroundColor: "#039ce0",

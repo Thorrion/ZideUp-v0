@@ -13,7 +13,7 @@ const SideDrawer = props => {
 
       <ul>
           <div >
-            <i className="fas fa-home"></i>
+            {/* <i className="fas fa-home"></i> */}
             <li><a 
             onClick={props.close} 
             href="/#accueil" className="Acceuil">Accueil</a></li>
@@ -25,9 +25,9 @@ const SideDrawer = props => {
             
             <li><a 
             onClick={props.close} 
-            href="/#listeDefis">Liste Défis</a></li>
-            <i className="fas fa-rocket"></i>
-            <hr className="TwoObj"/>
+            href="/3">Liste Défis</a></li>
+            {/* <i className="fas fa-rocket"></i> */}
+            {/* <hr className="TwoObj"/> */}
             <li><a 
             onClick={props.close} 
             href="/#mesDefis">Mes Défis</a></li>
@@ -40,8 +40,8 @@ const SideDrawer = props => {
             <li><a 
             onClick={props.close} 
             href="/#listeIdees">Liste Idées</a></li>
-            <i className="fas fa-lightbulb"></i>
-            <hr className="TwoObj"/>
+            {/* <i className="fas fa-lightbulb"></i> */}
+            {/* <hr className="TwoObj"/> */}
             <li><a 
             onClick={props.close} 
             href="/#mesIdees">Mes Idées</a></li>
@@ -50,7 +50,7 @@ const SideDrawer = props => {
           <hr/>
           
           <div>
-            <i className="fas fa-user-circle"></i>
+            {/* <i className="fas fa-user-circle"></i> */}
             <li><a 
             onClick={props.close} 
             href="/#profil">Mon Profil</a></li>
@@ -59,7 +59,7 @@ const SideDrawer = props => {
           <hr/>
 
           <div>
-            <i className="fas fa-info-circle"></i>
+            {/* <i className="fas fa-info-circle"></i> */}
             <li><a 
             onClick={props.close} 
             href="/#aide">Aide</a></li>

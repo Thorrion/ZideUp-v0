@@ -7,9 +7,9 @@
 .backdrop{
   position:fixed;
   width : 100%;
-  height: 90vh;
-  top: 10vh;
+  height: 96em; 
+  top: 4em;
   left: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1500;
 }

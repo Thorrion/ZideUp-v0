@@ -1,14 +1,15 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar';
 import NewDef from '../components/Dashboard/NewDef';
-import InputAndSearch from '../components/InputAndSearch/InputAndSearch';
+import Menu from '../components/InputAndSearch/Menu';
 
 
 const DashboardNew = () => {
   return (
     <div>
       <Navbar/>
-      <InputAndSearch/>
+      {/* <Menu/> */}
+      <Menu/>
       <NewDef/>
 
     </div>

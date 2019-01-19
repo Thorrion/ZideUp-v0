@@ -1,229 +1,215 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Progress } from 'reactstrap'
-import './All.scss'
+import { Progress } from 'reactstrap'
+import { connect } from 'react-redux'
+import { withStyles } from '@material-ui/core/styles';
+import { NavLink } from 'react-router-dom'
+import Grid from '@material-ui/core/Grid';
+import { compose } from 'recompose'
 
-export default class All extends Component {
+const styles = theme => ({
+  root: {
+    paddingTop: "4em",
+    paddingBottom: "4em"
+  },
+  title: {
+    backgroundColor: "#e8e8e8",
+    margin: "0 -6vw",
+    padding: "2vw 5vw"
+  },
+  challenge: {
+    padding: "5vw 0",
+    marginLeft: "-3vw"
+  },
+  side: {
+    textAlign: "right",
+    margin: "auto",
+    color: "gray",
+    marginRight: "-3vw",
+    fontSize: "3.5vw"
+  },
+  progress: {
+    height: "3px"
+  },
+  hr: {
+    width: "100vw !important",
+    margin : "0 -6vw"
+  },
+});
+
+class All extends Component {
   render() {
+    const { classes } = this.props;
+    console.log(this.props);
     return (
-      <div>
-        <Container className="AllContainer">
+        <div className={classes.root}>
 
-          <div className="NouveauxAll">
+{/* NOUVEAU */}
 
-            <p className="TextCate">Nouveaux</p>
+            <p className={classes.title}>Nouveaux</p>
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-                Production : Digitaliser l'audit qualité</p>
-                <Progress value="55" className="progress" />
-              </Col>
-              <Col xs={4} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+          <Grid container>
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-              Qualité : Diminuer les défauts de 20...</p>
-                <Progress value="15" className="progress" />
-              </Col>
-              <Col xs={1} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+          {this.props.challenges.list &&
+            this.props.challenges.list.map((challenge, index) => {
+              return (
+              <Grid container key={index}>
+                <Grid item xs={9} className={classes.challenge}>
+                  <p style={{margin: 0}}>{challenge.perimetre} : {challenge.nom}</p>
+                </Grid>
+                <Grid item xs={3} className={classes.side}>
+                  <NavLink to={`/6/${index}`}>
+                    <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw"}}></i>
+                  </NavLink>
+                </Grid>
+                <hr className={classes.hr}/>
+              </Grid>
+              )
+            })
+            }
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-              R&D : Proposer 4 nouvelles fonctio...</p>
-                <Progress value="80" className="progress" />
-              </Col>
+            <Grid item xs={9} className={classes.challenge}>
+              <p style={{margin: 0}}>Sécurité : Réduire les risques d'accident</p>
+            </Grid>
+            <Grid item xs={3} className={classes.side}>
+                <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw"}}></i>
+            </Grid>
+          
+            <hr className={classes.hr}/>
 
-              <Col xs={1} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
+            <Grid item xs={9} className={classes.challenge}>
+              <p style={{margin: 0}}>Production : Améliorer les conditions de...</p>
+            </Grid>
+            <Grid item xs={3} className={classes.side}>
+                <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw"}}></i>
+            </Grid>
 
-          </div>
+          <hr className={classes.hr}/>
 
-          <div className="EnCoursAll">
-            <p className="TextCate">En cours</p>
+          </Grid>
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-                Production : Digitaliser l'audit qualité</p>
-                <Progress value="55" className="progress" />
-              </Col>
-              <Col xs={3} >
-                <div className="emoji">
-                  <i className="fas fa-thumbs-up">
-                  </i> <p className="numb">15</p>
-                  <i
-                    className="fas fa-lightbulb">
-                  </i><p className="numb">8</p>
-                </div>
-              </Col>
-              <Col xs={1} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+{/* EN COURS */}
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-                Qualité : Diminuer les défauts de 20...</p>
-                <Progress value="15" className="progress" />
-              </Col>
-              <Col xs={3} >
-                <div className="emoji">
-                  <i className="fas fa-thumbs-up">
-                  </i> <p className="numb">22</p>
-                  <i
-                    className="fas fa-lightbulb">
-                  </i><p className="numb">6</p>
-                </div>
-              </Col>
-              <Col xs={1} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+            <p className={classes.title}>En cours</p>
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-                R&D : Proposer 4 nouvelles fonctio...</p>
-                <Progress value="80" className="progress" />
-              </Col>
-              <Col xs={3} >
-                <div className="emoji">
-                  <i className="fas fa-thumbs-up">
-                  </i> <p className="numb">23</p>
-                  <i
-                    className="fas fa-lightbulb">
-                  </i><p className="numb">9</p>
-                </div>
-              </Col>
-              <Col xs={1} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+            <Grid container>
 
+            <Grid item xs={9} className={classes.challenge}>
+              <p style={{margin: 0}}>Production : Digitaliser l'audit qualité</p>
+              <Progress value="55" className={classes.progress} />
+            </Grid>
+            <Grid item xs={3} className={classes.side}>
+                  <p style={{margin: 0}}>
+                    <i className="fas fa-thumbs-up"></i> 
+                    15 
+                    <i className="fas fa-lightbulb" style={{marginLeft: "1vw"}}></i>
+                    8 
+                    <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw", marginLeft: "1vw"}}></i>
+                  </p>
+            </Grid>
 
+          
+            <hr className={classes.hr}/>
 
-          </div>
+            <Grid item xs={9} className={classes.challenge}>
+              <p style={{margin: 0}}>Qualité : Diminuer les défauts de 30%</p>
+              <Progress value="15" className={classes.progress} />
+            </Grid>
+            <Grid item xs={3} className={classes.side}>
+                <p style={{margin: 0}}>
+                    <i className="fas fa-thumbs-up"></i> 
+                    44 
+                    <i className="fas fa-lightbulb" style={{marginLeft: "1vw"}}></i>
+                    12
+                    <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw", marginLeft: "1vw"}}></i>
+                  </p>
+            </Grid>
 
-          <div className="TermineAll">
-            <p className="TextCate">Terminés</p>
+          <hr className={classes.hr}/>
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-                Production : Digitaliser l'audit qualité</p>
-                <Progress value="100" className="progress" />
-              </Col>
-              <Col xs={3} >
-                <div className="emoji">
-                  <i className="fas fa-thumbs-up">
-                  </i> <p className="numb">15</p>
-                  <i
-                    className="fas fa-lightbulb">
-                  </i><p className="numb">8</p>
-                </div>
-              </Col>
-              <Col xs={1} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+            <Grid item xs={9} className={classes.challenge}>
+              <p style={{margin: 0}}>R&D : Proposer 4 nouvelles fonctionnalités</p>
+              <Progress value="80" className={classes.progress} />
+            </Grid>
+            <Grid item xs={3} className={classes.side}>
+              <p style={{margin: 0}}>
+                  <i className="fas fa-thumbs-up"></i> 
+                  23
+                  <i className="fas fa-lightbulb" style={{marginLeft: "1vw"}}></i>
+                  15
+                  <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw", marginLeft: "1vw"}}></i>
+                </p>
+            </Grid>
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-              Qualité : Diminuer les défauts de 20...</p>
-                <Progress value="100" className="progress" />
-              </Col>
-              <Col xs={3} >
-                <div className="emoji">
-                  <i className="fas fa-thumbs-up">
-                  </i> <p className="numb">22</p>
-                  <i
-                    className="fas fa-lightbulb">
-                  </i><p className="numb">6</p>
-                </div>
-              </Col>
-              <Col xs={1} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+            <hr className={classes.hr}/>
 
-            <Row className="Defis">
-              <Col xs={8} className="Title"><p className="textdef">
-              R&D : Proposer 4 nouvelles fonctio...</p>
-                <Progress value="100" className="progress" />
-              </Col>
-              <Col xs={3} >
-                <div className="emoji">
-                  <i className="fas fa-thumbs-up">
-                  </i> <p className="numb">23</p>
-                  <i
-                    className="fas fa-lightbulb">
-                  </i><p className="numb">9</p>
-                </div>
-              </Col>
-              <Col xs={1} >
-                <div className="flechage">
-                  <i
-                    className="fas fa-arrow-right fleche">
-                  </i>
-                </div>
-              </Col>
-            </Row>
-            <hr />
+          </Grid>
 
+{/* TERMINES */}
 
+            <p className={classes.title}>Terminés</p>
 
-          </div>
+            <Grid container>
 
+            <Grid item xs={9} className={classes.challenge}>
+              <p style={{margin: 0}}>Production : Digitaliser les processus</p>
+              <Progress value="100" color="warning" className={classes.progress} />
+            </Grid>
+            <Grid item xs={3} className={classes.side}>
+                  <p style={{margin: 0}}>
+                    <i className="fas fa-thumbs-up"></i> 
+                    12
+                    <i className="fas fa-lightbulb" style={{marginLeft: "1vw"}}></i>
+                    5
+                    <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw", marginLeft: "1vw"}}></i>
+                  </p>
+            </Grid>
 
-        </Container>
+          
+            <hr className={classes.hr}/>
 
-      </div>
+            <Grid item xs={9} className={classes.challenge}>
+              <p style={{margin: 0}}>Qualité : Conformité sortie de produit</p>
+              <Progress value="100" color="warning" className={classes.progress} />
+            </Grid>
+            <Grid item xs={3} className={classes.side}>
+                <p style={{margin: 0}}>
+                    <i className="fas fa-thumbs-up"></i> 
+                    6 
+                    <i className="fas fa-lightbulb" style={{marginLeft: "1vw"}}></i>
+                    17
+                    <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw", marginLeft: "1vw"}}></i>
+                  </p>
+            </Grid>
+
+          <hr className={classes.hr}/>
+
+            <Grid item xs={9} className={classes.challenge}>
+              <p style={{margin: 0}}>R&D : Proposer 4 nouvelles fonctionnalités</p>
+              <Progress value="100" color="success" className={classes.progress} />
+            </Grid>
+            <Grid item xs={3} className={classes.side}>
+                <p style={{margin: 0}}>
+                    <i className="fas fa-thumbs-up"></i> 
+                    27
+                    <i className="fas fa-lightbulb" style={{marginLeft: "1vw"}}></i>
+                    19
+                    <i className="fas fa-arrow-right" style={{color: "#039ce0", fontSize: "5vw", marginLeft: "1vw"}}></i>
+                  </p>
+            </Grid>
+
+            <hr className={classes.hr}/>
+
+          </Grid>
+
+        </div>
+
     )
   }
 }
 
 
+const mapStateToProps = (state) => ({
+  ...state
+})
 
+export default compose(connect(mapStateToProps),(withStyles(styles)))(All)

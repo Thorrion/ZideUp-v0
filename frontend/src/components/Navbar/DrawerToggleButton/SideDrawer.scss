@@ -73,14 +73,14 @@ ul hr {
 .side-drawer {
   padding-top: 2em;
   display: flex;
-  height: 90vh;
+  height: 96em;
   box-shadow: -5px 0px 5px rgba(119, 119, 119, 0.6);
   position: fixed;
-  top: 10vh;
+  top: 4em;
   right: 0;
   width: 65%;
   max-width: 400px;
-  z-index: 200;
+  z-index: 2000;
   -webkit-transform: translateX(105%);
   transform: translateX(105%);
   -webkit-transition: -webkit-transform 0.3s ease-out;
@@ -115,7 +115,7 @@ ul hr {
     }
     
     li {
-      margin: 5vw 10vw;
+      margin: 3vw 10vw;
       align-self: flex-end;
     }
     

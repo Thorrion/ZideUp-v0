@@ -23,6 +23,12 @@ const styles = theme => ({
     width: '90vw',
     // marginLeft: '5vw'
   },
+  title: {
+    backgroundColor: "#e8e8e8",
+    margin: "2vw 0",
+    padding: "2vw 5vw",
+    width: "100vw"
+  },
 });
 
 class ChipsArray extends React.Component {
@@ -55,9 +61,9 @@ class ChipsArray extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className="ChipsRecapVote">
+      <div>
       <Paper className={classes.root}>
-        {this.state.chipData.map(data => {
+        {this.state.chipData.map((data, index) => {
           let icon = null;
           
           if (data.label === 'React') {
@@ -65,7 +71,7 @@ class ChipsArray extends React.Component {
           }
           
           return (
-            <div>
+            <div key={index}>
               <NavLink to={`/8/${this.props.index}`}>
               <Chip
               key={data.key}
@@ -74,14 +80,14 @@ class ChipsArray extends React.Component {
               // onDelete={this.handleDelete(data)}
               className={classes.chip}
               />
-              <i class="fas fa-thumbs-up"></i> {data.members} <i class="fas fa-lightbulb"></i> {data.idea}
+              <i className="fas fa-thumbs-up"></i> {data.members} <i className="fas fa-lightbulb"></i> {data.idea}
               </NavLink>
             </div>
             );
           })}
       </Paper>
 
-      <p>Ajouter des items</p>
+      <p className={classes.title}>Ajouter des items</p>
 
       <Input
         placeholder="Ajoutez vos items séparés par des virgules"

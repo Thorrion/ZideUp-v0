@@ -1,18 +1,17 @@
-import Chips from './Chips'
+import Chips from '../Chips/Chips'
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Row, Col } from 'reactstrap'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import PopUpConfirm from '../PopUp/PopUpConfirm';
 import PopUpDefi from '../PopUp/PopUpDefi';
-import Backdrop from '../PopUp/Backdrop/Backdrop';
+import Backdrop from '../Backdrop/Backdrop';
 import { connect } from 'react-redux'
 import { challengeAction }from '../../stores/actions/challengeAction'
-import './CreateDefi.scss'
 
 let today = new Date().toISOString().slice(0, 10)
 
@@ -20,17 +19,7 @@ const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-    paddingTop: '10vh'
-  },
-  input: {
-    margin: theme.spacing.unit,
-    width: '90vw',
-    marginLeft: '5vw'
-  },
-  input2: {
-    margin: theme.spacing.unit,
-    width: '90vw',
-    marginLeft: '5vw'
+    paddingTop: '4em'
   },
   textField: {
     margin: theme.spacing.unit,
@@ -52,13 +41,30 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     width: '90vw',
     marginLeft: '5vw'
-
   },
   margin2: {
     margin: theme.spacing.unit,
     width: '45vw',
     marginLeft: '2.5vw'
   },
+  title: {
+    backgroundColor: "#e8e8e8",
+    padding: "2vw 5vw",
+    margin: "2vw 0",
+  },
+  button : {
+    marginTop: "1em",
+    marginBottom: "1em",
+    width: "40vw",
+    marginLeft: "5vw",
+    backgroundColor: "#039ce0",
+    border: "none",
+    height: "15vw",
+    borderRadius: "15px",
+    color: 'white',
+    fontSize: "4vw",
+    fontWeight: "bold"
+  }
 });
 
 const currencies = [
@@ -84,14 +90,12 @@ const currencies = [
   },
 ];
 
-
-
 class CreateDefi extends Component {
   state = {
     popupConfirm: false,
     popupThank: false,
     nom:'',
-    perimetre:'R&D',
+    perimetre:'',
     indicateur:'',
     actuel:'',
     cible:'',
@@ -138,205 +142,190 @@ class CreateDefi extends Component {
   }
   
   render() {
-    console.log(this.props)
     const { classes } = this.props;
     return (
 
-      <div className="CreateDefiContainer">
+      <Grid container>
 
         {this.state.popupConfirm &&
-        <div>
-          <PopUpConfirm close={this.backdropClickHandler} confirm={(e)=> this.popupThank(e)}/>
-          <Backdrop click={this.backdropClickHandler}/>
-        </div>
+          <div>
+            <PopUpConfirm close={this.backdropClickHandler} confirm={(e)=> this.popupThank(e)}/>
+            <Backdrop click={this.backdropClickHandler}/>
+          </div>
         }
+
         {this.state.popupThank &&
-        <div>
-          <PopUpDefi close={this.backdropClickHandler}/>
-          <Backdrop/>
-
-        </div>
-          
+          <div>
+            <PopUpDefi close={this.backdropClickHandler}/>
+            <Backdrop/>
+          </div>
         }
 
-          <form className={classes.container} onSubmit={(e) => this.popupConfirm(e)}>
+        <form className={classes.container} onSubmit={(e) => this.popupConfirm(e)}>
 
 {/* NOM DU DEFI */}
 
-            <TextField
-              // required
-              id="standard-name"
-              label="Nom du défi"
-              className={classes.textField}
-              name='nom'
-              value={this.state.nom}
-              onChange={(e) => this.handleChange(e)}
-              // margin="normal"
-            />
+        <TextField
+          required
+          id="standard-name"
+          label="Nom du défi"
+          className={classes.textField}
+          name='nom'
+          value={this.state.nom}
+          onChange={(e) => this.handleChange(e)}
+          // margin="normal"
+        />
 
 {/* PERIMETRE CONCERNE */}
 
-            <TextField
-              // required
-              id="standard-select-currency-native"
-              select
-              label="Périmètre concerné"
-              className={classes.input2}
-              name='perimetre'
-              value={this.state.perimetre}
-              onChange={(e) => this.handleChange(e)}
-              SelectProps={{
-                native: true,
-                MenuProps: {
-                  className: classes.menu,
-                },
-              }}
-              // helperText="Please select your currency"
-              margin="normal"
-            >
-              {currencies.map(option => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </TextField>
+        {/* <TextField
+          required
+          id="standard-select-currency-native"
+          select
+          label="Périmètre concerné"
+          className={classes.textField}
+          name='perimetre'
+          value={this.state.perimetre}
+          onChange={(e) => this.handleChange(e)}
+          SelectProps={{
+            native: true,
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+          margin="normal"
+        >
+          <option defaultValue=""></option>
+          {currencies.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </TextField> */}
 
 {/* INDICATEUR DE PERFORMANCE */}
 
-            <TextField
-              // required
-              id="standard-perf"
-              label="Indicateur clé de performance"
-              className={classes.textField}
-              name='indicateur'
-              value={this.state.indicateur}
-              onChange={(e) => this.handleChange(e)}
-            />
+        <TextField
+          required
+          id="standard-perf"
+          label="Indicateur clé de performance"
+          className={classes.textField}
+          name='indicateur'
+          value={this.state.indicateur}
+          onChange={(e) => this.handleChange(e)}
+        />
 
 {/* ACTUEL */}
 
-            <TextField
-              // required
-              label="Actuel"
-              id="simple-start-adornment"
-              className={classes.textField2}
-              name='actuel'
-              value={this.state.actuel}
-              onChange={(e) => this.handleChange(e)}
-              
-            />
+        <TextField
+          required
+          label="Actuel"
+          id="simple-start-adornment"
+          className={classes.textField2}
+          name='actuel'
+          value={this.state.actuel}
+          onChange={(e) => this.handleChange(e)}
+        />
           
 {/* CIBLE */}
           
-            <TextField
-              // required
-              label="Cible"
-              id="simple-start-adornment"
-              className={classes.textField2}
-              name='cible'
-              value={this.state.cible}
-              onChange={(e) => this.handleChange(e)}
-              
-            />
+        <TextField
+          required
+          label="Cible"
+          id="simple-start-adornment"
+          className={classes.textField2}
+          name='cible'
+          value={this.state.cible}
+          onChange={(e) => this.handleChange(e)}
+        />
 
 {/* DEBUT */}
 
-              <TextField
-                // required
-                id="date"
-                label="Début"
-                type="date"
-                defaultValue={today}
-                className={classes.textField2}
-                name='debut'
-                value={this.state.debut}
-                onChange={(e) => this.handleChange(e)}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                />
+        <TextField
+          required
+          id="date"
+          label="Début"
+          type="date"
+          defaultValue={today}
+          className={classes.textField2}
+          name='debut'
+          value={this.state.debut}
+          onChange={(e) => this.handleChange(e)}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
 
 {/* FIN */}
 
-              <TextField
-                // required
-                id="date"
-                label="Fin"
-                type="date"
-                defaultValue={today}
-                className={classes.textField2}
-                name='fin'
-                value={this.state.fin}
-                onChange={(e) => this.handleChange(e)}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                />
+        <TextField
+          required
+          id="date"
+          label="Fin"
+          type="date"
+          defaultValue={today}
+          className={classes.textField2}
+          name='fin'
+          value={this.state.fin}
+          onChange={(e) => this.handleChange(e)}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
 
-            <p className="CreateDefiTitre">Sondage</p>
+        <Grid item xs={12}>
+          <p className={classes.title}>Sondage</p>
+        </Grid>
 
 {/* VOTRE QUESTION */}
 
-            <TextField
-              id="standard-multiline-static"
-              label="Votre question"
-              name='question'
-              value={this.state.question}
-              onChange={(e) => this.handleChange(e)}
-              // required
-              multiline
-              rows="1"
-              className={classes.textField}
-              margin="normal"
-              />
+        <TextField
+          id="standard-multiline-static"
+          label="Votre question"
+          name='question'
+          value={this.state.question}
+          onChange={(e) => this.handleChange(e)}
+          required
+          multiline
+          rows="1"
+          className={classes.textField}
+          margin="normal"
+        />
 
 {/* STARS RATE */}
 
-            <div className="StarsRating">
-              <Row>
-                <Col xs="3">
-                  <i 
-                  className={`fa fa-star checked ${this.state.one}`}
-                  // onClick={this.one}
-                  ></i>   
-                  <p>Insuffisant</p> 
-                </Col>
-                <Col xs="3">
-                  <i 
-                  className={`fa fa-star checked ${this.state.two}`}
-                  // onClick={this.two}
-                  ></i>
-                  <p>Moyen</p>
-                </Col>
-                <Col xs="3">
-                  <i 
-                  className={`fa fa-star checked ${this.state.three}`}
-                  // onClick={this.three}
-                  ></i>
-                  <p>Bien</p>
-                </Col>
-                <Col xs="3">
-                  <i 
-                  className={`fa fa-star checked ${this.state.four}`}
-                  // onClick={this.four}
-                  ></i>
-                  <p>Excellent</p>              
-                </Col>
-              </Row>
-            </div>
+            {/* <Grid container style={{textAlign: "center"}}>
+              <Grid item xs={3}>
+                <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>   
+                <p>Insuffisant</p> 
+              </Grid>
+              <Grid item xs={3}>
+                <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>
+                <p>Moyen</p>
+              </Grid>
+              <Grid item xs={3}>
+                <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>
+                <p>Bien</p>
+              </Grid>
+              <Grid item xs={3}>
+                <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>
+                <p>Excellent</p>              
+              </Grid>
+            </Grid> */}
 
 {/* CHIPS */}
           
             <Chips/>
 
-            <p className="CreateDefiTitre">Commentaires</p>
             
 {/* COMMENTAIRE */}
+          {/* <Grid item xs={12}>
+            <p className={classes.title}>Commentaires</p>
+          </Grid> */}
             
-            <TextField
-              className={classes.margin}
+            {/* <TextField
+              className={classes.textField}
               id="input-with-icon-textfield"
-              // label="Ajoutez un commentaire"
               name='commentaire'
               value={this.state.commentaire}
               onChange={(e) => this.handleChange(e)}
@@ -347,23 +336,29 @@ class CreateDefi extends Component {
                   </InputAdornment>
                 ),
               }}
-            />
+            /> */}
 
-            <div className="buttonsDefis">
-              {/* BUTTON ENREGISTRER */}
+            <Grid container>
+{/* BUTTON ENREGISTRER */}
               
-              <NavLink to="/3">
-                <button className="ButtonCreateDefi">Enregistrer</button>
-              </NavLink>
-              {/* BOUTON LANCER UN DEFI */}
+              <Grid item xs={6}>
+                <NavLink to="/3">
+                  <button className={classes.button}>Enregistrer</button>
+                </NavLink>
+              </Grid>
 
-              <button 
-              type="submit" 
-              className="ButtonCreateDefi">Lancer le défi</button>
-            </div>
+{/* BOUTON LANCER UN DEFI */}
+
+              <Grid item xs={6}>
+                <button 
+                type="submit" 
+                className={classes.button}>Lancer le défi</button>
+              </Grid>
+
+            </Grid>
           </form>
 
-      </div>
+      </Grid>
     );
   }
 }

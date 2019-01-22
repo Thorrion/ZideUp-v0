@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import NavDesktop from './NavDesktop/NavDesktop';
 import SideDrawer from './DrawerToggleButton/SideDrawer'
-import Backdrop from './Backdrop/Backdrop'
+import Backdrop from '../Backdrop/Backdrop'
 
 // MOBILE/COMPUTER NAVBAR
 

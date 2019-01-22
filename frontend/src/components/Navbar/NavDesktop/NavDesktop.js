@@ -10,7 +10,7 @@ const NavDesktop = props => (
   <div className="Navbar">
   
     <div className="Logo">
-      <a href='/#home'>
+      <a href='/3'>
       <img src={Logo} className="Logo_ZideUp" alt="Logo ZideUp"/>
       </a>
     </div>

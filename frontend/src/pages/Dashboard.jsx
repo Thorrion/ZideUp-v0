@@ -1,16 +1,13 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar';
-import All from '../components/Dashboard/All';
-import InputAndSearch from '../components/InputAndSearch/InputAndSearch';
+import Menu from '../components/Menu/Menu';
 
 
 const Dashboard = () => {
   return (
     <div>
       <Navbar/>
-      <InputAndSearch/>
-      <All/>
-
+      <Menu/>
     </div>
   )
 }

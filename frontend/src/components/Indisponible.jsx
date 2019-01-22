@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { NavLink } from 'react-router-dom'
-import Logo from './picture/logoZideUp.png'
+import Logo from './Home/picture/logoZideUp.png'
 
 const styles = theme => ({
   root: {
@@ -11,19 +10,19 @@ const styles = theme => ({
   },
   title: {
     color: "white",
-    fontSize: "10vw",
+    fontSize: "3vw",
     textAlign: "center",
-    marginTop: "10vw",
-    marginBottom: "10vw",
+    marginTop: "2vw",
+    marginBottom: "2vw",
   },
   logo: {
-    width: "70vw",
-    marginLeft: "15vw",
-    marginBottom: "10vw"
+    width: "20vw",
+    marginLeft: "40vw",
+    marginBottom: "2vw"
   },
   catchPhrase: {
     color: "white",
-    fontSize: "5vw",
+    fontSize: "2vw",
     textAlign: "center"
   },
   button: {
@@ -58,10 +57,9 @@ class Home extends Component {
           </Grid>
 
           <Grid item xs={12}>
-            <NavLink to="/2">
-              <button className={classes.button}>Démarrer</button>
-            </NavLink>
+              <p className={classes.catchPhrase}>ZideUp est uniquement disponible sur mobile, <br/> la version web arrivera prochainement !</p>
           </Grid>
+
         </Grid>     
     )
   }

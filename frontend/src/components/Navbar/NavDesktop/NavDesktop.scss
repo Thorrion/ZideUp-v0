@@ -4,68 +4,6 @@
 
 ///// SCSS /////
 
-// html {
-//   scroll-behavior: smooth;
-// }
-
-// .Navbar {
-//   display: grid;
-//   grid-template-columns: 40% 60%;
-//   padding: 0.5vw 2vw;
-//   width: 100vw;
-//   position: fixed;
-//   background-color: white;
-//   z-index: 100;
-//   top: 0;
-//   // background-color: rgb(3, 156, 224);
-
-
-//   .Logo {
-//     font-size: 2.3vw;
-//     margin: auto 2vw;
-//     grid-column: 1;
-//     a{
-//       color: black;
-//       text-decoration: none;
-//     }
-    
-//     .Logo_Walkoo{
-//       width: 6vw;
-//       margin: 0 0.5vw;
-//     }
-//   }
-
-//   .NavLinks{
-//     margin: auto 2vw;
-//     padding-top: inherit;
-
-//     ul{
-//       display: flex;
-//       justify-content: space-around;
-//     }
-    
-//     li{
-//       list-style: none;
-//       float: left;
-//     }
-
-//     a{
-//       // font-family: $open;
-//       color: black;
-//       text-decoration: none;
-//       border-radius: 5px;
-//       align-self: center;
-//       padding: 0.7vw 2vw;
-//       font-size: 1vw;
-//     }
-    
-//     a:hover{
-//       background-color: orange;
-//       color: white;
-//       border-radius: 90px;
-//     }
-//   }
-// }
 
 .Navbar {
   a {
@@ -73,25 +11,23 @@
     margin-top: -2.1em;
     justify-content: left;
     margin-left: 10vw;
-   
   }
 }
 
 @media screen and(max-width:425px){
   .Navbar {
     background: linear-gradient($blue, $darkblue);
-    height: 10vh;
+    height: 4em;
     display: flex;
     position: fixed;
     width: 100%;
     margin-bottom: 10vh;
-    z-index: 200;
+    z-index: 2000;
 
     .Logo {
       margin: auto;
       
       .Logo_ZideUp{
-        height: 5vh;
         width: 30vw;
         float: left;
         margin-top: 1em;

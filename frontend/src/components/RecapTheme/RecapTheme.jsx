@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom' 
-import './RecapTheme.scss'
 import PopUpIdea from '../PopUp/PopUpIdea'
 import { connect } from 'react-redux'
-import Backdrop from '../PopUp/Backdrop/Backdrop';
+import Backdrop from '../Backdrop/Backdrop';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import { ideaAction }from '../../stores/actions/ideaAction'
 
 
 const styles = theme => ({
@@ -59,7 +59,8 @@ const styles = theme => ({
 
 class RecapTheme extends Component {
   state = {
-    isOpen : false
+    isOpen : false,
+    idea: ""
   }
 
   backdropClickHandler = () => {
@@ -70,13 +71,20 @@ class RecapTheme extends Component {
   
   popupIdea = (e) => {
     e.preventDefault()
-    this.setState({isOpen: true})
+    if(this.state.idea !== ""){
+      this.setState({isOpen: true})
+      this.props.ideaAction({
+        idea: this.state.idea
+      })
+    } else {
+      alert("Veuillez saisir votre idée.")
+    }
   }
 
   render() {
     const { classes } = this.props;
     let indexUrl = parseInt(this.props.index)
-
+    console.log(this.props)
     return (
       <Grid className={classes.container}>
         {this.state.isOpen &&
@@ -106,21 +114,21 @@ class RecapTheme extends Component {
 
                 <Grid container>
                   <Grid item xs={6} style={{textAlign: "center"}}>
-                  <p><b>Actuel :</b> {challenge.actuel} </p>
+                    <p><b>Actuel :</b> {challenge.actuel} </p>
                   </Grid>
 
                   <Grid item xs={6} style={{textAlign: "center"}}>
-                  <p><b>Cible :</b> {challenge.cible}</p>
+                    <p><b>Cible :</b> {challenge.cible}</p>
                   </Grid>
                 </Grid>
 
                 <Grid container>
                   <Grid item xs={6} style={{textAlign: "center"}}>
-                  <p><b>Début :</b> {challenge.debut}</p>
+                    <p><b>Début :</b> {challenge.debut}</p>
                   </Grid>
 
                   <Grid item xs={6} style={{textAlign: "center"}}>
-                  <p><b>Fin :</b> {challenge.fin}</p>
+                    <p><b>Fin :</b> {challenge.fin}</p>
                   </Grid>
                 </Grid>
 
@@ -134,7 +142,7 @@ class RecapTheme extends Component {
 
       <Grid container>
         <Grid item xs={9}><p className={classes.theme}>Réactivité</p></Grid>
-        <Grid item xs={3} style={{textAlign: "right", margin: "auto"}}><i className="fas fa-thumbs-up"></i> 3 <i className="fas fa-comment"></i> 4</Grid>
+        <Grid item xs={3} style={{textAlign: "right", margin: "auto", paddingRight: "2vw"}}><i className="fas fa-thumbs-up"></i> 3 <i className="fas fa-comment"></i> 4</Grid>
       </Grid>
 
       <p className={classes.title}>Liste des idées</p>
@@ -164,6 +172,15 @@ class RecapTheme extends Component {
         <Grid item xs={3} className={classes.idea2}><i className="fas fa-thumbs-up"></i> 0 <i className="fas fa-comment"></i> 0</Grid>
       </Grid>
 
+      {this.props.ideas.list.map((idea, index) => {
+        return(
+          <Grid container className={classes.idea} key={index}>
+            <Grid item xs={9}><p style={{margin: 0}}>{idea.idea}</p></Grid>
+            <Grid item xs={3} className={classes.idea2}><i className="fas fa-thumbs-up"></i> 0 <i className="fas fa-comment"></i> 0</Grid>
+          </Grid>
+        )
+      })}
+
       <p className={classes.title}>Ajouter une idée</p>
 
 {/* VOTRE QUESTION */}
@@ -173,6 +190,8 @@ class RecapTheme extends Component {
         placeholder="Ajoutez votre idée"
         required
         multiline
+        value={this.state.idea}
+        onChange={(e) => this.setState({idea: e.target.value})}
         rows="1"
         className={classes.textField}
         margin="normal"
@@ -205,10 +224,15 @@ class RecapTheme extends Component {
 RecapTheme.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 const mapStateToProps = (state) => ({
-  ...state
+  challenges: state.challenges,
+  ideas: state.ideas
 })
 
+const mapDispatchToProps = {
+  ideaAction
+}
 
 
-export default connect(mapStateToProps)(withStyles(styles)(RecapTheme))
+export default connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(RecapTheme))

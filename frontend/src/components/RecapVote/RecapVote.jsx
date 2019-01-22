@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import './RecapVote.scss';
 import Chips from './Chips';
 import Grid from '@material-ui/core/Grid';
 
@@ -60,7 +59,6 @@ class RecapVote extends Component {
   render() {
     const { classes } = this.props;
     let indexUrl = parseInt(this.props.index)
-
     return (
       <div className={classes.container}>
         
@@ -215,7 +213,7 @@ RecapVote.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  ...state
+  challenges: state.challenges
 })
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar';
-import Menu from '../components/InputAndSearch/Menu';
+import Menu from '../components/Menu/Menu';
 
 
 const Dashboard = () => {
@@ -8,7 +8,6 @@ const Dashboard = () => {
     <div>
       <Navbar/>
       <Menu/>
-
     </div>
   )
 }

@@ -65,7 +65,7 @@ class CatchPhrase extends Component {
 
         </Grid>
 
-        <NavLink to="/3">
+        <NavLink to="/5">
           <button className={classes.button}>Continuer</button>
         </NavLink>
 

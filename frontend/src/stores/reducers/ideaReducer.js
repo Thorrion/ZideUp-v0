@@ -3,15 +3,11 @@ const initialState = {
 }
 
 export default (state = initialState, { type, payload }) => {
-  let list = state.list
   switch (type) {
 
-  case 'ADD_CHALLENGE':
+  case 'ADD_IDEA':
+    let list = state.list
     list.push(payload)
-    return { ...state, list }
-
-  case 'REMOVE_CHALLENGE':
-    list.splice(payload,1)
     return { ...state, list }
 
   default:

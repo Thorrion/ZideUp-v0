@@ -1,4 +1,4 @@
-import Chips from './Chips'
+import Chips from '../Chips/Chips'
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -9,7 +9,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import PopUpConfirm from '../PopUp/PopUpConfirm';
 import PopUpDefi from '../PopUp/PopUpDefi';
-import Backdrop from '../PopUp/Backdrop/Backdrop';
+import Backdrop from '../Backdrop/Backdrop';
 import { connect } from 'react-redux'
 import { challengeAction }from '../../stores/actions/challengeAction'
 
@@ -166,7 +166,7 @@ class CreateDefi extends Component {
 {/* NOM DU DEFI */}
 
         <TextField
-          // required
+          required
           id="standard-name"
           label="Nom du défi"
           className={classes.textField}
@@ -178,8 +178,8 @@ class CreateDefi extends Component {
 
 {/* PERIMETRE CONCERNE */}
 
-        <TextField
-          // required
+        {/* <TextField
+          required
           id="standard-select-currency-native"
           select
           label="Périmètre concerné"
@@ -201,12 +201,12 @@ class CreateDefi extends Component {
               {option.label}
             </option>
           ))}
-        </TextField>
+        </TextField> */}
 
 {/* INDICATEUR DE PERFORMANCE */}
 
         <TextField
-          // required
+          required
           id="standard-perf"
           label="Indicateur clé de performance"
           className={classes.textField}
@@ -218,7 +218,7 @@ class CreateDefi extends Component {
 {/* ACTUEL */}
 
         <TextField
-          // required
+          required
           label="Actuel"
           id="simple-start-adornment"
           className={classes.textField2}
@@ -230,7 +230,7 @@ class CreateDefi extends Component {
 {/* CIBLE */}
           
         <TextField
-          // required
+          required
           label="Cible"
           id="simple-start-adornment"
           className={classes.textField2}
@@ -242,7 +242,7 @@ class CreateDefi extends Component {
 {/* DEBUT */}
 
         <TextField
-          // required
+          required
           id="date"
           label="Début"
           type="date"
@@ -259,7 +259,7 @@ class CreateDefi extends Component {
 {/* FIN */}
 
         <TextField
-          // required
+          required
           id="date"
           label="Fin"
           type="date"
@@ -285,7 +285,7 @@ class CreateDefi extends Component {
           name='question'
           value={this.state.question}
           onChange={(e) => this.handleChange(e)}
-          // required
+          required
           multiline
           rows="1"
           className={classes.textField}
@@ -294,7 +294,7 @@ class CreateDefi extends Component {
 
 {/* STARS RATE */}
 
-            <Grid container style={{textAlign: "center"}}>
+            {/* <Grid container style={{textAlign: "center"}}>
               <Grid item xs={3}>
                 <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>   
                 <p>Insuffisant</p> 
@@ -311,22 +311,21 @@ class CreateDefi extends Component {
                 <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>
                 <p>Excellent</p>              
               </Grid>
-            </Grid>
+            </Grid> */}
 
 {/* CHIPS */}
           
             <Chips/>
 
-          <Grid item xs={12}>
-            <p className={classes.title}>Commentaires</p>
-          </Grid>
             
 {/* COMMENTAIRE */}
+          {/* <Grid item xs={12}>
+            <p className={classes.title}>Commentaires</p>
+          </Grid> */}
             
-            <TextField
+            {/* <TextField
               className={classes.textField}
               id="input-with-icon-textfield"
-              // label="Ajoutez un commentaire"
               name='commentaire'
               value={this.state.commentaire}
               onChange={(e) => this.handleChange(e)}
@@ -337,7 +336,7 @@ class CreateDefi extends Component {
                   </InputAdornment>
                 ),
               }}
-            />
+            /> */}
 
             <Grid container>
 {/* BUTTON ENREGISTRER */}

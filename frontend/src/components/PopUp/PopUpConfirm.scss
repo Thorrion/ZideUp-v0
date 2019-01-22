@@ -7,7 +7,6 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  // padding-top: 25vh;
   width: 80vw;
   height: 60vh;
   position: fixed;
@@ -15,8 +14,8 @@
   z-index: 2000;
   border-radius: 10px;
   h3{
-    margin-top: 5vh;
     text-align: center;
+    margin-top: 5vh;
   }
   .fusee{
     width: 80vw;

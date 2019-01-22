@@ -4,23 +4,18 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import PopUpVote from '../PopUp/PopUpVote'
-import Backdrop from '../PopUp/Backdrop/Backdrop'
+import Backdrop from '../Backdrop/Backdrop'
 import { Redirect } from 'react-router-dom'
-import Chips from './Chips'
+import Chips from '../Chips/Chips'
 import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-  },
-  margin: {
-    margin: theme.spacing.unit,
-    width: '90vw'
   },
   input: {
     margin: theme.spacing.unit,
@@ -182,29 +177,29 @@ class Vote extends Component {
           <Grid container style={{textAlign: "center", marginTop: "7vw"}}>
 
             <Grid item xs={3}>
-              <i style={{fontSize: "10vw"}} 
-                className={`fa fa-star ${this.state.one}`}
+              <i style={{fontSize: "10vw", color: `${this.state.one}`}} 
+                className={`fa fa-star`}
                 onClick={this.one}></i>   
               <p>Insuffisant</p> 
             </Grid>
 
             <Grid item xs={3}>
-              <i style={{fontSize: "10vw"}} 
-                className={`fa fa-star ${this.state.two}`}
+              <i style={{fontSize: "10vw", color: `${this.state.two}`}} 
+                className={`fa fa-star`}
                 onClick={this.two}></i>
               <p>Moyen</p>
             </Grid>
 
             <Grid item xs={3}>
-              <i style={{fontSize: "10vw"}} 
-                className={`fa fa-star ${this.state.three}`}
+              <i style={{fontSize: "10vw", color: `${this.state.three}`}} 
+                className={`fa fa-star`}
                 onClick={this.three}></i>
               <p>Bien</p>
             </Grid>
 
             <Grid item xs={3}>
-              <i style={{fontSize: "10vw"}} 
-                className={`fa fa-star ${this.state.four}`}
+              <i style={{fontSize: "10vw", color: `${this.state.four}`}} 
+                className={`fa fa-star`}
                 onClick={this.four}></i>
               <p>Excellent</p>              
             </Grid>
@@ -217,7 +212,7 @@ class Vote extends Component {
         
           <Chips/>
 
-          <p className={classes.title}>Ajouter des items</p>
+          {/* <p className={classes.title}>Ajouter des items</p>
 
           <Input
             placeholder="Ajoutez vos items séparés par des virgules"
@@ -225,14 +220,14 @@ class Vote extends Component {
             inputProps={{
               'aria-label': 'Description',
             }}
-            />
+            /> */}
 
           <p className={classes.title}>Commentaires</p>
               
 {/* COMMENTAIRE */}
               
           <TextField
-            className={classes.margin}
+            className={classes.input}
             id="input-with-icon-textfield"
             InputProps={{
               startAdornment: (
@@ -277,9 +272,6 @@ const mapStateToProps = (state) => ({
   ...state
 })
 
-const mapDispatchToProps = {
-  
-}
 
 
-export default connect(mapStateToProps,mapDispatchToProps) (withStyles(styles)(Vote))
+export default connect(mapStateToProps) (withStyles(styles)(Vote))

@@ -209,7 +209,7 @@ class All extends Component {
 
 
 const mapStateToProps = (state) => ({
-  ...state
+  challenges: state.challenges
 })
 
 export default compose(connect(mapStateToProps),(withStyles(styles)))(All)

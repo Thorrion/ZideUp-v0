@@ -10,11 +10,16 @@ export default class PopUp extends Component {
         
         <h3>Votre idée est lancée !</h3>
 
+          <button 
+          className="ButtonPopUp"
+          onClick={this.props.close}
+          >Retour</button>
+
         <NavLink to="/3">
           <button 
           className="ButtonPopUp"
           onClick={this.props.close}
-          >Revenir à l'accueil</button>
+          >Accueil</button>
         </NavLink>
       </div>
     )

@@ -10,6 +10,7 @@ import PageRecapVote from '../pages/PageRecapVote';
 import PageVote from '../pages/PageVote';
 import Dashboard from '../pages/Dashboard';
 import Indisponible from '../components/Indisponible'
+import Login from '../components/Login/Login'
 
 class AppRouter extends Component {
   render() {
@@ -20,6 +21,7 @@ class AppRouter extends Component {
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/2" component={Page2}/>
+            <Route exact path="/5" component={Login}/>
             <Route exact path="/3" component={Dashboard}/>
             <Route exact path="/4" component={PageCreateDefi}/>
             <Route exact path="/6/:index" component={PageVote}/>

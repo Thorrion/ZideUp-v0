@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Ampoule from './picture/light-bulb.png'
+import Ampoule from './light-bulb.png'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { NavLink } from 'react-router-dom'
@@ -65,7 +65,7 @@ class CatchPhrase extends Component {
 
         </Grid>
 
-        <NavLink to="/5">
+        <NavLink to="/3">
           <button className={classes.button}>Continuer</button>
         </NavLink>
 

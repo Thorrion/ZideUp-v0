@@ -19,7 +19,7 @@ export default class PopUp extends Component {
         
         <h3>Votre défi est lancé ! <br/> Merci !</h3>
 
-        <NavLink to="/3">
+        <NavLink to="/4">
           <button 
           className="ButtonPopUp"
           onClick={this.props.close}

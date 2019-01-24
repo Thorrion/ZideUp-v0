@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../components/Navbar/Navbar';
 import Vote from '../components/Vote/Vote';
+import BottomNavBar from '../components/Navbar/BottomNavBar';
 
 const PageVote = (props) => {
   return (
     <div>
-      <Navbar/>
       <Vote index={props.match.params.index}/>
+      <BottomNavBar/>
     </div>
   )
 }

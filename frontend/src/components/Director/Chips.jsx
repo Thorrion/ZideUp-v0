@@ -4,11 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux'
 import Input from '@material-ui/core/Input';
-import { Button } from '@material-ui/core';
 import { AddChipsAction } from '../../stores/actions/chipsAction'
 import { RemoveChipsAction } from '../../stores/actions/chipsAction'
+import { RemoveAllChipsAction } from '../../stores/actions/chipsAction'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Close from './pictures/delete-button.png'
 
 
 const styles = theme => ({
@@ -22,8 +23,9 @@ const styles = theme => ({
   },
   input: {
     margin: theme.spacing.unit,
-    width: '75vw',
-    // marginLeft: '5vw'
+    width: '78vw',
+    marginLeft: "5vw",
+
   },
   title: {
     backgroundColor: "#e8e8e8",
@@ -32,23 +34,36 @@ const styles = theme => ({
     width: "100vw"
   },
   button: {
-    // margin: theme.spacing.unit,
     color: "#039ce0",
-    fontSize: "10vw"
+    fontSize: "10vw",
+    position: "absolute",
+    right: "5vw",
+    marginTop: "-13vw"
   },
+  close: {
+    width: "5vw",
+    position: 'absolute',
+    right: "8vw",
+  }
 });
 
 class ChipsArray extends React.Component {
   state = {
-    chips: ""
+    name: ""
+  }
+
+  componentDidMount = () => {
+    this.props.RemoveAllChipsAction()
   }
 
   addChips = () => {
+    let id = this.props.chips.list.length + 1
     if(this.state.chips !== ""){
       this.props.AddChipsAction({
-        chips : this.state.chips,
+        id : id,
+        name : this.state.name,
       })
-      this.setState({chips: ""})
+      this.setState({name: ""})
     } else {
       alert("Veuillez saisir votre item a ajouter.")
     }
@@ -71,18 +86,21 @@ class ChipsArray extends React.Component {
       <Input
         placeholder="Ajoutez vos items"
         className={classes.input}
-        value={this.state.chips}
-        onChange={(e) => this.setState({chips: e.target.value})}
+        value={this.state.name}
+        onChange={(e) => this.setState({name: e.target.value})}
       />
 
-      <Button className={classes.button} onClick={this.addChips}><i class="far fa-plus-square"></i></Button>
+      <div className={classes.button} onClick={this.addChips}><i class="far fa-plus-square"></i></div>
       
       { this.props.chips &&
         this.props.chips.list.map((chip, index) => {
           return(
-            <Paper className={classes.root} elevation={1}>
+            <Paper className={classes.root} elevation={1} key={chip.id}>
+            <div onClick={this.handleDelete}>
+              <img src={Close} alt="Close" className={classes.close}/>
+            </div>
               <ListItem>
-                <ListItemText primary={chip.chips}/>
+                <ListItemText primary={chip.name}/>
               </ListItem>
             </Paper>
           )
@@ -104,6 +122,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   AddChipsAction,
   RemoveChipsAction,
+  RemoveAllChipsAction,
 }
 
 

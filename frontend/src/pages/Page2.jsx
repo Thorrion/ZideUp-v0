@@ -5,7 +5,7 @@ import CatchPhrase from '../components/CatchPhrase/CatchPhrase';
 const Page2 = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar notif={false}/>
       <CatchPhrase/>
     </div>
   )

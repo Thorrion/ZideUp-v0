@@ -6,8 +6,7 @@ const styles = theme => ({
   backdrop: {
     position: 'fixed',
     width: '100%',
-    height: '96em',
-    top: '4em',
+    height: '100em',
     left: '0',
     background: 'rgba(0, 0, 0, 0.2)',
     zIndex: '1500',

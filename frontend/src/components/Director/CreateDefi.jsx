@@ -1,17 +1,17 @@
-import Chips from '../Chips/Chips'
+import Chips from './Chips'
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import PopUpConfirm from '../PopUp/PopUpConfirm';
 import PopUpDefi from '../PopUp/PopUpDefi';
 import Backdrop from '../Backdrop/Backdrop';
 import { connect } from 'react-redux'
 import { challengeAction }from '../../stores/actions/challengeAction'
+import LogoPhoto from './pictures/image-add-button.png'
+import Arrow from './pictures/left-arrow-(2).png'
 
 let today = new Date().toISOString().slice(0, 10)
 
@@ -19,7 +19,8 @@ const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-    paddingTop: '4em'
+    paddingTop: '1em',
+    paddingBottom: "3em"
   },
   textField: {
     margin: theme.spacing.unit,
@@ -30,22 +31,6 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     width: '41vw',
     marginLeft: '5vw'
-  },
-  dense: {
-    marginTop: 19,
-  },
-  menu: {
-    width: '90vw',
-  },
-  margin: {
-    margin: theme.spacing.unit,
-    width: '90vw',
-    marginLeft: '5vw'
-  },
-  margin2: {
-    margin: theme.spacing.unit,
-    width: '45vw',
-    marginLeft: '2.5vw'
   },
   title: {
     backgroundColor: "#e8e8e8",
@@ -59,11 +44,27 @@ const styles = theme => ({
     marginLeft: "5vw",
     backgroundColor: "#039ce0",
     border: "none",
-    height: "15vw",
+    height: "10vw",
     borderRadius: "15px",
     color: 'white',
     fontSize: "4vw",
     fontWeight: "bold"
+  },
+  logo: {
+    width: "30vw",
+    margin: 'auto',
+  },
+  containerPhoto: {
+    display: "flex",
+    backgroundColor: "#039ce0",
+    width: "100vw",
+    height: "15em"
+  },
+  arrow: {
+    position: "absolute",
+    width: "10vw",
+    marginTop: "1em",
+    marginLeft: "2vw"
   }
 });
 
@@ -94,22 +95,14 @@ class CreateDefi extends Component {
   state = {
     popupConfirm: false,
     popupThank: false,
+    image: "",
     nom:'',
     perimetre:'',
-    indicateur:'',
-    actuel:'',
-    cible:'',
     debut: "",
     fin: "",
-    question:'',
+    description: "",
     items:[],
-    commentaire:'',
-    one:'',
-    two:'',
-    three:'',
-    four:''
   }
-
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
@@ -125,24 +118,25 @@ class CreateDefi extends Component {
   }
   
   popupThank = (e) => {
+    let id = this.props.challenges.list.length + 1
     this.setState({popupConfirm: false, popupThank: true})
     e.preventDefault()
     this.props.challengeAction({
-    nom:this.state.nom,
-    perimetre:this.state.perimetre,
-    indicateur:this.state.indicateur,
-    actuel:this.state.actuel,
-    cible:this.state.cible,
-    debut: this.state.debut,
-    fin: this.state.fin,
-    question:this.state.question,
-    items:this.state.items,
-    commentaire:this.state.commentaire,
+      id: id,
+      image: this.state.image,
+      nom:this.state.nom,
+      perimetre:this.state.perimetre,
+      debut: this.state.debut,
+      fin: this.state.fin,
+      description: this.state.description,
+      items:this.props.chips,
     })
   }
   
   render() {
     const { classes } = this.props;
+    console.log(this.props)
+    console.log(this.state)
     return (
 
       <Grid container>
@@ -161,6 +155,15 @@ class CreateDefi extends Component {
           </div>
         }
 
+{/* PHOTO */}
+
+        <div className={classes.containerPhoto}>
+        <NavLink to="/4">
+          <img src={Arrow} alt="Back" className={classes.arrow}/>
+        </NavLink>
+          <img src={LogoPhoto} alt="Logo" className={classes.logo}/>
+        </div>
+
         <form className={classes.container} onSubmit={(e) => this.popupConfirm(e)}>
 
 {/* NOM DU DEFI */}
@@ -178,7 +181,7 @@ class CreateDefi extends Component {
 
 {/* PERIMETRE CONCERNE */}
 
-        {/* <TextField
+        <TextField
           required
           id="standard-select-currency-native"
           select
@@ -201,43 +204,7 @@ class CreateDefi extends Component {
               {option.label}
             </option>
           ))}
-        </TextField> */}
-
-{/* INDICATEUR DE PERFORMANCE */}
-
-        <TextField
-          required
-          id="standard-perf"
-          label="Indicateur clé de performance"
-          className={classes.textField}
-          name='indicateur'
-          value={this.state.indicateur}
-          onChange={(e) => this.handleChange(e)}
-        />
-
-{/* ACTUEL */}
-
-        <TextField
-          required
-          label="Actuel"
-          id="simple-start-adornment"
-          className={classes.textField2}
-          name='actuel'
-          value={this.state.actuel}
-          onChange={(e) => this.handleChange(e)}
-        />
-          
-{/* CIBLE */}
-          
-        <TextField
-          required
-          label="Cible"
-          id="simple-start-adornment"
-          className={classes.textField2}
-          name='cible'
-          value={this.state.cible}
-          onChange={(e) => this.handleChange(e)}
-        />
+        </TextField>
 
 {/* DEBUT */}
 
@@ -272,71 +239,25 @@ class CreateDefi extends Component {
             shrink: true,
           }}
         />
-
+{/* 
         <Grid item xs={12}>
-          <p className={classes.title}>Sondage</p>
-        </Grid>
-
-{/* VOTRE QUESTION */}
-
+          <p className={classes.title}>Description</p>
+        </Grid> */}
+        
         <TextField
           id="standard-multiline-static"
-          label="Votre question"
-          name='question'
-          value={this.state.question}
-          onChange={(e) => this.handleChange(e)}
-          required
+          label="Description"
           multiline
-          rows="1"
+          rows="4"
+          name="description"
+          value={this.state.description}
+          onChange={(e) => this.handleChange(e)}
           className={classes.textField}
-          margin="normal"
         />
-
-{/* STARS RATE */}
-
-            {/* <Grid container style={{textAlign: "center"}}>
-              <Grid item xs={3}>
-                <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>   
-                <p>Insuffisant</p> 
-              </Grid>
-              <Grid item xs={3}>
-                <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>
-                <p>Moyen</p>
-              </Grid>
-              <Grid item xs={3}>
-                <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>
-                <p>Bien</p>
-              </Grid>
-              <Grid item xs={3}>
-                <i style={{fontSize: "10vw"}} className={`fa fa-star checked`}></i>
-                <p>Excellent</p>              
-              </Grid>
-            </Grid> */}
 
 {/* CHIPS */}
           
             <Chips/>
-
-            
-{/* COMMENTAIRE */}
-          {/* <Grid item xs={12}>
-            <p className={classes.title}>Commentaires</p>
-          </Grid> */}
-            
-            {/* <TextField
-              className={classes.textField}
-              id="input-with-icon-textfield"
-              name='commentaire'
-              value={this.state.commentaire}
-              onChange={(e) => this.handleChange(e)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccountCircle />
-                  </InputAdornment>
-                ),
-              }}
-            /> */}
 
             <Grid container>
 {/* BUTTON ENREGISTRER */}

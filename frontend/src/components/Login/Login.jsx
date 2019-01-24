@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Logo from './Zideup_Z.png'
+import Boss from './boss.png'
+import User from './user.png'
 
 const styles = theme => ({
   container: {
@@ -10,12 +12,13 @@ const styles = theme => ({
     height: "100vh",
   },
   background: {
-    width: "80vw",
+    width: "100vw",
     position: "absolute",
-    marginLeft: "10vw",
+    marginLeft: "0vw",
     opacity: 0.5,
-    top: "27%",
-    zIndex: 1
+    top: "20%",
+    zIndex: 1,
+    transform: "rotate(-15deg)"
   },
   texte: {
     textAlign: "center",
@@ -27,18 +30,17 @@ const styles = theme => ({
   },
   bloc: {
     display: "flex",
-    width: "100vw",
-    justifyContent: "center",
+    width: "50vw",
     height: "30vh",
     zIndex: 100,
-    paddingTop: "5vh"
+    paddingTop: "10vh"
   },
   bloc1: {
     display: "flex",
-    width: "100vw",
-    justifyContent: "center",
+    width: "50vw",
+    marginLeft: "50vw",
     height: "30vh",
-    marginTop: "30vh",
+    marginTop: "25vh",
     zIndex: 100
   },
   image: {
@@ -61,21 +63,21 @@ class Login extends Component {
     return (
       <Grid className={classes.container}>
         <img src={Logo} alt="Logo Zideup" className={classes.background}/>
-        <NavLink to="/3">
+        <NavLink to="/4">
           <Grid container className={classes.bloc}>
-            <p className={classes.texte}>Directeur</p>
+            <p className={classes.texte}>Directeurs</p>
             <div className={classes.image}>
-              <i style={{fontSize: "40vw", color: "black"}} className="fas fa-user-circle"></i>
+              <img src={Boss} alt="Director" style={{width: "40vw", color: "black"}}/>
             </div>
           </Grid>
         </NavLink>
 
-        <NavLink to="/3">
+        <NavLink to="/5">
           <Grid container className={classes.bloc1}>
             <div className={classes.image1}>
-            <i style={{fontSize: "40vw", color: "black"}} className="fas fa-user-circle"></i>
+              <img src={User} alt="Director" style={{width: "40vw", color: "black"}}/>
             </div>
-            <p className={classes.texte}>Utilisateur</p>
+            <p className={classes.texte}>Equipiers</p>
           </Grid>
         </NavLink>
       </Grid>

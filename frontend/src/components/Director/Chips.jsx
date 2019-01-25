@@ -9,7 +9,7 @@ import { RemoveChipsAction } from '../../stores/actions/chipsAction'
 import { RemoveAllChipsAction } from '../../stores/actions/chipsAction'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Close from './pictures/delete-button.png'
+import Close from '../pictures/delete-button.png'
 
 
 const styles = theme => ({
@@ -25,7 +25,6 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     width: '78vw',
     marginLeft: "5vw",
-
   },
   title: {
     backgroundColor: "#e8e8e8",

@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../components/Navbar/Navbar';
-import CatchPhrase from '../components/CatchPhrase/CatchPhrase';
+import Navbar from '../components/Navbar';
+import CatchPhrase from '../components/CatchPhrase';
 
 const Page2 = () => {
   return (

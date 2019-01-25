@@ -66,4 +66,4 @@ const mapStateToProps = (state) => ({
   challenges: state.challenges
 })
 
-export default compose(connect(mapStateToProps),(withStyles(styles)))(All)
+export default connect(mapStateToProps)((withStyles(styles))(All))

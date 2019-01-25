@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import Ampoule from './light-bulb.png'
+import Ampoule from './pictures/light-bulb.png'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { NavLink } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
-    background: "linear-gradient(white, #e0f1ff)",
+    background: "linear-gradient(#f5f5f5, #e0f1ff)",
     height: "100vh",
-    paddingTop: "4em"
+    paddingTop: "6em"
   },
   window: {
     width: "90vw",

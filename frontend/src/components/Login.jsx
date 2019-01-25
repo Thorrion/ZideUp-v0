@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Logo from './Zideup_Z.png'
-import Boss from './boss.png'
-import User from './user.png'
+import Logo from './pictures/Zideup_Z.png'
+import Boss from './pictures/boss.png'
+import User from './pictures/user.png'
 
 const styles = theme => ({
   container: {

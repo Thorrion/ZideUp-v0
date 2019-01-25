@@ -1,6 +1,6 @@
 import React from 'react'
-import Vote from '../components/Vote/Vote';
-import BottomNavBar from '../components/Navbar/BottomNavBar';
+import Vote from '../components/Vote';
+import BottomNavBar from '../components/BottomNavBar';
 
 const PageVote = (props) => {
   return (

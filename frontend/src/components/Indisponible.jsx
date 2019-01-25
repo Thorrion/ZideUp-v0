@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Logo from './Home/picture/logoZideUp.png'
+import Logo from './pictures/logoZideUp.png'
 
 const styles = theme => ({
   root: {

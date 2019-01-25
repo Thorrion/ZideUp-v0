@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import PopUpVote from '../PopUp/PopUpVote'
-import Backdrop from '../Backdrop/Backdrop'
+import PopUpVote from './PopUp/PopUpVote'
+import Backdrop from './Backdrop'
 import { Redirect } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
 import ListItem from '@material-ui/core/ListItem';
@@ -14,11 +14,11 @@ import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import { Progress } from 'reactstrap'
 import ImageIcon from '@material-ui/icons/Image';
-import LogoPhoto from '../Director/pictures/image-add-button.png'
-import Arrow from '../Director/pictures/left-arrow-(2).png'
+import LogoPhoto from './pictures/image-add-button.png'
+import Arrow from './pictures/left-arrow-(2).png'
 import moment from 'moment'
 import Diagram from './Diagram';
-import All from '../Navbar/pictures/menu1.png'
+import All from './pictures/menu.png'
 
 const styles = theme => ({
   container: {
@@ -93,11 +93,7 @@ const styles = theme => ({
 
 class Vote extends Component {
   state = {
-    isOpen : false,
-    one:'',
-    two:'',
-    three:'',
-    four:''
+    isOpen : false
   }
   
   backdropClickHandler = () => {
@@ -196,23 +192,6 @@ class Vote extends Component {
             }
           )
         }
-        
-
-{/* CHIPS */}
-
-          {/* <p className={classes.title}>Choix des sous thèmes clés</p> */}
-        
-          {/* <Chips/> */}
-
-          {/* <p className={classes.title}>Ajouter des items</p>
-
-          <Input
-            placeholder="Ajoutez vos items séparés par des virgules"
-            className={classes.input}
-            inputProps={{
-              'aria-label': 'Description',
-            }}
-            /> */}
 
       </Grid>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../../components/Navbar/Navbar';
-import Menu from '../../components/Menu/Menu';
-import BottomNavBar from '../../components/Navbar/BottomNavBar'
+import Navbar from '../../components/Navbar';
+import Menu from '../../components/Menu';
+import BottomNavBar from '../../components/BottomNavBar'
 
 const Dashboard = () => {
   return (

@@ -6,7 +6,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import Dashboard from '../Director/Dashboard'
+import SubMenu from './SubMenu';
+import MyDashboard from "./Director/MyDashboard"
+
 
 function TabContainer({ children, dir }) {
   return (
@@ -25,9 +27,8 @@ const styles = theme => ({
   container: {
     backgroundColor: theme.palette.background.paper,
     width: "100vw",
-    paddingTop: "2em",
-    padding: 0,
-    margin: "-24px"
+    paddingTop: "7em",
+    padding: 0
   },
   searchIcon: {
     width: theme.spacing.unit * 9,
@@ -45,7 +46,6 @@ const styles = theme => ({
     border: "solid 1px",
     borderRadius: "25px",
     margin: "1vw 5vw"
-
   },
   inputInput: {
     paddingTop: theme.spacing.unit,
@@ -83,7 +83,8 @@ class Menu extends React.Component {
 
     return (
       <div className={classes.container}>
-        <AppBar position="fixed" style={{marginTop: "4em"}} color="default">
+      
+        <AppBar position="fixed" style={{marginTop: "7em"}} color="default">
           <Tabs
             value={this.state.value}
             onChange={this.handleChange}
@@ -92,9 +93,8 @@ class Menu extends React.Component {
             variant="fullWidth"
             centered
           >
-            <Tab label="Semaine" />
-            <Tab label="Mois" />
-            <Tab label="Trimestre" />
+            <Tab label="Tous les défis"/>
+            <Tab label="Mes défis"/>
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -102,9 +102,8 @@ class Menu extends React.Component {
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
         >
-          <TabContainer dir={theme.direction}><Dashboard/></TabContainer>
-          <TabContainer dir={theme.direction}><Dashboard/></TabContainer>
-          <TabContainer dir={theme.direction}><Dashboard/></TabContainer>
+          <TabContainer dir={theme.direction} ><SubMenu/> </TabContainer>
+          <TabContainer dir={theme.direction}><MyDashboard/></TabContainer>
         </SwipeableViews>
       </div>
     );
@@ -117,70 +116,3 @@ Menu.propTypes = {
 };
 
 export default withStyles(styles, { withTheme: true })(Menu);
-
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import { withStyles } from '@material-ui/core/styles';
-// import AppBar from '@material-ui/core/AppBar';
-// import Tabs from '@material-ui/core/Tabs';
-// import Tab from '@material-ui/core/Tab';
-// import Typography from '@material-ui/core/Typography';
-// import Dashboard from '../Director/Dashboard';
-
-// function TabContainer(props) {
-//   return (
-//     <Typography component="div" style={{ padding: 8 * 3 }}>
-//       {props.children}
-//     </Typography>
-//   );
-// }
-
-// TabContainer.propTypes = {
-//   children: PropTypes.node.isRequired,
-// };
-
-// const styles = theme => ({
-//   root: {
-//     flexGrow: 1,
-//     backgroundColor: theme.palette.background.paper,
-//     paddingTop: "2.2em",
-//     width: "100vw",
-//     marginLeft: "-24px"
-//   },
-// });
-
-// class SimpleTabs extends React.Component {
-//   state = {
-//     value: 0,
-//   };
-
-//   handleChange = (event, value) => {
-//     this.setState({ value });
-//   };
-
-//   render() {
-//     const { classes } = this.props;
-//     const { value } = this.state;
-
-//     return (
-//       <div className={classes.root}>
-//         <AppBar position="static">
-//           <Tabs value={value} onChange={this.handleChange} centered>
-//             <Tab label="Semaine" />
-//             <Tab label="Moi" />
-//             <Tab label="Trimestre" />
-//           </Tabs>
-//         </AppBar>
-//         {value === 0 && <TabContainer><Dashboard/></TabContainer>}
-//         {value === 1 && <TabContainer><Dashboard/></TabContainer>}
-//         {value === 2 && <TabContainer><Dashboard/></TabContainer>}
-//       </div>
-//     );
-//   }
-// }
-
-// SimpleTabs.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
-
-// export default withStyles(styles)(SimpleTabs);

@@ -1,5 +1,5 @@
 import React from 'react'
-import BottomNavBar from '../../components/Navbar/BottomNavBar'
+import BottomNavBar from '../../components/BottomNavBar'
 import CreateDefi from '../../components/Director/CreateDefi';
 
 const Dashboard = () => {

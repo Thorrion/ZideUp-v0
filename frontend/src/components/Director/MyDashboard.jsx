@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
-import { compose } from 'recompose'
 import Current from './Current';
 import Finished from './Finished';
 import Draft from './Draft';
@@ -72,4 +71,4 @@ const mapStateToProps = (state) => ({
   challenges: state.challenges
 })
 
-export default compose(connect(mapStateToProps),(withStyles(styles)))(All)
+export default connect(mapStateToProps) ((withStyles(styles))(All))

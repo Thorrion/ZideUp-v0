@@ -3,15 +3,15 @@ import {Switch, Route, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Page2 from '../pages/Page2';
 import Media from 'react-media'
-import Home from '../components//Home/Home';
+import Home from '../components/Home';
 import PageCreateDefi from '../pages/director/CreateChallenge';
-import PageRecapTheme from '../pages/PageRecapTheme';
-import PageRecapVote from '../pages/PageRecapVote';
+// import PageRecapTheme from '../pages/PageRecapTheme';
+// import PageRecapVote from '../pages/PageRecapVote';
 import VisuChallenge from '../pages/VisuChallenge';
 import DashboardBoss from '../pages/director/Dashboard';
 import DashboardEmployee from '../pages/user/Dashboard';
 import Indisponible from '../components/Indisponible'
-import Login from '../components/Login/Login'
+import Login from '../components/Login'
 
 class AppRouter extends Component {
   render() {
@@ -27,8 +27,8 @@ class AppRouter extends Component {
             <Route exact path="/5" component={DashboardEmployee}/>
             <Route exact path="/6" component={PageCreateDefi}/>
             <Route exact path="/7/:index" component={VisuChallenge}/>
-            <Route exact path="/8/:index" component={PageRecapVote}/>
-            <Route exact path="/9/:index" component={PageRecapTheme}/>
+            {/* <Route exact path="/8/:index" component={PageRecapVote}/>
+            <Route exact path="/9/:index" component={PageRecapTheme}/> */}
           </Switch>
           ) : (
             <Indisponible/>

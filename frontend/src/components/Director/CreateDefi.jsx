@@ -7,11 +7,11 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import PopUpConfirm from '../PopUp/PopUpConfirm';
 import PopUpDefi from '../PopUp/PopUpDefi';
-import Backdrop from '../Backdrop/Backdrop';
+import Backdrop from '../Backdrop';
 import { connect } from 'react-redux'
 import { challengeAction }from '../../stores/actions/challengeAction'
-import LogoPhoto from './pictures/image-add-button.png'
-import Arrow from './pictures/left-arrow-(2).png'
+import LogoPhoto from '../pictures/image-add-button.png'
+import Arrow from '../pictures/left-arrow-(2).png'
 
 let today = new Date().toISOString().slice(0, 10)
 

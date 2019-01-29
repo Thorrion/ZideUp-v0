@@ -9,6 +9,7 @@ import Idea from './pictures/idea.png'
 import Warning from './pictures/warning-sign.png'
 import Profil from './pictures/profile.png'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 const styles = {
   root: {
@@ -39,7 +40,7 @@ const styles = {
   },
 };
 
-class LabelBottomNavigation extends React.Component {
+class BottomNavBar extends React.Component {
 
   render() {
     const { classes } = this.props;
@@ -49,25 +50,31 @@ class LabelBottomNavigation extends React.Component {
       {this.props.challenges && this.props.challenges.list.length !== 0 &&
         <Badge className={classes.margin} badgeContent={this.props.challenges.list.length} color="secondary"></Badge>
       }
-        <BottomNavigationAction label="Défis" icon={<img src={Challenge} alt="Defis" style={{width: "8vw"}}/>} />
+      <NavLink to="/4">
+        <BottomNavigationAction label="Défis" icon={<img src={Challenge} alt="Defis" style={{width: "8vw", margin: "0 5.5vw"}}/>} />
+      </NavLink>
+
       {this.props.ideas && this.props.ideas.list.length !== 0 &&
         <Badge className={classes.margin1} badgeContent={this.props.ideas.list.length} color="secondary"></Badge>
       }
         <BottomNavigationAction label="Idées" icon={<img src={Idea} alt="Defis" style={{width: "8vw"}}/>} />
+
       {this.props.problems && this.props.problems.list.length !== 0 &&
         <Badge className={classes.margin2} badgeContent={this.props.problems.list.length} color="secondary"></Badge>
       }
         <BottomNavigationAction label="Problèmes" icon={<img src={Warning} alt="Defis" style={{width: "8vw"}}/>} />
+
       {this.props.profil && this.props.profil.list.length !== 0 &&
         <Badge className={classes.margin3} badgeContent={this.props.profil.list.length} color="secondary"></Badge>
       }
         <BottomNavigationAction label="Profil" icon={<img src={Profil} alt="Defis" style={{width: "8vw"}}/>} />
+
       </BottomNavigation>
     );
   }
 }
 
-LabelBottomNavigation.propTypes = {
+BottomNavBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -76,4 +83,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps)(withStyles(styles)(LabelBottomNavigation))
+export default connect(mapStateToProps)(withStyles(styles)(BottomNavBar))

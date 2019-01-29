@@ -6,7 +6,7 @@ const PageRecapVote = (props) => {
   return (
     <div>
       <Navbar/>
-      <RecapVote index={props.match.params.index}/>
+      <RecapVote id={props.match.params.id}/>
     </div>
   )
 }

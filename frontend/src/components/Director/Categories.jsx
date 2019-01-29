@@ -4,17 +4,14 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux'
 import Input from '@material-ui/core/Input';
-import { AddChipsAction } from '../../stores/actions/chipsAction'
-import { RemoveChipsAction } from '../../stores/actions/chipsAction'
-import { RemoveAllChipsAction } from '../../stores/actions/chipsAction'
+import { AddCategoriesAction } from '../../stores/actions/categoriesAction'
+import { RemoveCategoriesAction } from '../../stores/actions/categoriesAction'
+import { RemoveAllCategoriesAction } from '../../stores/actions/categoriesAction'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Close from '../pictures/delete-button.png'
 
-
 const styles = theme => ({
-  container: {
-  },
   root: {
     paddingTop: theme.spacing.unit,
     paddingBottom: theme.spacing.unit,
@@ -43,42 +40,42 @@ const styles = theme => ({
     width: "5vw",
     position: 'absolute',
     right: "8vw",
+    zIndex: 100
   }
 });
 
-class ChipsArray extends React.Component {
+class Categories extends React.Component {
   state = {
     name: ""
   }
 
   componentDidMount = () => {
-    this.props.RemoveAllChipsAction()
+    this.props.RemoveAllCategoriesAction()
   }
 
-  addChips = () => {
-    let id = this.props.chips.list.length + 1
-    if(this.state.chips !== ""){
-      this.props.AddChipsAction({
+  addCategory = () => {
+    let id = this.props.categories.list.length + 1
+    if(this.state.categories !== ""){
+      this.props.AddCategoriesAction({
         id : id,
         name : this.state.name,
       })
       this.setState({name: ""})
     } else {
-      alert("Veuillez saisir votre item a ajouter.")
+      alert("Veuillez saisir votre catégorie à ajouter.")
     }
   }
 
-  handleDelete = data => () => {
-    const chipData = [...this.props.chips.list];
-    const chipToDelete = chipData.indexOf(data);
-    this.props.RemoveChipsAction(chipToDelete)
-  };
-
+  removeCategory = (id) => {
+    if(window.confirm('Voulez-vous supprimer la catégorie ?')){
+      this.props.RemoveCategoriesAction(id)
+    }
+  }
 
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.container}>
+      <div>
 
       <p className={classes.title}>Principales catégories proposées</p>
 
@@ -89,17 +86,17 @@ class ChipsArray extends React.Component {
         onChange={(e) => this.setState({name: e.target.value})}
       />
 
-      <div className={classes.button} onClick={this.addChips}><i class="far fa-plus-square"></i></div>
+      <div className={classes.button} onClick={this.addCategory}><i class="far fa-plus-square"></i></div>
       
-      { this.props.chips &&
-        this.props.chips.list.map((chip, index) => {
+      { this.props.categories &&
+        this.props.categories.list.map((category, index) => {
           return(
-            <Paper className={classes.root} elevation={1} key={chip.id}>
-            <div onClick={this.handleDelete}>
+            <Paper className={classes.root} elevation={1} key={category.id}>
+            <div onClick={() => this.removeCategory(index)}>
               <img src={Close} alt="Close" className={classes.close}/>
             </div>
               <ListItem>
-                <ListItemText primary={chip.name}/>
+                <ListItemText primary={category.name}/>
               </ListItem>
             </Paper>
           )
@@ -110,20 +107,18 @@ class ChipsArray extends React.Component {
   }
 }
 
-ChipsArray.propTypes = {
+Categories.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  chips: state.chips
+  categories: state.categories
 })
 
 const mapDispatchToProps = {
-  AddChipsAction,
-  RemoveChipsAction,
-  RemoveAllChipsAction,
+  AddCategoriesAction,
+  RemoveCategoriesAction,
+  RemoveAllCategoriesAction,
 }
 
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ChipsArray));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Categories));

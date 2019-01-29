@@ -44,53 +44,63 @@ const styles = theme => ({
     position: "absolute",
     marginTop: "-1em"
   },
+  badge: {
+    background: '#00a308',
+    color: 'white'
+  },
+  badge2: {
+    background: '#fdb920',
+    color: 'white'
+  },
 });
 
 let challenges
 
 class Current extends Component {
   render() {
-  const { classes } = this.props;
-  if(this.props.challenges){
-    challenges = this.props.challenges.list.reverse()
-  }
-  return (
-    <div className={classes.container}>
-
-    {challenges.map((challenge) => {
-        return(
-          <NavLink to={`/7/${challenge.id}`}>
-            <Paper className={classes.root1} elevation={1} key={challenge.id}>
-              <Badge className={classes.margin} badgeContent={0} color="primary"></Badge>
-              <Badge className={classes.margin1} badgeContent={0} color="secondary"></Badge>
-              <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
-                <ListItemText primary={challenge.nom} secondary={challenge.perimetre} />
-              </ListItem>
-              <Progress value="0" className={classes.progress} />
-            </Paper>
-          </NavLink>
-        )
-      })
+    const { classes } = this.props;
+    if(this.props.challenges){
+      challenges = this.props.challenges.list.reverse()
     }
+    return (
+      <div className={classes.container}>
+
+      {challenges.map((challenge) => {
+          return(
+            <NavLink to={`/6.5/${challenge.id}`}>
+              <Paper className={classes.root1} elevation={1} key={challenge.id}>
+                <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={0} color="primary"></Badge>
+                <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={0} color="secondary"></Badge>
+                <ListItem>
+                  <Avatar>
+                    <ImageIcon />
+                  </Avatar>
+                  <ListItemText primary={challenge.nom} secondary={challenge.perimetre} />
+                </ListItem>
+                <Progress value="0" className={classes.progress} />
+              </Paper>
+            </NavLink>
+          )
+        })
+      }
+
+      <NavLink to="/20">
+        <Paper className={classes.root} elevation={1}>
+          <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={41} color="primary"></Badge>
+          <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={18} color="secondary"></Badge>
+          <ListItem>
+            <Avatar>
+              <ImageIcon />
+            </Avatar>
+            <ListItemText primary="Améliorer le service utilisateur" secondary="SAV" />
+          </ListItem>
+          <Progress value="20" className={classes.progress} />
+        </Paper>
+      </NavLink>
 
       <Paper className={classes.root} elevation={1}>
-        <Badge className={classes.margin} badgeContent={35} color="primary"></Badge>
-        <Badge className={classes.margin1} badgeContent={21} color="secondary"></Badge>
-        <ListItem>
-          <Avatar>
-            <ImageIcon />
-          </Avatar>
-          <ListItemText primary="Réduire les risques d'incident" secondary="Sécurité" />
-        </ListItem>
-        <Progress value="10" className={classes.progress} />
-      </Paper>
-
-      <Paper className={classes.root} elevation={1}>
-        <Badge className={classes.margin} badgeContent={28} color="primary"></Badge>
-        <Badge className={classes.margin1} badgeContent={24} color="secondary"></Badge>
+        <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={28} color="primary"></Badge>
+        <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={24} color="secondary"></Badge>
         <ListItem>
           <Avatar>
             <ImageIcon />
@@ -101,8 +111,8 @@ class Current extends Component {
       </Paper>
 
       <Paper className={classes.root} elevation={1}>
-        <Badge className={classes.margin} badgeContent={21} color="primary"></Badge>
-        <Badge className={classes.margin1} badgeContent={13} color="secondary"></Badge>
+        <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={21} color="primary"></Badge>
+        <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={13} color="secondary"></Badge>
         <ListItem>
           <Avatar>
             <ImageIcon />
@@ -113,8 +123,8 @@ class Current extends Component {
       </Paper>
 
       <Paper className={classes.root} elevation={1}>
-        <Badge className={classes.margin} badgeContent={8} color="primary"></Badge>
-        <Badge className={classes.margin1} badgeContent={9} color="secondary"></Badge>
+        <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={8} color="primary"></Badge>
+        <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={9} color="secondary"></Badge>
         <ListItem>
           <Avatar>
             <ImageIcon />
@@ -125,8 +135,8 @@ class Current extends Component {
         <Progress value="35" className={classes.progress} />
       </Paper>
 
-    </div>
-  );
+      </div>
+    );
   }
 }
 
@@ -137,6 +147,5 @@ Current.propTypes = {
 const mapStateToProps = (state) => ({
   ...state
 })
-
 
 export default connect(mapStateToProps)(withStyles(styles)(Current))

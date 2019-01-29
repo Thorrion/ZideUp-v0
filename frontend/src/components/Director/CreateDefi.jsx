@@ -1,4 +1,4 @@
-import Chips from './Chips'
+import Categories from './Categories'
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -12,6 +12,7 @@ import { connect } from 'react-redux'
 import { challengeAction }from '../../stores/actions/challengeAction'
 import LogoPhoto from '../pictures/image-add-button.png'
 import Arrow from '../pictures/left-arrow-(2).png'
+import Slider from '../Slider';
 
 let today = new Date().toISOString().slice(0, 10)
 
@@ -31,11 +32,6 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     width: '41vw',
     marginLeft: '5vw'
-  },
-  title: {
-    backgroundColor: "#e8e8e8",
-    padding: "2vw 5vw",
-    margin: "2vw 0",
   },
   button : {
     marginTop: "1em",
@@ -58,7 +54,7 @@ const styles = theme => ({
     display: "flex",
     backgroundColor: "#039ce0",
     width: "100vw",
-    height: "15em"
+    height: "20em"
   },
   arrow: {
     position: "absolute",
@@ -101,7 +97,7 @@ class CreateDefi extends Component {
     debut: "",
     fin: "",
     description: "",
-    items:[],
+    ideas: []
   }
 
   handleChange = (e) => {
@@ -129,14 +125,13 @@ class CreateDefi extends Component {
       debut: this.state.debut,
       fin: this.state.fin,
       description: this.state.description,
-      items:this.props.chips,
+      categories: this.props.categories,
+      ideas: this.state.ideas
     })
   }
   
   render() {
     const { classes } = this.props;
-    console.log(this.props)
-    console.log(this.state)
     return (
 
       <Grid container>
@@ -170,20 +165,17 @@ class CreateDefi extends Component {
 
         <TextField
           required
-          id="standard-name"
           label="Nom du défi"
           className={classes.textField}
           name='nom'
           value={this.state.nom}
           onChange={(e) => this.handleChange(e)}
-          // margin="normal"
         />
 
 {/* PERIMETRE CONCERNE */}
 
         <TextField
           required
-          id="standard-select-currency-native"
           select
           label="Périmètre concerné"
           className={classes.textField}
@@ -196,7 +188,6 @@ class CreateDefi extends Component {
               className: classes.menu,
             },
           }}
-          margin="normal"
         >
           <option defaultValue=""></option>
           {currencies.map(option => (
@@ -210,7 +201,6 @@ class CreateDefi extends Component {
 
         <TextField
           required
-          id="date"
           label="Début"
           type="date"
           defaultValue={today}
@@ -227,7 +217,6 @@ class CreateDefi extends Component {
 
         <TextField
           required
-          id="date"
           label="Fin"
           type="date"
           defaultValue={today}
@@ -239,13 +228,10 @@ class CreateDefi extends Component {
             shrink: true,
           }}
         />
-{/* 
-        <Grid item xs={12}>
-          <p className={classes.title}>Description</p>
-        </Grid> */}
+
+{/* DESCRIPTION */}
         
         <TextField
-          id="standard-multiline-static"
           label="Description"
           multiline
           rows="4"
@@ -255,9 +241,13 @@ class CreateDefi extends Component {
           className={classes.textField}
         />
 
-{/* CHIPS */}
+{/* SLIDER */}
+
+          <Slider/>
+
+{/* CATEGORIES */}
           
-            <Chips/>
+            <Categories/>
 
             <Grid container>
 {/* BUTTON ENREGISTRER */}

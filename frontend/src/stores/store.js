@@ -6,7 +6,7 @@ import logger from 'redux-logger';
 import allReducer from './reducers';
 
 const persistConfig = {
-  key: 'XxXxX-XxXxX-XxXxxXd',
+  key: 'XxXxX-XxXxX-XxXxxXh',
   storage: LocalStorage,
 }
 

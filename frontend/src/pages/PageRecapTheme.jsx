@@ -6,7 +6,7 @@ const PageRecapTheme = (props) => {
   return (
     <div>
       <Navbar/>
-      <RecapTheme index={props.match.params.index}/>
+      <RecapTheme id={props.match.params.id}/>
     </div>
   )
 }

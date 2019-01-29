@@ -38,17 +38,24 @@ const styles = theme => ({
     position: "absolute",
     marginTop: "-1em"
   },
+  badge: {
+    background: '#00a308',
+    color: 'white'
+  },
+  badge2: {
+    background: '#fdb920',
+    color: 'white'
+  },
 });
 
-function PaperSheet(props) {
+function Finished(props) {
   const { classes } = props;
-
   return (
     <div className={classes.container}>
 
       <Paper className={classes.root} elevation={1}>
-        <Badge className={classes.margin} badgeContent={23} color="primary"></Badge>
-        <Badge className={classes.margin1} badgeContent={15} color="secondary"></Badge>
+        <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={23} color="primary"></Badge>
+        <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={15} color="secondary"></Badge>
         <ListItem>
           <Avatar>
             <ImageIcon />
@@ -59,8 +66,8 @@ function PaperSheet(props) {
       </Paper>
 
       <Paper className={classes.root} elevation={1}>
-        <Badge className={classes.margin} badgeContent={35} color="primary"></Badge>
-        <Badge className={classes.margin1} badgeContent={18} color="secondary"></Badge>
+        <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={35} color="primary"></Badge>
+        <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={18} color="secondary"></Badge>
         <ListItem>
           <Avatar>
             <ImageIcon />
@@ -71,8 +78,8 @@ function PaperSheet(props) {
       </Paper>
 
       <Paper className={classes.root} elevation={1}>
-        <Badge className={classes.margin} badgeContent={24} color="primary"></Badge>
-        <Badge className={classes.margin1} badgeContent={10} color="secondary"></Badge>
+        <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={24} color="primary"></Badge>
+        <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={10} color="secondary"></Badge>
         <ListItem>
           <Avatar>
             <ImageIcon />
@@ -83,8 +90,8 @@ function PaperSheet(props) {
       </Paper>
 
       <Paper className={classes.root} elevation={1}>
-        <Badge className={classes.margin} badgeContent={28} color="primary"></Badge>
-        <Badge className={classes.margin1} badgeContent={19} color="secondary"></Badge>
+        <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={28} color="primary"></Badge>
+        <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={19} color="secondary"></Badge>
         <ListItem>
           <Avatar>
             <ImageIcon />
@@ -99,8 +106,8 @@ function PaperSheet(props) {
   );
 }
 
-PaperSheet.propTypes = {
+Finished.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PaperSheet);
+export default withStyles(styles)(Finished);

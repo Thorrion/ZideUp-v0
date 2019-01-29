@@ -3,15 +3,6 @@ import { NavLink } from 'react-router-dom'
 import './PopUpDefi.scss'
 
 export default class PopUp extends Component {
-
-  componentDidMount = () => {
-    // this.closePopUp()
-  }
-
-  closePopUp = () => {
-    setTimeout(this.props.close, 4000); 
-  }
-  
   render() {
     return (
       <div className="PopUpDefi">
@@ -25,6 +16,7 @@ export default class PopUp extends Component {
           onClick={this.props.close}
           >Revenir à l'accueil</button>
         </NavLink>
+        
       </div>
     )
   }

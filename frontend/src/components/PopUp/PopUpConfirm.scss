@@ -16,6 +16,7 @@
   h3{
     text-align: center;
     margin-top: 5vh;
+    margin: auto
   }
   .fusee{
     width: 80vw;
@@ -25,15 +26,14 @@
   .ButtonPopUp{
     display: flex;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 15px;
     border: 0;
     width: 35vw;
-    height: 13vw;
-    background: linear-gradient($blue, #0172a5);
+    height: 10vw;
+    background: #039ce0;
     color: $white;
     font-size: 4vw;
-    box-shadow: -1px 3px 13px #082d4f;
     font-weight: 700;
-    margin: 5vh 2.5vw;
+    margin: 5vh 2.5vw 0vh;
   }
 }

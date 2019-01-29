@@ -40,27 +40,27 @@ class All extends Component {
   render() {
     const { classes } = this.props;
     return (
-        <div className={classes.root}>
+      <div className={classes.root}>
 
 {/* EN COURS */}
 
-            <p className={classes.title}>En cours</p>
+        <p className={classes.title}>En cours</p>
 
-            <Current/>
+        <Current/>
 
 {/* TERMINES */}
 
-            <p className={classes.title}>Terminés</p>
+        <p className={classes.title}>Terminés</p>
 
-            <Finished/>
+        <Finished/>
 
 {/* BROUILLON */}
 
-            <p className={classes.title}>Brouillon</p>
+        <p className={classes.title}>Brouillon</p>
 
-            <Draft/>
+        <Draft/>
 
-        </div>
+      </div>
 
     )
   }

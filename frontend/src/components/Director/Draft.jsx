@@ -22,9 +22,8 @@ const styles = theme => ({
   },
 });
 
-function PaperSheet(props) {
+function Draft(props) {
   const { classes } = props;
-
   return (
     <div className={classes.container}>
 
@@ -41,8 +40,8 @@ function PaperSheet(props) {
   );
 }
 
-PaperSheet.propTypes = {
+Draft.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PaperSheet);
+export default withStyles(styles)(Draft);

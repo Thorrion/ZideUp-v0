@@ -8,14 +8,24 @@ export default class PopUp extends Component {
       <div className="PopUpVote">
         <img src="https://gifimage.net/wp-content/uploads/2017/10/megaphone-gif-5.gif" alt="Megaphone" className="gif"/>
         
-        <h3>Merci pour votre vote !</h3>
+        <h3>Merci pour <br/>votre réponse !</h3>
 
-        <NavLink to={`/7/${this.props.index}`}>
-          <button 
-          className="ButtonPopUp"
-          onClick={this.props.close}
-          >Voir les résultats</button>
-        </NavLink>
+        {this.props.route ?
+          <NavLink to={this.props.route}>
+            <button 
+            className="ButtonPopUp"
+            onClick={this.props.close}
+            >Suivant</button>
+          </NavLink>
+        :
+          <NavLink to={`/7/${this.props.id}`}>
+            <button 
+            className="ButtonPopUp"
+            onClick={this.props.close}
+            >Suivant</button>
+          </NavLink>
+        }
+        
       </div>
     )
   }

@@ -86,5 +86,4 @@ const mapStateToProps = (state) => ({
   ...state
 })
 
-
 export default connect(mapStateToProps)(withStyles(styles)(NavBar))

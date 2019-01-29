@@ -18,8 +18,6 @@ export default class PopUp extends Component {
             onClick={this.props.confirm}
           >Lancer le défi</button>
         
-        
-        
       </div>
     )
   }

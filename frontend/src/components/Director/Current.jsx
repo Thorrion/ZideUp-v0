@@ -10,6 +10,10 @@ import { Progress } from 'reactstrap'
 import Badge from '@material-ui/core/Badge';
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import RD from '../pictures/R&D.png'
+import SAV from '../pictures/SAV1.png'
+import Qualite from '../pictures/qualite.png'
+import Production from '../pictures/production.png'
 
 const styles = theme => ({
   container: {
@@ -52,6 +56,9 @@ const styles = theme => ({
     background: '#fdb920',
     color: 'white'
   },
+  logo: {
+    width: "8vw"
+  }
 });
 
 let challenges
@@ -89,9 +96,7 @@ class Current extends Component {
           <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={41} color="primary"></Badge>
           <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={18} color="secondary"></Badge>
           <ListItem>
-            <Avatar>
-              <ImageIcon />
-            </Avatar>
+            <img src={SAV} alt="SAV" className={classes.logo}/>
             <ListItemText primary="Améliorer le service utilisateur" secondary="SAV" />
           </ListItem>
           <Progress value="20" className={classes.progress} />
@@ -102,9 +107,7 @@ class Current extends Component {
         <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={28} color="primary"></Badge>
         <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={24} color="secondary"></Badge>
         <ListItem>
-          <Avatar>
-            <ImageIcon />
-          </Avatar>
+          <img src={Production} alt="Production" className={classes.logo}/>
           <ListItemText primary="Améliorer les conditions de travail" secondary="Production" />
         </ListItem>
         <Progress value="80" className={classes.progress} />
@@ -114,9 +117,7 @@ class Current extends Component {
         <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={21} color="primary"></Badge>
         <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={13} color="secondary"></Badge>
         <ListItem>
-          <Avatar>
-            <ImageIcon />
-          </Avatar>
+          <img src={Qualite} alt="Qualité" className={classes.logo}/>
           <ListItemText primary="Diminuer les défauts produit XU-I" secondary="Qualité" />
         </ListItem>
         <Progress value="65" className={classes.progress} />
@@ -126,9 +127,7 @@ class Current extends Component {
         <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={8} color="primary"></Badge>
         <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={9} color="secondary"></Badge>
         <ListItem>
-          <Avatar>
-            <ImageIcon />
-          </Avatar>
+          <img src={RD} alt="R&D" className={classes.logo}/>
           <ListItemText primary="Améliorer la sécurité des données" 
           secondary="R&D" />
         </ListItem>

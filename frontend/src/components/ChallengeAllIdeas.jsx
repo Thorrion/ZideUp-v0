@@ -21,7 +21,7 @@ import Third from './pictures/third.png'
 import Vote from './pictures/group.png'
 import Chart from './pictures/pie-chart.png'
 import Eye from './pictures/eye.png'
-import User from './pictures/user(1).png'
+import User from './pictures/wave-hand.png'
 
 const styles = theme => ({
   container: {
@@ -173,8 +173,8 @@ class ChallengeAllIdeas extends Component {
 {/* CHALLENGE CARD */}
 
                   <Paper className={classes.root} elevation={1} key={challenge.id}>
-                    <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={0} color="primary"></Badge>
-                    <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={0} color="secondary"></Badge>
+                    <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={21} color="primary"></Badge>
+                    <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={4} color="secondary"></Badge>
                     <ListItem>
                       <Avatar>
                         <ImageIcon />
@@ -193,6 +193,41 @@ class ChallengeAllIdeas extends Component {
                 
                 <div className={classes.container1}>
 
+                  <Paper className={classes.root1} elevation={1}>
+                    <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={9} color="primary"></Badge>
+                    <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={75} color="secondary"></Badge>
+                    <ListItem style={{padding: 0}}>
+                          <img src={First} alt="First" className={classes.logoIdea}/>
+                      <ListItemText primary="S'assurer d'avoir le poste 5S complet" secondary="Equipement" />
+                    </ListItem>
+                  </Paper>
+
+                  <Paper className={classes.root1} elevation={1}>
+                    <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={5} color="primary"></Badge>
+                    <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={35} color="secondary"></Badge>
+                    <ListItem style={{padding: 0}}>
+                          <img src={Second} alt="Second" className={classes.logoIdea}/>
+                      <ListItemText primary="Nettoyer la valve d'embouteillage" secondary="Sécurité" />
+                    </ListItem>
+                  </Paper>
+
+                  <Paper className={classes.root1} elevation={1}>
+                    <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={4} color="primary"></Badge>
+                    <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={65} color="secondary"></Badge>
+                    <ListItem style={{padding: 0}}>
+                          <img src={Third} alt="Third" className={classes.logoIdea}/>
+                      <ListItemText primary="Valider la complétude dossier fabrication" secondary="OF" />
+                    </ListItem>
+                  </Paper>
+
+                  <Paper className={classes.root1} elevation={1}>
+                    <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={3} color="primary"></Badge>
+                    <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={85} color="secondary"></Badge>
+                    <ListItem>
+                      <ListItemText primary="Contresigner le rapport équipe nuit" secondary="Informations" />
+                    </ListItem>
+                  </Paper>
+
                   {this.props.challenges.list[0].ideas.map((idea, index) => {
                     return(
                       <NavLink to={`/11/${idUrl}/${categoryId}/${idea.id}`}>
@@ -200,16 +235,7 @@ class ChallengeAllIdeas extends Component {
                         <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={0} color="primary"></Badge>
                         <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={0} color="secondary"></Badge>
                         {index < 3 ?
-                        <ListItem style={{padding: 0}}>
-                            {index === 0 && 
-                              <img src={First} alt="First" className={classes.logoIdea}/>
-                            }
-                            {index === 1 && 
-                              <img src={Second} alt="Second" className={classes.logoIdea}/>
-                            }
-                            {index === 2 && 
-                              <img src={Third} alt="Third" className={classes.logoIdea}/>
-                            }
+                        <ListItem>
                           <ListItemText primary={idea.nom} secondary={idea.categorie} />
                         </ListItem>
                         :

@@ -7,11 +7,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
 import Badge from '@material-ui/core/Badge';
-import Avatar from '@material-ui/core/Avatar';
 import { Progress } from 'reactstrap'
-import ImageIcon from '@material-ui/icons/Image';
 import Arrow from '../pictures/left-arrow-(2).png'
 import More from '../pictures/plus.png'
+import SAV from '../pictures/SAV.png'
+import SAV1 from '../pictures/SAV1.png'
 
 const styles = theme => ({
   container: {
@@ -21,6 +21,9 @@ const styles = theme => ({
     width: "30vw",
     margin: 'auto',
   },
+  logo1: {
+    width: "7vw"
+  },
   menu:{
     position: "absolute",
     width: "13vw",
@@ -28,15 +31,16 @@ const styles = theme => ({
     marginTop: "0.6em"
   },
   image: {
-    margin: '4em auto 2em auto',
-    width: "95vw",
-    height: "15em"
+    zIndex: -1,
+    margin: '4em auto 0 auto',
+    width: "100vw",
+    height: "16em"
   },
   containerPhoto: {
     display: "flex",
     backgroundColor: "#0c54a7",
     width: "100vw",
-    height: "20em",
+    height: "4em",
   },
   arrow: {
     position: "absolute",
@@ -67,7 +71,7 @@ const styles = theme => ({
   root: {
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
-    marginTop: "-2em",
+    marginTop: "14em",
     border: "3px solid #0c54a7",
   },
   root1: {
@@ -115,29 +119,27 @@ const styles = theme => ({
     padding: "3vw"
   },
   badge: {
-    background: '#00a308', //green
+    background: '#00a308',
     color: 'white'
   },
   badge1: {
-    background: '#9000ff', // violet
+    background: '#9000ff',
     color: 'white'
   },
   badge2: {
-    background: '#fdb920', // yellow
+    background: '#fdb920',
     color: 'white'
   },
   badge3: {
     background: '#00a308',
     fontSize: "5vw",
     fontWeight: "bold",
-    marginTop: '0.3em',
     padding: "5vw",
     color: 'white'
   },
   badge4: {
     background: '#fdb920',
     fontSize: "5vw",
-    marginTop: '0.3em',
     fontWeight: "bold",
     padding: "5vw",
     color: 'white'
@@ -158,7 +160,7 @@ class ChallengeThemeIdeas extends Component {
             <NavLink to="/21">
               <img src={Arrow} alt="Back" className={classes.arrow}/>
             </NavLink>
-              <img src="" alt="Logo" className={classes.image}/>
+              <img src={SAV} alt="Logo" className={classes.image}/>
               <img src={More} alt="Add Challenge" className={classes.more}/>
           </div>
 
@@ -171,9 +173,7 @@ class ChallengeThemeIdeas extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={41} color="primary"></Badge>
               <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={18} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText classes={{primary:classes.listItemText, secondary:classes.listItemText1}} primary="Améliorer le service utilisateur" secondary="SAV" />
               </ListItem>
               <Progress value="20" className={classes.progress} />
@@ -188,9 +188,7 @@ class ChallengeThemeIdeas extends Component {
               <Badge classes={{badge: classes.badge3}} className={classes.margin2} badgeContent={5} color="primary"></Badge>
               <Badge classes={{badge: classes.badge4}} className={classes.margin3} badgeContent={3} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Réactivité" />
               </ListItem>
             </Paper>
@@ -200,9 +198,7 @@ class ChallengeThemeIdeas extends Component {
                 <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={3} color="primary"></Badge>
                 <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={85} color="secondary"></Badge>
                 <ListItem>
-                  <Avatar>
-                    <ImageIcon />
-                  </Avatar>
+                  <img src={SAV1} alt="SAV" className={classes.logo1}/>
                   <ListItemText primary="Convenir d'une date de réponse au client" />
                 </ListItem>
               </Paper>
@@ -212,9 +208,7 @@ class ChallengeThemeIdeas extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={1} color="primary"></Badge>
               <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={34} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Décider un point de contact unique" />
               </ListItem>
             </Paper>
@@ -223,9 +217,7 @@ class ChallengeThemeIdeas extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={1} color="primary"></Badge>
               <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={80} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Définir une charte 'réactivité'" />
               </ListItem>
             </Paper>

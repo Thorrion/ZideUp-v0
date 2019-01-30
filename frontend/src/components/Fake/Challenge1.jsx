@@ -17,6 +17,8 @@ import Group from '../pictures/users-group.png'
 import Chart from '../pictures/pie-chart.png'
 import Eye from '../pictures/eye.png'
 import Result from './Result1';
+import SAV from '../pictures/SAV.png'
+import SAV1 from '../pictures/SAV1.png'
 
 const styles = theme => ({
   container: {
@@ -28,6 +30,9 @@ const styles = theme => ({
     backgroundColor: "#0c54a7",
     padding: "6em 35vw 6em 35vw",
     zIndex: -1
+  },
+  logo1: {
+    width: "7vw"
   },
   menu:{
     position: "absolute",
@@ -131,7 +136,7 @@ class Challenge extends Component {
             <NavLink to="/4">
               <img src={Arrow} alt="Back" className={classes.arrow}/>
             </NavLink>
-              <img src="" alt="Logo" className={classes.image}/>
+              <img src={SAV} alt="Logo" className={classes.image}/>
             <NavLink to="/23">
               <img src={All} alt="All Ideas" className={classes.menu}/>
             </NavLink>
@@ -146,9 +151,7 @@ class Challenge extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={41} color="primary"></Badge>
               <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={18} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText classes={{primary:classes.listItemText, secondary:classes.listItemText1}} primary="Améliorer le service utilisateur" secondary="SAV" />
               </ListItem>
               <Progress value="20" className={classes.progress} />
@@ -179,9 +182,7 @@ class Challenge extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={15} color="primary"></Badge>
               <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={6} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Call Center" />
               </ListItem>
             </Paper>
@@ -190,9 +191,7 @@ class Challenge extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={9} color="primary"></Badge>
               <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={3} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="CRM" />
               </ListItem>
             </Paper>
@@ -201,9 +200,7 @@ class Challenge extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={6} color="primary"></Badge>
               <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={3} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Informations client" />
               </ListItem>
             </Paper>
@@ -213,9 +210,7 @@ class Challenge extends Component {
                 <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={5} color="primary"></Badge>
                 <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={3} color="secondary"></Badge>
                 <ListItem>
-                  <Avatar>
-                    <ImageIcon />
-                  </Avatar>
+                  <img src={SAV1} alt="SAV" className={classes.logo1}/>
                   <ListItemText primary="Réactivité" />
                 </ListItem>
               </Paper>
@@ -225,9 +220,7 @@ class Challenge extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={3} color="primary"></Badge>
               <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={2} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Garantie" />
               </ListItem>
             </Paper>
@@ -236,9 +229,7 @@ class Challenge extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={3} color="primary"></Badge>
               <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={1} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Customisation" />
               </ListItem>
             </Paper>
@@ -247,9 +238,7 @@ class Challenge extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={1} color="primary"></Badge>
               <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={1} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Autres" />
               </ListItem>
             </Paper>

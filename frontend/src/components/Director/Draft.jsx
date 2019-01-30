@@ -1,12 +1,10 @@
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-
+import Informatique from '../pictures/informatique.png'
 
 const styles = theme => ({
   container: {
@@ -20,6 +18,9 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2,
     marginTop: "2em"
   },
+  logo: {
+    width: "8vw"
+  }
 });
 
 function Draft(props) {
@@ -29,9 +30,7 @@ function Draft(props) {
 
       <Paper className={classes.root} elevation={1}>
         <ListItem>
-          <Avatar>
-            <ImageIcon />
-          </Avatar>
+          <img src={Informatique} alt="Informatique" className={classes.logo}/>
           <ListItemText primary="Réduire les risques réseau" secondary="Informatique" />
         </ListItem>
       </Paper>

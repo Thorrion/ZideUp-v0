@@ -144,7 +144,8 @@ class ChallengeVote extends Component {
   state = {
     isOpen : false,
     border: 'none',
-    commentaire: ""
+    commentaire: "",
+    selected: []
   }
   
   backdropClickHandler = () => {
@@ -154,17 +155,21 @@ class ChallengeVote extends Component {
       )
   }
 
+  selectedCategories = (category) => {
+    if (this.state.selected.includes(category)) {
+      console.log("includes")
+    } else{
+      if(this.state.selected.length < 6){
+        this.setState({selected: this.state.selected + category + ","})
+      } else {
+        alert('Vous avez déjà selectionné 3 catégories')
+      }
+    }
+  }
+
   popupThankVote = (e) => {
     e.preventDefault()
     this.setState({isOpen: true})
-  }
-
-  handleClick = () => {
-    if(this.state.border === "none"){
-      this.setState({border: "solid 1px #039ce0"})
-    } else {
-      this.setState({border: 'none'})
-    }
   }
 
   handleDeleteChallenge = (e, id) => {
@@ -173,10 +178,10 @@ class ChallengeVote extends Component {
     }
   }
 
-
   render() {
     let idUrl = parseInt(this.props.id)
     const { classes } = this.props;
+    console.log(this.state.selected)
     return (
       <Grid>
 
@@ -250,16 +255,29 @@ class ChallengeVote extends Component {
                   <p>Parmi les choix des catégories suivantes, lesquelles sont les plus influentes sur le défi lancé ? <br/> (sélectionnez 3 catégories principales)</p>
 
                   {challenge.categories.list.map((category) => {
-                    return(
-                      <Paper className={classes.root1} onClick={this.handleClick} style={{border: this.state.border}} elevation={1} key={category.id}>
-                        <ListItem>
-                          <Avatar>
-                            <ImageIcon />
-                          </Avatar>
-                          <ListItemText primary={category.name} />
-                        </ListItem>
-                      </Paper>
+                    if(this.state.selected.includes(category.id)){
+                      return (
+                        <Paper className={classes.root1} onClick={()=> this.selectedCategories(category.id)} style={{boxShadow: "0 0 10px #0c54a7"}} elevation={1} key={category.id}>
+                          <ListItem>
+                            <Avatar>
+                              <ImageIcon />
+                            </Avatar>
+                            <ListItemText primary={category.name} />
+                          </ListItem>
+                        </Paper>
                       )
+                    } else {
+                      return(
+                        <Paper className={classes.root1} onClick={()=> this.selectedCategories(category.id)} style={{border: this.state.border}} elevation={1} key={category.id}>
+                          <ListItem>
+                            <Avatar>
+                              <ImageIcon />
+                            </Avatar>
+                            <ListItemText primary={category.name} />
+                          </ListItem>
+                        </Paper>
+                      )
+                    }
                   })}
 
 {/* COMMENT */}

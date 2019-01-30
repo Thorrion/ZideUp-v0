@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { VictoryChart, VictoryPolarAxis, VictoryTheme, VictoryLine, VictoryLabel } from 'victory'
 
-let num = 4
-let num1 = 5
-let num2 = 4
-let num3 = 4
+let num = 3
+let num1 = 3
+let num2 = 2
+let num3 = 3
 
-let score = 85
+let score = 55
 
 let sampleData = [num,num1,num2,num3]
 let sampleData5 = [5,5,5,5]

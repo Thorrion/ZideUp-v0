@@ -10,13 +10,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
 import Badge from '@material-ui/core/Badge';
-import Avatar from '@material-ui/core/Avatar';
 import { Progress } from 'reactstrap'
-import ImageIcon from '@material-ui/icons/Image';
 import Arrow from '../pictures/left-arrow-(2).png'
 import Slider from '../Slider';
 import TextField from '@material-ui/core/TextField';
 import Send from '../pictures/send-button.png'
+import SAV from '../pictures/SAV.png'
+import SAV1 from '../pictures/SAV1.png'
 
 const styles = theme => ({
   container: {
@@ -28,6 +28,9 @@ const styles = theme => ({
     backgroundColor: "#0c54a7",
     padding: "6em 35vw 6em 35vw",
     zIndex: -1
+  },
+  logo1: {
+    width: "7vw"
   },
   menu:{
     position: "absolute",
@@ -139,8 +142,13 @@ const styles = theme => ({
 class Challenge extends Component {
   state = {
     isOpen : false,
-    border: 'none',
-    commentaire: ""
+    commentaire: "",
+    border1: "",
+    border2: "",
+    border3: "",
+    border4: "",
+    border5: "",
+    border6: ""
   }
   
   backdropClickHandler = () => {
@@ -155,13 +163,51 @@ class Challenge extends Component {
     this.setState({isOpen: true})
   }
 
-  handleClick = () => {
-    if(this.state.border === "none"){
-      this.setState({border: "solid 1px #039ce0"})
-    } else {
-      this.setState({border: 'none'})
+  handleClick = (id) => {
+    if(id === 1){
+      if(this.state.border1 === ""){
+
+        this.setState({border1: "0 0 10px #0c54a7"})
+      } else {
+        this.setState({border1: ""})
+      }
+    } else if(id === 2){
+      if(this.state.border2 === ""){
+
+        this.setState({border2: "0 0 10px #0c54a7"})
+      } else {
+        this.setState({border2: ""})
+      }
+    } else if(id === 3){
+      if(this.state.border3 === ""){
+
+        this.setState({border3: "0 0 10px #0c54a7"})
+      } else {
+        this.setState({border3: ""})
+      }
+    } else if(id === 4){
+      if(this.state.border4 === ""){
+
+        this.setState({border4: "0 0 10px #0c54a7"})
+      } else {
+        this.setState({border4: ""})
+      }
+    } else if(id === 5){
+      if(this.state.border5 === ""){
+
+        this.setState({border5: "0 0 10px #0c54a7"})
+      } else {
+        this.setState({border5: ""})
+      }
+    } else if(id === 6){
+      if(this.state.border6 === ""){
+
+        this.setState({border6: "0 0 10px #0c54a7"})
+      } else {
+        this.setState({border6: ""})
+      }
     }
-  }
+  } 
 
   render() {
     const { classes } = this.props;
@@ -186,7 +232,7 @@ class Challenge extends Component {
             <NavLink to="/4">
               <img src={Arrow} alt="Back" className={classes.arrow}/>
             </NavLink>
-              <img src="" alt="Logo" className={classes.image}/>
+              <img src={SAV} alt="Logo" className={classes.image}/>
           </div>
 
           <div style={{padding: "0 5vw"}}>
@@ -198,9 +244,7 @@ class Challenge extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={41} color="primary"></Badge>
               <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={18} color="secondary"></Badge>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText classes={{primary:classes.listItemText, secondary:classes.listItemText1}} primary="Améliorer le service utilisateur" secondary="SAV" />
               </ListItem>
               <Progress value="20" className={classes.progress} />
@@ -226,56 +270,44 @@ class Challenge extends Component {
 
             <p>Parmi les choix des catégories suivantes, lesquelles sont les plus influentes sur le défi lancé ? <br/> (sélectionnez 3 catégories principales)</p>
 
-            <Paper className={classes.root1} onClick={this.handleClick} style={{border: this.state.border}} elevation={1}>
+            <Paper className={classes.root1} onClick={() => this.handleClick(1)} style={{boxShadow: this.state.border1}} elevation={1}>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Call Center" />
               </ListItem>
             </Paper>
 
-            <Paper className={classes.root1} onClick={this.handleClick} style={{border: this.state.border}} elevation={1}>
+            <Paper className={classes.root1} onClick={() => this.handleClick(2)} style={{boxShadow: this.state.border2}} elevation={1}>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="CRM" />
               </ListItem>
             </Paper>
 
-            <Paper className={classes.root1} onClick={this.handleClick} style={{border: this.state.border}} elevation={1}>
+            <Paper className={classes.root1} onClick={() => this.handleClick(3)} style={{boxShadow: this.state.border3}} elevation={1}>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Informations client" />
               </ListItem>
             </Paper>
 
-            <Paper className={classes.root1} onClick={this.handleClick} style={{border: this.state.border}} elevation={1}>
+            <Paper className={classes.root1} onClick={() => this.handleClick(4)} style={{boxShadow: this.state.border4}} elevation={1}>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Réactivité" />
               </ListItem>
             </Paper>
 
-            <Paper className={classes.root1} onClick={this.handleClick} style={{border: this.state.border}} elevation={1}>
+            <Paper className={classes.root1} onClick={() => this.handleClick(5)} style={{boxShadow: this.state.border5}} elevation={1}>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Garantie" />
               </ListItem>
             </Paper>
 
-            <Paper className={classes.root1} onClick={this.handleClick} style={{border: this.state.border}} elevation={1}>
+            <Paper className={classes.root1} onClick={() => this.handleClick(6)} style={{boxShadow: this.state.border6}} elevation={1}>
               <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <img src={SAV1} alt="SAV" className={classes.logo1}/>
                 <ListItemText primary="Customisation" />
               </ListItem>
             </Paper>

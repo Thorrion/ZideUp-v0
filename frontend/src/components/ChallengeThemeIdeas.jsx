@@ -205,6 +205,50 @@ class ChallengeThemeIdeas extends Component {
 
 {/* IDEAS */}
 
+                <Paper className={classes.root2} elevation={1}>
+                  <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={9} color="primary"></Badge>
+                  <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={75} color="secondary"></Badge>
+                  <ListItem>
+                    <Avatar>
+                      <ImageIcon />
+                    </Avatar>
+                    <ListItemText primary="S'assurer d'avoir le poste 5S complet" secondary="Equipement" />
+                  </ListItem>
+                </Paper>
+
+                <Paper className={classes.root2} elevation={1}>
+                  <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={5} color="primary"></Badge>
+                  <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={35} color="secondary"></Badge>
+                  <ListItem>
+                    <Avatar>
+                      <ImageIcon />
+                    </Avatar>      
+                    <ListItemText primary="Nettoyer la valve d'embouteillage" secondary="Sécurité" />
+                  </ListItem>
+                </Paper>
+
+                <Paper className={classes.root2} elevation={1}>
+                  <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={4} color="primary"></Badge>
+                  <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={65} color="secondary"></Badge>
+                  <ListItem>
+                    <Avatar>
+                      <ImageIcon />
+                    </Avatar>              
+                    <ListItemText primary="Valider la complétude dossier fabrication" secondary="OF" />
+                  </ListItem>
+                </Paper>
+
+                <Paper className={classes.root2} elevation={1}>
+                  <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={3} color="primary"></Badge>
+                  <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={85} color="secondary"></Badge>
+                  <ListItem>
+                    <Avatar>
+                      <ImageIcon />
+                    </Avatar>  
+                    <ListItemText primary="Contresigner le rapport équipe nuit" secondary="Informations" />
+                  </ListItem>
+                </Paper>
+
                 {challenge.ideas.map((idea) => {
                   return(
                     <NavLink to={`/11/${idUrl}/${categoryId}/${idea.id}`}>

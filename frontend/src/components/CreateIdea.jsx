@@ -11,10 +11,6 @@ import { connect } from 'react-redux'
 import { AddIdeaAction }from './../stores/actions/challengeAction'
 import LogoPhoto from './pictures/image-add-button.png'
 import Arrow from './pictures/left-arrow-(2).png'
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 
 const styles = theme => ({
   container: {
@@ -175,6 +171,7 @@ class CreateIdea extends Component {
 {/* DESCRIPTION */}
         
           <TextField
+            required
             label="Description"
             multiline
             rows="4"
@@ -190,87 +187,107 @@ class CreateIdea extends Component {
 
 {/* DECISION */}
 
-          <FormControl className={classes.textField}>
-            <InputLabel htmlFor="decision">Décision</InputLabel>
-            <Select
-              value={this.state.decision}
-              onChange={(e) => this.handleChange(e)}
-              inputProps={{
-                name: 'decision',
-                id: 'decision',
-              }}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
+          <TextField
+            required
+            select
+            label="Décision"
+            className={classes.textField}
+            name='decision'
+            value={this.state.decision}
+            onChange={(e) => this.handleChange(e)}
+            SelectProps={{
+              native: true,
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+          >
+              <option value=""></option>
+              <option value={5}>Local</option>
+              <option value={4}>Manager</option>
+              <option value={3}>Fonction support</option>
+              <option value={2}>Inter-métier</option>
+              <option value={1}>Process-stratégique</option>
+            ))}
+          </TextField>
 
 {/* COMPLEXITE */}
 
-          <FormControl className={classes.textField}>
-            <InputLabel htmlFor="complexite">Complexité</InputLabel>
-            <Select
-              value={this.state.complexite}
-              onChange={(e) => this.handleChange(e)}
-              inputProps={{
-                name: 'complexite',
-                id: 'complexite',
-              }}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
+          <TextField
+            required
+            select
+            label="Complexité"
+            className={classes.textField}
+            name='complexite'
+            value={this.state.complexite}
+            onChange={(e) => this.handleChange(e)}
+            SelectProps={{
+              native: true,
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+          >
+              <option value=""></option>
+              <option value={5}>Facile</option>
+              <option value={4}>Moyen</option>
+              <option value={3}>Difficile</option>
+              <option value={2}>Complexe</option>
+              <option value={1}>Très complexe</option>
+            ))}
+          </TextField>
 
 {/* COUT */}
 
-          <FormControl className={classes.textField}>
-            <InputLabel htmlFor="cout">Coût</InputLabel>
-            <Select
-              value={this.state.cout}
-              onChange={(e) => this.handleChange(e)}
-              inputProps={{
-                name: 'cout',
-                id: 'cout',
-              }}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
+          <TextField
+            required
+            select
+            label="Coût"
+            className={classes.textField}
+            name='cout'
+            value={this.state.cout}
+            onChange={(e) => this.handleChange(e)}
+            SelectProps={{
+              native: true,
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+          >
+              <option value=""></option>
+              <option value={5}>Zéro</option>
+              <option value={4}>Faible</option>
+              <option value={3}>Moyen</option>
+              <option value={2}>Cher</option>
+              <option value={1}>Très cher</option>
+            ))}
+          </TextField>
 
 {/* DUREE */}
 
-          <FormControl className={classes.textField}>
-            <InputLabel htmlFor="duree">Durée</InputLabel>
-            <Select
-              value={this.state.duree}
-              onChange={(e) => this.handleChange(e)}
-              inputProps={{
-                name: 'duree',
-                id: 'duree',
-              }}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
+          <TextField
+            required
+            select
+            label="Durée"
+            className={classes.textField}
+            name='duree'
+            value={this.state.duree}
+            onChange={(e) => this.handleChange(e)}
+            SelectProps={{
+              native: true,
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+          >
+              <option value=""></option>
+              <option value={5}>1 semaine</option>
+              <option value={4}>2 semaines</option>
+              <option value={3}>1 mois</option>
+              <option value={2}>3 mois</option>
+              <option value={1}>6 mois</option>
+            ))}
+          </TextField>
 
           <Grid container>
           

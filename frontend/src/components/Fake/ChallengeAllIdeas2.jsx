@@ -7,18 +7,19 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
 import Badge from '@material-ui/core/Badge';
+import Avatar from '@material-ui/core/Avatar';
 import { Progress } from 'reactstrap'
+import ImageIcon from '@material-ui/icons/Image';
 import Arrow from '../pictures/left-arrow-(2).png'
-import More from '../pictures/plus.png'
 import First from '../pictures/first.png'
 import Second from '../pictures/second.png'
 import Third from '../pictures/third.png'
 import Vote from '../pictures/group.png'
 import Chart from '../pictures/pie-chart.png'
 import Eye from '../pictures/eye.png'
-import User from '../pictures/user(1).png'
-import SAV from '../pictures/SAV.png'
-import SAV1 from '../pictures/SAV1.png'
+import User from '../pictures/wave-hand.png'
+import Vente from '../pictures/vente.png'
+import Commercial from '../pictures/commercial.png'
 
 const styles = theme => ({
   container: {
@@ -34,7 +35,7 @@ const styles = theme => ({
     padding: "6em 35vw 6em 35vw",
     zIndex: -1
   },
-  logo1: {
+  logo1:{
     width: "7vw"
   },
   image: {
@@ -149,11 +150,10 @@ class ChallengeAllIdeas extends Component {
 {/* PICTURE */}
 
           <div className={classes.containerPhoto}>
-            <NavLink to="/21">
+            <NavLink to="/4">
               <img src={Arrow} alt="Back" className={classes.arrow}/>
             </NavLink>
-            <img src={SAV} alt="Logo" className={classes.image}/>
-            <img src={More} alt="Add Challenge" className={classes.more}/>
+            <img src={Vente} alt="Logo" className={classes.image}/>
           </div>
 
           <div className={classes.container}>
@@ -161,17 +161,17 @@ class ChallengeAllIdeas extends Component {
 {/* CHALLENGE CARD */}
 
             <Paper className={classes.root} elevation={1}>
-              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={41} color="primary"></Badge>
-              <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={18} color="secondary"></Badge>
+              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={38} color="primary"></Badge>
+              <Badge classes={{badge: classes.badge2}} className={classes.margin1} badgeContent={6} color="secondary"></Badge>
               <ListItem>
-                <img src={SAV1} alt="SAV" className={classes.logo1}/> 
-                <ListItemText classes={{primary:classes.listItemText, secondary:classes.listItemText1}} primary="Améliorer le service utilisateur" secondary="SAV" />
+                <img src={Commercial} alt="Commercial" className={classes.logo1}/>
+                <ListItemText classes={{primary:classes.listItemText, secondary:classes.listItemText1}} primary="Augmenter les ventes sur salon" secondary="Commercial" />
               </ListItem>
-              <Progress value="20" className={classes.progress} />
-              <p style={{float:'left', fontSize: "4vw", marginLeft: '12vw', marginRight: '37vw'}}>11/12/19</p><p style={{fontSize: "4vw"}}>28/02/20</p>
+              <Progress value="100" className={classes.progress} color="success" />
+              <p style={{float:'left', fontSize: "4vw", marginLeft: '12vw', marginRight: '37vw'}}>03/04/19</p><p style={{fontSize: "4vw"}}>30/06/19</p>
             </Paper>
 
-            <p className={classes.description}>De nombreux utilisateurs on fait part de leurs mécontentements récents concernant notre produit phare, et malgré leurs plaintes nous n'arrivons pas à identifier les fonctionnalités à leur proposer, qu'en pensez vous ?</p>
+            <p className={classes.description}>Nous débutons la campagne des salons de présentation de la nouvelle ligne produit, j'aimerais recueillir toutes vos idées pour augmenter nos ventes lors de nos rdv présentiels, merci!</p>
 
           </div>
 
@@ -179,39 +179,41 @@ class ChallengeAllIdeas extends Component {
                 
           <div className={classes.container1}>
 
-            <Paper className={classes.root1} elevation={1}>
-              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={6} color="primary"></Badge>
-              <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={87} color="secondary"></Badge>
-              <ListItem style={{padding: 0}}>
-                    <img src={First} alt="First" className={classes.logoIdea}/>
-                <ListItemText primary="Ouvrir le call center plus tard le soir" secondary="Call Center" />
-              </ListItem>
-            </Paper>
+            <NavLink to="/28">
+              <Paper className={classes.root1} elevation={1}>
+                <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={13} color="primary"></Badge>
+                <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={55} color="secondary"></Badge>
+                <ListItem style={{padding: 0}}>
+                      <img src={First} alt="First" className={classes.logoIdea}/>
+                  <ListItemText primary="Proposer un moi d'essai gratuit" secondary="Offre" />
+                </ListItem>
+              </Paper>
+            </NavLink>
 
             <Paper className={classes.root1} elevation={1}>
-              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={5} color="primary"></Badge>
-              <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={57} color="secondary"></Badge>
+              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={12} color="primary"></Badge>
+              <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={35} color="secondary"></Badge>
               <ListItem style={{padding: 0}}>
                     <img src={Second} alt="Second" className={classes.logoIdea}/>
-                <ListItemText primary="Mixer les équipes call center" secondary="Call Center" />
+                <ListItemText primary="Offrir un rdv de diagnostic sur site" secondary="Offre" />
               </ListItem>
             </Paper>
 
             <Paper className={classes.root1} elevation={1}>
-              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={5} color="primary"></Badge>
+              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={6} color="primary"></Badge>
               <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={65} color="secondary"></Badge>
               <ListItem style={{padding: 0}}>
                     <img src={Third} alt="Third" className={classes.logoIdea}/>
-                <ListItemText primary="Mettre à jour le guide CRM" secondary="CRM" />
+                <ListItemText primary="Préparer une infographie produit" secondary="Démonstration" />
               </ListItem>
             </Paper>
 
             <NavLink to="/24">
               <Paper className={classes.root1} elevation={1}>
-                <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={5} color="primary"></Badge>
+                <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={4} color="primary"></Badge>
                 <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={85} color="secondary"></Badge>
                 <ListItem>
-                  <ListItemText primary="Convenir d'une date de réponse au client" secondary="Réactivité" />
+                  <ListItemText primary="Personnaliser le produit au logo client" secondary="Customisation" />
                 </ListItem>
               </Paper>
             </NavLink>
@@ -220,35 +222,37 @@ class ChallengeAllIdeas extends Component {
               <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={2} color="primary"></Badge>
               <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={34} color="secondary"></Badge>
               <ListItem>
-                <ListItemText primary="Former téléopérateur aux types clients" secondary="Customisation" />
+                <ListItemText primary="Proposer un formulaire test-produit" secondary="Démonstration" />
               </ListItem>
             </Paper>
 
             <Paper className={classes.root1} elevation={1}>
-              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={3} color="primary"></Badge>
+              <Badge classes={{badge: classes.badge}} className={classes.margin} badgeContent={1} color="primary"></Badge>
               <Badge classes={{badge: classes.badge1}} className={classes.margin1} badgeContent={25} color="secondary"></Badge>
               <ListItem>
-                <ListItemText primary="Modifier indicateur de performance" secondary="Garantie" />
+                <ListItemText primary="Avoir 3 créneaux d démo produit" secondary="Planning salon" />
               </ListItem>
             </Paper>
+
+{/* SCORING */}
 
             <p className={classes.title}>Scoring</p>
 
             <Grid container>
               <Grid item xs={6} className={classes.scoringContainer}>
-                <img src={Vote} alt="Vote" className={classes.scoring} /> <span className={classes.score}>127</span>
+                <img src={Vote} alt="Vote" className={classes.scoring} /> <span className={classes.score}>25</span>
               </Grid>
               <Grid item xs={6} className={classes.scoringContainer}>
-                <img src={Eye} alt="Eye" className={classes.scoring} /> <span className={classes.score}>158</span>
+                <img src={Eye} alt="Eye" className={classes.scoring} /> <span className={classes.score}>67</span>
               </Grid>
             </Grid>
             
             <Grid container>
               <Grid item xs={6} className={classes.scoringContainer}>
-                <img src={Chart} alt="Chart" className={classes.scoring} /> <span className={classes.score}>32%</span>
+                <img src={Chart} alt="Chart" className={classes.scoring} /> <span className={classes.score}>78%</span>
               </Grid>
               <Grid item xs={6} className={classes.scoringContainer}>
-                <img src={User} alt="User" className={classes.scoring} /> <span className={classes.score}>1.25</span>
+                <img src={User} alt="User" className={classes.scoring} /> <span className={classes.score}>2.6</span>
               </Grid>
             </Grid>
 

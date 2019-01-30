@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import PopUpAvis from '../PopUp/PopUpAvis'
-import Backdrop from '../Backdrop'
-import { Redirect } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -13,15 +10,13 @@ import Paper from '@material-ui/core/Paper';
 import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import { Progress } from 'reactstrap'
-import ImageIcon from '@material-ui/icons/Image';
 import Arrow from '../pictures/left-arrow-(2).png'
-import Diagram from './Diagram1'
-import Thumb from '../pictures/thumb-up.png'
+import Diagram from './Diagram2'
 import calendar from '../pictures/calendar.png'
 import TextField from '@material-ui/core/TextField';
 import Send from '../pictures/send-button.png'
-import Idee from '../pictures/idée.png'
-import SAV from '../pictures/SAV1.png'
+import Free from '../pictures/freemonth.png'
+import Commercial from '../pictures/commercial.png'
 
 const styles = theme => ({
   container: {
@@ -34,15 +29,15 @@ const styles = theme => ({
     padding: "6em 35vw 6em 35vw",
     zIndex: -1
   },
-  logo1: {
+  logo1 : {
     width: "7vw"
   },
   image: {
     zIndex: -1,
     margin: '4em auto 0 auto',
     width: "100vw",
+    background: "#fdb920",
     padding: "0 15vw",
-    backgroundColor: "#fdb920",
     height: "16em"
   },
   containerPhoto: {
@@ -142,46 +137,23 @@ const styles = theme => ({
 
 class Challenge extends Component {
   state = {
-    isOpen : false,
     commentaire: ""
   }
-  
-  backdropClickHandler = () => {
-    return (
-      <Redirect to="/4"/>,
-      this.setState({isOpen: false})
-      )
-  }
-
-  popupThankVote = (e) => {
-    e.preventDefault()
-    this.setState({isOpen: true})
-  }
-
 
   render() {
     const { classes } = this.props;
     return (
       <Grid>
 
-{/* POP UP CONFIRM VOTE */}
-
-        {this.state.isOpen &&
-          <div>
-            <PopUpAvis close={this.backdropClickHandler}/>
-            <Backdrop click={this.backdropClickHandler} />
-          </div>
-        }
-
         <div>
 
 {/* PICTURE */}
 
           <div className={classes.containerPhoto}>
-            <NavLink to="/22">
+            <NavLink to="/27">
               <img src={Arrow} alt="Back" className={classes.arrow}/>
             </NavLink>
-              <img src={Idee} alt="Logo" className={classes.image}/>
+              <img src={Free} alt="Logo" className={classes.image}/>
           </div>
 
           <div style={{padding: "0 5vw 4em"}}>
@@ -192,22 +164,23 @@ class Challenge extends Component {
               <Paper className={classes.root} elevation={1} >
                 <Badge className={classes.margin1} badgeContent={3} classes={{badge: classes.badge}}></Badge>
                 <ListItem>
-                  <img src={SAV} alt="SAV" className={classes.logo1}/>
-                  <ListItemText classes={{primary:classes.listItemText, secondary:classes.listItemText1}} primary="Convenir d'une date de réponse au client" secondary="Réactivité" />
+                  <img src={Commercial} alt="Commercial" className={classes.logo1}/>
+
+                  <ListItemText classes={{primary:classes.listItemText, secondary:classes.listItemText1}} primary="Proposer un mois d'essai gratuit" secondary="Offre" />
                 </ListItem>
-                <Progress value="20" className={classes.progress} />
-                <p style={{float:'left', fontSize: "4vw", marginLeft: '12vw', marginRight: '37vw'}}>11/12/19</p><p style={{fontSize: "4vw"}}>28/02/20</p>
+                <Progress value="100" className={classes.progress} color="success" />
+                <p style={{float:'left', fontSize: "4vw", marginLeft: '12vw', marginRight: '37vw'}}>03/04/19</p><p style={{fontSize: "4vw"}}>30/06/19</p>
               </Paper>
 
               <div>
-                <Avatar className={classes.avatar}>JD</Avatar>
-                <p className={classes.editor}>Julien Dubois<br/>Team <span style={{color: "blue"}}><i>Commercial</i></span></p>
-                <img src={Thumb} alt='Thumb' className={classes.thumb} onClick={() => this.setState({isOpen: true})}/>
+                <Avatar className={classes.avatar}>VC</Avatar>
+                <p className={classes.editor}>Vincent Claret<br/>Team <span style={{color: "blue"}}><i>Commercial</i></span></p>
+                {/* <img src={Thumb} alt='Thumb' className={classes.thumb}/> */}
                 <img src={calendar} alt="Calendrier" className={classes.calendar}/>
-                <i className={classes.date}>18/11</i>
+                <i className={classes.date}>10/04</i>
               </div>
 
-              <p className={classes.description}>Je propose que l'on ajoute un paramètre dans le formulaire de réponse pour fixer une date de retour vers le client. Ainsi on pourra piloter les réponses attendues et savoir si nous améliorons la réactivité. Une règle de répondre sous une semaine maximum peut être posée en plus</p>
+              <p className={classes.description}>Et si nous offrons un mois de test du nouveau produit avec une séance de coaching téléphonique pour guider le client dans l'utilisation du produit dans son contexte. C'est sans engagement, on met un pied dans la porte, et on s'assure un rdv téléphonique de présentation concrète du produit</p>
             </div>
 
 {/* DIAGRAM */}

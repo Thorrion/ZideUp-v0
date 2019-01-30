@@ -22,6 +22,9 @@ import ChallengeThemeIdeas1 from '../pages/fake/ChallengeThemeIdeas1'
 import ChallengeAllIdeas1 from '../pages/fake/ChallengeAllIdeas1'
 import Idea1 from '../pages/fake/Idea1'
 
+import ChallengeAllIdeas2 from '../pages/fake/ChallengeAllIdeas2'
+import Idea2 from '../pages/fake/Idea2'
+
 class AppRouter extends Component {
   render() {
     return (
@@ -49,6 +52,9 @@ class AppRouter extends Component {
               <Route exact path="/22" component={ChallengeThemeIdeas1}/>
               <Route exact path="/23" component={ChallengeAllIdeas1}/>
               <Route exact path="/24" component={Idea1}/>
+
+              <Route exact path="/27" component={ChallengeAllIdeas2}/>
+              <Route exact path="/28" component={Idea2}/>
 
             </Switch>
             ) : (
